@@ -1,0 +1,163 @@
+section {
+  padding: 0 40px;
+}
+
+.start-screen {
+  display: flex;
+  padding-top: 60px;
+  height: 788px;
+  background: url(/shelter/assets/images/background.png);
+  background-repeat: no-repeat;
+  background-position: center -120px;
+  .start-screen-content {
+    padding-top: 163px;
+    margin-right: 42px;
+    h2 {
+      margin: 0;
+      line-height: 130%;
+      width: 310px;
+    }
+    p {
+      width: 460px;
+      margin-top: 42px;
+      color: $color-dark-s;
+    }
+    button {
+      margin-top: 42px;
+    }
+  }
+}
+
+.about {
+  display: flex;
+  padding-top:80px;
+  padding-bottom: 100px;
+  height: 588px;
+  background-color: $color-light-xl;
+  img {
+    margin-left: 175px;
+  }
+  .about-content {
+    margin-left: 120px;
+    width: 430px;
+    h3 {
+      width: 370px;
+      margin-top: 14px;
+      color: $color-dark-l;
+    }
+    p {
+      margin-top: 25px;
+      color: $color-dark-xl;
+    }
+  }
+}
+
+.pets {
+  @extend %flex-column-align-center;
+  background-color: $color-light-l;
+  padding-top: 80px;
+  padding-bottom: 100px;
+  h3 {
+    margin: 0 auto;
+    width: 400px;
+    text-align: center;
+  }
+  .slider {
+    .round {
+      margin-right: 53px;
+    }
+    .round.right {
+      margin-right: 0px;
+      margin-left: 53px;
+    }
+    @extend %flex-align-center;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    .cards {
+      @extend %flex-align-center;
+      gap: 90px;
+    }
+  }
+}
+
+.help {
+  @extend %flex-column-align-center;
+  padding-top: 80px;
+  padding-bottom: 100px;
+  background-color: $color-light-xl;
+  h3 {
+    width: 310px;
+    text-align: center;
+  }
+  .list {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 120px;
+    row-gap: 55px;
+    .item {
+      @extend %flex-column-align-center;
+      h4 {
+        margin-top: 28px;
+        line-height: 115%;
+      }
+    }
+  }
+}
+
+.donation {
+  display: flex;
+  background-color: $color-light-l;
+  padding-top: 80px;
+  padding-bottom: 100px;
+  img {
+    margin-top: 11px;
+    margin-left: 143px;
+    width: 505px;
+    height: 261px;
+  }
+  .donation-content {
+    margin-left: 30px;
+    width: 380px;
+    h3 {
+      width: 300px;
+    }
+    h5 {
+      margin-top: 20px;
+      line-height: 110%;
+      letter-spacing: 0.06em;
+    }
+    .credit-card {
+      @extend %flex-align-center;
+      margin-top: 20px;
+      width: 350px;
+      border-radius: 9px;
+      background-color: $primary-color;
+      transition: background-color 0.4s;
+      img {
+        margin: 10px 15px;
+        width: 30px;
+        height: 23px;
+      }
+      &:hover {
+        background-color: $primary-color-light;
+        transition: background-color 0.4s;
+        span {
+          color: $color-dark-3xl;
+          transition: color 0.4s;
+        }
+      }
+      span {
+        transition: color 0.4s;
+      }
+    }
+    .legal-information {
+      margin-top: 20px;
+      color: $color-dark-m;
+      font-size: 12px;
+      line-height: 150%;
+      font-style: italic;
+    }
+  }
+}

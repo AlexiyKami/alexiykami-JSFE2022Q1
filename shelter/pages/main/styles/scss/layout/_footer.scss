@@ -1,0 +1,38 @@
+footer {
+  display: flex;
+  padding: 0 40px;
+  padding-top: 40px;
+  background: url(/shelter/assets/images/footer.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  h3 {
+    color: $color-light-xl;
+  }
+  .contacts-info {
+    margin-top: 16px;
+    width: 279px;
+    .email, .phone {
+      margin-top: 40px;
+    }
+  }
+  .address-info {
+    width: 302px;
+    margin-top: 17px;
+    margin-left: 160px;
+    margin-right: 160px;
+    .address1  {
+      margin-top: 30px;
+    }
+    .address2 {
+      margin-top: 32px;
+    }
+  }
+  .email, .phone, .address1, .address2 {
+    @extend %flex-align-center;
+    span {
+      color: $primary-color;
+      margin-left: 20px;
+    }
+  }
+
+}
