@@ -543,7 +543,7 @@ header {
           justify-content: space-between;
   height: 120px;
   width: 1280px;
-  background: url(/shelter/assets/images/background.png);
+  background: url("../../../assets/images/background.png");
   background-repeat: no-repeat;
   background-position: center 0;
 }
