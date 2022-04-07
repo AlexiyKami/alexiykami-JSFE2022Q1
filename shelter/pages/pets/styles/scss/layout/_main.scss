@@ -1,0 +1,33 @@
+section {
+  padding: 0 40px;
+}
+
+.pets {
+  @extend %flex-column-align-center;
+  padding-top: 120px;
+  background-color: $color-light-l;
+  text-align: center;
+  padding-bottom: 100px;
+  h3 {
+    margin-top: 80px;
+    width: 400px;
+  }
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 40px;
+    row-gap: 30px;
+    margin-top: 45px;
+    margin-bottom: 45px;
+    padding: 15px 0px;
+  }
+  .pagination {
+    display: flex;
+    column-gap: 20px;
+    button {
+      font-size: 20px;
+      line-height: 23px;
+      padding-bottom: 0px;
+    }
+  }
+}
