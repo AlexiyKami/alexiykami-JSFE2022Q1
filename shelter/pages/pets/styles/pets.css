@@ -587,6 +587,7 @@ header {
 
 .nav ul li a {
   line-height: 160%;
+  letter-spacing: 0.05px;
   -webkit-transition: color 0.4s;
   transition: color 0.4s;
 }
@@ -659,7 +660,7 @@ section {
   -webkit-column-gap: 40px;
           column-gap: 40px;
   row-gap: 30px;
-  margin-top: 45px;
+  margin-top: 44px;
   margin-bottom: 45px;
   padding: 15px 0px;
 }
