@@ -587,6 +587,7 @@ header {
 
 .nav ul li a {
   line-height: 160%;
+  letter-spacing: 0.05px;
   -webkit-transition: color 0.4s;
   transition: color 0.4s;
 }
@@ -739,7 +740,7 @@ section {
   display: -ms-flexbox;
   display: flex;
   background-color: #F6F6F6;
-  padding-top: 80px;
+  padding-top: 82px;
   padding-bottom: 100px;
 }
 
@@ -760,7 +761,7 @@ section {
 }
 
 .donation .donation-content h5 {
-  margin-top: 20px;
+  margin-top: 19px;
   line-height: 110%;
   letter-spacing: 0.06em;
 }
