@@ -1,4 +1,4 @@
-.button.primary:hover, .button.white:hover, button.round:hover, button.round.active:hover, .card:hover button {
+.button.primary:hover, .button.white:hover, button.round:hover, .card:hover button {
   border-color: #FDDCC4;
   background-color: #FDDCC4;
 }
@@ -393,14 +393,14 @@ li {
 }
 
 html {
-  font-family: Arial;
+  font-family: Arial, sans-serif;
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 }
 
 h1, h2, h3, h4, h5, button, span {
-  font-family: Georgia;
+  font-family: Georgia, serif;
   font-weight: 400;
 }
 
@@ -487,6 +487,10 @@ button.round.right {
 button.round.active {
   cursor: default;
   background-color: #F1CDB3;
+}
+
+button.round.active:hover {
+  border-color: #F1CDB3;
 }
 
 button.round[disabled] {
