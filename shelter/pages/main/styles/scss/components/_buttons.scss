@@ -35,7 +35,6 @@ button.round {
   transition: all 0.4s;
 }
 
-
 button.round.right {
   transform: rotate(180deg);
   padding-bottom: 4px;
@@ -47,7 +46,7 @@ button.round.active {
 }
 
 button.round.active:hover {
-  @extend %color-primary-light;
+  border-color: $primary-color;
 }
 
 button.round[disabled] {
