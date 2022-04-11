@@ -434,7 +434,7 @@ li {
 
 @font-face {
   font-family: 'Georgia';
-  src: url("../../../assets/fonts/arial/Georgia-Bold.woff2") format("woff2"), url("../../../assets/fonts/arial/Georgia-Bold.woff") format("woff");
+  src: url("../../../assets/fonts/georgia/Georgia-Bold.woff2") format("woff2"), url("../../../assets/fonts/georgia/Georgia-Bold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -442,7 +442,7 @@ li {
 
 @font-face {
   font-family: 'Georgia';
-  src: url("../../../assets/fonts/arial/Georgia-BoldItalic.woff2") format("woff2"), url("../../../assets/fonts/arial/Georgia-BoldItalic.woff") format("woff");
+  src: url("../../../assets/fonts/georgia/Georgia-BoldItalic.woff2") format("woff2"), url("../../../assets/fonts/georgia/Georgia-BoldItalic.woff") format("woff");
   font-weight: bold;
   font-style: italic;
   font-display: swap;
@@ -450,7 +450,7 @@ li {
 
 @font-face {
   font-family: 'Georgia';
-  src: url("../../../assets/fonts/arial/Georgia-Italic.woff2") format("woff2"), url("../../../assets/fonts/arial/Georgia-Italic.woff") format("woff");
+  src: url("../../../assets/fonts/georgia/Georgia-Italic.woff2") format("woff2"), url("../../../assets/fonts/georgia/Georgia-Italic.woff") format("woff");
   font-weight: normal;
   font-style: italic;
   font-display: swap;
@@ -458,7 +458,7 @@ li {
 
 @font-face {
   font-family: 'Georgia';
-  src: url("../../../assets/fonts/arial/Georgia.woff2") format("woff2"), url("../../../assets/fonts/arial/Georgia.woff") format("woff");
+  src: url("../../../assets/fonts/georgia/Georgia.woff2") format("woff2"), url("../../../assets/fonts/georgia/Georgia.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -534,7 +534,7 @@ button {
 }
 
 .button.white {
-  background-color: white;
+  background-color: transparent;
   padding: 13px 43px;
   border: 2px solid #F1CDB3;
 }
