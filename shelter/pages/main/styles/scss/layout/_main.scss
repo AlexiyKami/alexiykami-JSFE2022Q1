@@ -1,15 +1,21 @@
 section {
   padding: 0 40px;
+
+  @media (max-width:$desktop-width) {
+    padding: 0 30px;
+  }
 }
 
 .start-screen {
   display: flex;
+  margin-top: -120px;
   padding-top: 60px;
-  height: 788px;
-  background: url('../../../assets/images/background.png');
-  background-repeat: no-repeat;
-  background-position: center -120px;
+  padding-bottom: 120px;
+  height: 908px;
+  background: url('../../../assets/images/noise_transparent.png'),
+    radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), linear-gradient(0deg, #211f20, #211f20);
   .start-screen-content {
+    margin-top: 120px;
     padding-top: 163px;
     margin-right: 42px;
     h2 {
@@ -24,6 +30,30 @@ section {
     }
     button {
       margin-top: 42px;
+    }
+  }
+  img {
+    margin-top: 120px;
+    width: 698px;
+    height: 728px;
+  }
+
+  @media (max-width:$desktop-width) {
+    flex-direction: column;
+    height: 1195px;
+    .start-screen-content {
+      padding-top: 0px;
+      margin-left: 124px;
+      button {
+        margin-left: 126px;
+      }
+    }
+    img {
+      margin-top: 100px;
+      margin-left: auto;
+      margin-right: 0px;
+      width: 569px;
+      height: 593px;
     }
   }
 }
@@ -48,6 +78,19 @@ section {
     p {
       margin-top: 25px;
       color: $color-dark-xl;
+    }
+  }
+  @media (max-width:$desktop-width) {
+    flex-direction: column-reverse;
+    height: 1048px;
+    img {
+      margin-top: 80px;
+      margin-left: 204px;
+      width: 300px;
+      height: 408px;
+    }
+    .about-content {
+      margin-left: 139px;
     }
   }
 }
@@ -78,6 +121,23 @@ section {
       gap: 90px;
     }
   }
+  @media (max-width:$desktop-width) {
+    .slider {
+      .round {
+        margin-right: 12px;
+      }
+      .round.right {
+        margin-right: 0px;
+        margin-left: 12px;
+      }
+      .cards {
+        gap: 40px;
+        .card:last-child {
+          display: none;
+        }
+      }
+    }
+  }
 }
 
 .help {
@@ -102,6 +162,18 @@ section {
       h4 {
         margin-top: 28px;
         line-height: 115%;
+      }
+    }
+  }
+  @media (max-width:$desktop-width) {
+    height: 779px;
+    .list {
+      width: 630px;
+      height: 449px;
+      column-gap: 60px;
+      .item {
+        width: 170px;
+        height: 113px;
       }
     }
   }
@@ -159,6 +231,17 @@ section {
       font-size: 12px;
       line-height: 150%;
       font-style: italic;
+    }
+  }
+  @media (max-width:$desktop-width) {
+    flex-direction: column-reverse;
+    padding-top: 79px;
+    .donation-content {
+      margin-left: 164px;
+    }
+    img {
+      margin-left: 101px;
+      margin-top: 60px;
     }
   }
 }

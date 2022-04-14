@@ -618,10 +618,16 @@ header {
       -ms-flex-pack: justify;
           justify-content: space-between;
   height: 120px;
-  width: 1280px;
-  background: url("../../../assets/images/background.png");
-  background-repeat: no-repeat;
-  background-position: center 0;
+  max-width: 1280px;
+}
+
+@media (max-width: 1279px) {
+  header {
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    height: 90px;
+  }
 }
 
 .logo {
@@ -689,6 +695,7 @@ header {
   background-image: none;
   background-color: #ffffff;
   position: fixed;
+  width: 1280px;
 }
 
 .logo h1 {
@@ -761,9 +768,8 @@ footer {
   display: flex;
   padding: 0 40px;
   padding-top: 40px;
-  background: url("../../../assets/images/footer.png");
-  background-repeat: no-repeat;
-  background-position: center;
+  background: url("../../../assets/images/noise_transparent.png"), radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), -webkit-gradient(linear, left bottom, left top, from(#211f20), to(#211f20));
+  background: url("../../../assets/images/noise_transparent.png"), radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), linear-gradient(0deg, #211f20, #211f20);
 }
 
 footer h3 {
@@ -797,5 +803,28 @@ footer .address-info .address2 {
 footer .email span, footer .phone span, footer .address1 span, footer .address2 span {
   color: #F1CDB3;
   margin-left: 20px;
+}
+
+@media (max-width: 1279px) {
+  footer {
+    padding: 0 30px;
+    padding-top: 30px;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  footer .contacts-info, footer .address-info {
+    margin-top: 0px;
+  }
+  footer .contacts-info {
+    margin-left: 34px;
+  }
+  footer .address-info {
+    margin-left: 60px;
+    margin-right: 0px;
+  }
+  footer > img {
+    margin-top: 65px;
+    margin-left: 204px;
+  }
 }
 /*# sourceMappingURL=pets.css.map */

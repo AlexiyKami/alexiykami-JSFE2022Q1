@@ -618,10 +618,16 @@ header {
       -ms-flex-pack: justify;
           justify-content: space-between;
   height: 120px;
-  width: 1280px;
-  background: url("../../../assets/images/background.png");
-  background-repeat: no-repeat;
-  background-position: center 0;
+  max-width: 1280px;
+}
+
+@media (max-width: 1279px) {
+  header {
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    height: 90px;
+  }
 }
 
 .logo {
@@ -688,18 +694,26 @@ section {
   padding: 0 40px;
 }
 
+@media (max-width: 1279px) {
+  section {
+    padding: 0 30px;
+  }
+}
+
 .start-screen {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-top: -120px;
   padding-top: 60px;
-  height: 788px;
-  background: url("../../../assets/images/background.png");
-  background-repeat: no-repeat;
-  background-position: center -120px;
+  padding-bottom: 120px;
+  height: 908px;
+  background: url("../../../assets/images/noise_transparent.png"), radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), -webkit-gradient(linear, left bottom, left top, from(#211f20), to(#211f20));
+  background: url("../../../assets/images/noise_transparent.png"), radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), linear-gradient(0deg, #211f20, #211f20);
 }
 
 .start-screen .start-screen-content {
+  margin-top: 120px;
   padding-top: 163px;
   margin-right: 42px;
 }
@@ -718,6 +732,36 @@ section {
 
 .start-screen .start-screen-content button {
   margin-top: 42px;
+}
+
+.start-screen img {
+  margin-top: 120px;
+  width: 698px;
+  height: 728px;
+}
+
+@media (max-width: 1279px) {
+  .start-screen {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 1195px;
+  }
+  .start-screen .start-screen-content {
+    padding-top: 0px;
+    margin-left: 124px;
+  }
+  .start-screen .start-screen-content button {
+    margin-left: 126px;
+  }
+  .start-screen img {
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: 0px;
+    width: 569px;
+    height: 593px;
+  }
 }
 
 .about {
@@ -750,6 +794,25 @@ section {
   color: #4C4C4C;
 }
 
+@media (max-width: 1279px) {
+  .about {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    height: 1048px;
+  }
+  .about img {
+    margin-top: 80px;
+    margin-left: 204px;
+    width: 300px;
+    height: 408px;
+  }
+  .about .about-content {
+    margin-left: 139px;
+  }
+}
+
 .pets {
   background-color: #F6F6F6;
   padding-top: 80px;
@@ -778,6 +841,22 @@ section {
 
 .pets .slider .cards {
   gap: 90px;
+}
+
+@media (max-width: 1279px) {
+  .pets .slider .round {
+    margin-right: 12px;
+  }
+  .pets .slider .round.right {
+    margin-right: 0px;
+    margin-left: 12px;
+  }
+  .pets .slider .cards {
+    gap: 40px;
+  }
+  .pets .slider .cards .card:last-child {
+    display: none;
+  }
 }
 
 .help {
@@ -810,6 +889,22 @@ section {
 .help .list .item h4 {
   margin-top: 28px;
   line-height: 115%;
+}
+
+@media (max-width: 1279px) {
+  .help {
+    height: 779px;
+  }
+  .help .list {
+    width: 630px;
+    height: 449px;
+    -webkit-column-gap: 60px;
+            column-gap: 60px;
+  }
+  .help .list .item {
+    width: 170px;
+    height: 113px;
+  }
 }
 
 .donation {
@@ -883,15 +978,31 @@ section {
   font-style: italic;
 }
 
+@media (max-width: 1279px) {
+  .donation {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    padding-top: 79px;
+  }
+  .donation .donation-content {
+    margin-left: 164px;
+  }
+  .donation img {
+    margin-left: 101px;
+    margin-top: 60px;
+  }
+}
+
 footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   padding: 0 40px;
   padding-top: 40px;
-  background: url("../../../assets/images/footer.png");
-  background-repeat: no-repeat;
-  background-position: center;
+  background: url("../../../assets/images/noise_transparent.png"), radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), -webkit-gradient(linear, left bottom, left top, from(#211f20), to(#211f20));
+  background: url("../../../assets/images/noise_transparent.png"), radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), linear-gradient(0deg, #211f20, #211f20);
 }
 
 footer h3 {
@@ -925,5 +1036,28 @@ footer .address-info .address2 {
 footer .email span, footer .phone span, footer .address1 span, footer .address2 span {
   color: #F1CDB3;
   margin-left: 20px;
+}
+
+@media (max-width: 1279px) {
+  footer {
+    padding: 0 30px;
+    padding-top: 30px;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  footer .contacts-info, footer .address-info {
+    margin-top: 0px;
+  }
+  footer .contacts-info {
+    margin-left: 34px;
+  }
+  footer .address-info {
+    margin-left: 60px;
+    margin-right: 0px;
+  }
+  footer > img {
+    margin-top: 65px;
+    margin-left: 204px;
+  }
 }
 /*# sourceMappingURL=main.css.map */
