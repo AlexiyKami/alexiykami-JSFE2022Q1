@@ -16,7 +16,7 @@
           align-items: center;
 }
 
-footer .email, footer .phone, footer .address1, footer .address2 {
+footer .content .email, footer .content .phone, footer .content .address1, footer .content .address2 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -737,7 +737,6 @@ section {
 }
 
 .pets {
-  padding-top: 120px;
   background-color: #F6F6F6;
   text-align: center;
   padding-bottom: 100px;
@@ -810,31 +809,37 @@ footer h3 {
   color: #ffffff;
 }
 
-footer .contacts-info {
+footer .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+footer .content .contacts-info {
   margin-top: 16px;
   width: 279px;
 }
 
-footer .contacts-info .email, footer .contacts-info .phone {
+footer .content .contacts-info .email, footer .content .contacts-info .phone {
   margin-top: 40px;
 }
 
-footer .address-info {
+footer .content .address-info {
   width: 302px;
   margin-top: 17px;
   margin-left: 160px;
   margin-right: 160px;
 }
 
-footer .address-info .address1 {
+footer .content .address-info .address1 {
   margin-top: 30px;
 }
 
-footer .address-info .address2 {
+footer .content .address-info .address2 {
   margin-top: 32px;
 }
 
-footer .email span, footer .phone span, footer .address1 span, footer .address2 span {
+footer .content .email span, footer .content .phone span, footer .content .address1 span, footer .content .address2 span {
   color: #F1CDB3;
   margin-left: 20px;
 }
@@ -843,22 +848,32 @@ footer .email span, footer .phone span, footer .address1 span, footer .address2 
   footer {
     padding: 0 30px;
     padding-top: 30px;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
-  footer .contacts-info, footer .address-info {
+  footer .content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  footer .content .contacts-info, footer .content .address-info {
     margin-top: 0px;
   }
-  footer .contacts-info {
-    margin-left: 34px;
+  footer .content .contacts-info {
+    margin-left: 0px;
   }
-  footer .address-info {
+  footer .content .address-info {
     margin-left: 60px;
     margin-right: 0px;
   }
   footer > img {
     margin-top: 65px;
-    margin-left: 204px;
+    margin-left: 0px;
   }
 }
 /*# sourceMappingURL=pets.css.map */

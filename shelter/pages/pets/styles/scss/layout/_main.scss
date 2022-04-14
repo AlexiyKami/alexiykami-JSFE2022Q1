@@ -7,7 +7,6 @@ section {
 
 .pets {
   @extend %flex-column-align-center;
-  padding-top: 120px;
   background-color: $color-light-l;
   text-align: center;
   padding-bottom: 100px;

@@ -16,7 +16,7 @@
           align-items: center;
 }
 
-.pets .slider, .pets .slider .cards, .donation .donation-content .credit-card, footer .email, footer .phone, footer .address1, footer .address2 {
+.pets .slider, .pets .slider .cards, .donation .donation-content .credit-card, footer .content .email, footer .content .phone, footer .content .address1, footer .content .address2 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -747,10 +747,14 @@ section {
         -ms-flex-direction: column;
             flex-direction: column;
     height: 1195px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .start-screen .start-screen-content {
     padding-top: 0px;
-    margin-left: 124px;
+    margin-left: 0px;
+    margin-right: 0px;
   }
   .start-screen .start-screen-content button {
     margin-left: 126px;
@@ -801,15 +805,18 @@ section {
         -ms-flex-direction: column-reverse;
             flex-direction: column-reverse;
     height: 1048px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .about img {
     margin-top: 80px;
-    margin-left: 204px;
+    margin-left: 0px;
     width: 300px;
     height: 408px;
   }
   .about .about-content {
-    margin-left: 139px;
+    margin-left: 0px;
   }
 }
 
@@ -985,12 +992,15 @@ section {
         -ms-flex-direction: column-reverse;
             flex-direction: column-reverse;
     padding-top: 79px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .donation .donation-content {
-    margin-left: 164px;
+    margin-left: 0px;
   }
   .donation img {
-    margin-left: 101px;
+    margin-left: 0px;
     margin-top: 60px;
   }
 }
@@ -1009,31 +1019,37 @@ footer h3 {
   color: #ffffff;
 }
 
-footer .contacts-info {
+footer .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+footer .content .contacts-info {
   margin-top: 16px;
   width: 279px;
 }
 
-footer .contacts-info .email, footer .contacts-info .phone {
+footer .content .contacts-info .email, footer .content .contacts-info .phone {
   margin-top: 40px;
 }
 
-footer .address-info {
+footer .content .address-info {
   width: 302px;
   margin-top: 17px;
   margin-left: 160px;
   margin-right: 160px;
 }
 
-footer .address-info .address1 {
+footer .content .address-info .address1 {
   margin-top: 30px;
 }
 
-footer .address-info .address2 {
+footer .content .address-info .address2 {
   margin-top: 32px;
 }
 
-footer .email span, footer .phone span, footer .address1 span, footer .address2 span {
+footer .content .email span, footer .content .phone span, footer .content .address1 span, footer .content .address2 span {
   color: #F1CDB3;
   margin-left: 20px;
 }
@@ -1042,22 +1058,32 @@ footer .email span, footer .phone span, footer .address1 span, footer .address2 
   footer {
     padding: 0 30px;
     padding-top: 30px;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
-  footer .contacts-info, footer .address-info {
+  footer .content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  footer .content .contacts-info, footer .content .address-info {
     margin-top: 0px;
   }
-  footer .contacts-info {
-    margin-left: 34px;
+  footer .content .contacts-info {
+    margin-left: 0px;
   }
-  footer .address-info {
+  footer .content .address-info {
     margin-left: 60px;
     margin-right: 0px;
   }
   footer > img {
     margin-top: 65px;
-    margin-left: 204px;
+    margin-left: 0px;
   }
 }
 /*# sourceMappingURL=main.css.map */
