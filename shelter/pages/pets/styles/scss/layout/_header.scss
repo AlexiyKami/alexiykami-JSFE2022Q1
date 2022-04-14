@@ -10,6 +10,12 @@ header {
   }
 }
 
+.burger-icon {
+  .bar1, .bar2, .bar3 {
+    background-color: black;
+  }
+}
+
 .logo {
   h1 {
     color: $color-dark-l;

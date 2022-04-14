@@ -12,6 +12,30 @@ header {
     padding-right: 30px;
     height: 90px;
   }
+  @media (max-width:$tablet-width) {
+    padding-left: 10px;
+    .nav {
+      display: none;
+    }
+    .burger-icon {
+      margin-top: 19px;
+      margin-right: 23px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+}
+
+.burger-icon {
+  display: none;
+  height: 22px;
+  width: 30px;
+  .bar1, .bar2, .bar3 {
+    background-color: $primary-color;
+    height: 2px;
+    width: 30px;
+  }
 }
 
 .logo {

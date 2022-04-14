@@ -4,6 +4,9 @@ section {
   @media (max-width:$desktop-width) {
     padding: 0 30px;
   }
+  @media (max-width:$tablet-width) {
+    padding: 0 10px;
+  }
 }
 
 .start-screen {
@@ -58,6 +61,32 @@ section {
       height: 593px;
     }
   }
+
+  @media (max-width:$tablet-width) {
+    height: 853px;
+    .start-screen-content {
+      text-align: center;
+      h2 {
+        margin: 0 auto;
+        width: 200px;
+        font-size: 25px;
+        letter-spacing: 0.06em;
+      }
+      p {
+        width: 300px;
+      }
+      button {
+        margin-left: 0px;
+      }
+    }
+    img {
+      margin-top: 105px;
+      margin-left: 40px;
+      margin-right: 0px;
+      width: 260px;
+      height: 271px;
+    }
+  }
 }
 
 .about {
@@ -94,6 +123,31 @@ section {
     }
     .about-content {
       margin-left: 0px;
+    }
+  }
+  @media (max-width:$tablet-width) {
+    padding-top: 42px;
+    padding-bottom: 40px;
+    height: 974px;
+    .about-content {
+      height: 890px;
+      h3 {
+        font-size: 25px;
+        margin: 0 auto;
+        width: 250px;
+        text-align: center;
+      }
+      p {
+        width: 270px;
+        margin: 0 auto;
+        margin-top: 25px;
+        text-align: justify;
+      }
+    }
+    img {
+      margin-top: 42px;
+      width: 260px;
+      height: 353px;
     }
   }
 }
@@ -141,6 +195,35 @@ section {
       }
     }
   }
+  @media (max-width:$tablet-width) {
+    padding-top: 42px;
+    padding-bottom: 42px;
+    h3 {
+      font-size: 25px;
+      width: 300px;
+    }
+    .slider {
+      margin-top: 42px;
+      margin-bottom: 42px;
+      flex-wrap: wrap;
+      justify-content: center;
+      .cards {
+        padding: 0 200px;
+        order: -1;
+        margin-bottom: 20px;
+        .card:nth-child(2) {
+          display: none;
+        }
+      }
+      .round {
+        margin-right: 40px;
+      }
+      .round.right {
+        margin-right: 0px;
+        margin-left: 40px;
+      }
+    }
+  }
 }
 
 .help {
@@ -177,6 +260,33 @@ section {
       .item {
         width: 170px;
         height: 113px;
+      }
+    }
+  }
+  @media (max-width:$tablet-width) {
+    padding-top: 42px;
+    padding-bottom: 42px;
+    height: 745px;
+    h3 {
+      font-size: 25px;
+      width: 250px;
+    }
+    .list {
+      margin-top: 42px;
+      width: 290px;
+      gap: 30px;
+      justify-content: stretch;
+      .item {
+        width: 130px;
+        height: 87px;
+        img {
+          height: 50px;
+          width: 50px;
+        }
+        h4 {
+          font-size: 15px;
+          margin-top: 19px;
+        }
       }
     }
   }
@@ -246,6 +356,40 @@ section {
     img {
       margin-left: 0px;
       margin-top: 60px;
+    }
+  }
+  @media (max-width:$tablet-width) {
+    padding-top: 42px;
+    padding-bottom: 42px;
+    .donation-content {
+      text-align: center;
+      h3 {
+        width: 220px;
+        font-size: 25px;
+        margin: 0 auto;
+      }
+      h5 {
+        margin-top: 21px;
+        letter-spacing: 0;
+      }
+      .credit-card {
+        margin: 0 auto;
+        margin-top: 25px;
+        width: 281px;
+        span {
+          font-size: 15px;
+        }
+      }
+    }
+    .legal-information {
+      width: 280px;
+      margin: 0 auto;
+      text-align: justify;
+    }
+    img {
+      margin-top: 42px;
+      width: 260px;
+      height: 135px;
     }
   }
 }

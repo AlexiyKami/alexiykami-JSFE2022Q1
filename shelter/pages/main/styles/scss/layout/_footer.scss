@@ -57,9 +57,55 @@ footer {
       }
     }
     
-    >img {
+    > img {
       margin-top: 65px;
       margin-left: 0px;
     }
+  }
+  @media (max-width:$tablet-width) {
+    padding: 0 10px;
+    .content {
+      flex-direction: column;
+      text-align: center;
+      margin-top: 30px;
+      .contacts-info {
+        h3 {
+          margin-left: 21px;
+        }
+        .email {
+          margin-left: 24px;
+        }
+        .phone {
+          margin-left: 30px;
+        }
+      }
+      .address-info {
+        margin-top: 40px;
+        margin-left: 0px;
+        h3 {
+          margin-left: 15px;
+          width: 270px;
+        }
+        .address1 {
+          margin-top: 35px;
+          span {
+            text-align: left;
+            width: 258px;
+          }
+        }
+        .address2 {
+          margin-top: 40px;
+        }
+      }
+    }
+    h3 {
+      font-size: 25px;
+    }
+    > img {
+      margin-top: 40px;
+      width: 260px;
+      height: 269px;
+    }
+
   }
 }

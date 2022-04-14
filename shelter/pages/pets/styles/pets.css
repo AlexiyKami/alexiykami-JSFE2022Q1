@@ -630,6 +630,41 @@ header {
   }
 }
 
+@media (max-width: 767px) {
+  header {
+    padding-left: 10px;
+  }
+  header .nav {
+    display: none;
+  }
+  header .burger-icon {
+    margin-top: 19px;
+    margin-right: 23px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+.burger-icon {
+  display: none;
+  height: 22px;
+  width: 30px;
+}
+
+.burger-icon .bar1, .burger-icon .bar2, .burger-icon .bar3 {
+  background-color: #F1CDB3;
+  height: 2px;
+  width: 30px;
+}
+
 .logo {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -704,6 +739,10 @@ header {
   header {
     height: 120px;
   }
+}
+
+.burger-icon .bar1, .burger-icon .bar2, .burger-icon .bar3 {
+  background-color: black;
 }
 
 .logo h1 {
@@ -795,6 +834,30 @@ section {
   }
 }
 
+@media (max-width: 1279px) {
+  .pets {
+    padding-top: 42px;
+    padding-bottom: 44px;
+  }
+  .pets h3 {
+    width: 300px;
+    margin-top: 0px;
+    font-size: 25px;
+  }
+  .pets .cards {
+    margin-top: 26px;
+    padding-left: 200px;
+    padding-right: 200px;
+  }
+  .pets .cards .card:nth-child(4), .pets .cards .card:nth-child(5), .pets .cards .card:nth-child(6) {
+    display: none;
+  }
+  .pets .pagination {
+    -webkit-column-gap: 10px;
+            column-gap: 10px;
+  }
+}
+
 footer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -874,6 +937,55 @@ footer .content .email span, footer .content .phone span, footer .content .addre
   footer > img {
     margin-top: 65px;
     margin-left: 0px;
+  }
+}
+
+@media (max-width: 767px) {
+  footer {
+    padding: 0 10px;
+  }
+  footer .content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    text-align: center;
+    margin-top: 30px;
+  }
+  footer .content .contacts-info h3 {
+    margin-left: 21px;
+  }
+  footer .content .contacts-info .email {
+    margin-left: 24px;
+  }
+  footer .content .contacts-info .phone {
+    margin-left: 30px;
+  }
+  footer .content .address-info {
+    margin-top: 40px;
+    margin-left: 0px;
+  }
+  footer .content .address-info h3 {
+    margin-left: 15px;
+    width: 270px;
+  }
+  footer .content .address-info .address1 {
+    margin-top: 35px;
+  }
+  footer .content .address-info .address1 span {
+    text-align: left;
+    width: 258px;
+  }
+  footer .content .address-info .address2 {
+    margin-top: 40px;
+  }
+  footer h3 {
+    font-size: 25px;
+  }
+  footer > img {
+    margin-top: 40px;
+    width: 260px;
+    height: 269px;
   }
 }
 /*# sourceMappingURL=pets.css.map */
