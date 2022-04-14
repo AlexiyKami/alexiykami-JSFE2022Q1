@@ -1,5 +1,8 @@
 section {
   padding: 0 40px;
+  @media (max-width:$desktop-width) {
+    padding: 0 30px;
+  }
 }
 
 .pets {
@@ -28,6 +31,21 @@ section {
       font-size: 20px;
       line-height: 23px;
       padding-bottom: 0px;
+    }
+  }
+  @media (max-width:$desktop-width) {
+    padding-top: 60px;
+    padding-bottom: 75px;
+    h3 {
+      margin-top: 20px;
+    }
+    .cards {
+      justify-content: center;
+      margin-top: 15px;
+      margin-bottom: 25px;
+      .card:nth-child(7), .card:nth-child(8) {
+        display: none;
+      }
     }
   }
 }
