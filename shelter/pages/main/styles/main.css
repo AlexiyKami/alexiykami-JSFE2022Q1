@@ -383,6 +383,33 @@ html {
   margin: 0 auto;
 }
 
+.darkened-background {
+  width: 0;
+  height: 0;
+}
+
+@media (max-width: 767px) {
+  .darkened-background {
+    content: '';
+    position: fixed;
+    width: 0;
+    height: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transition: background-color 0.8s, width 0.8s 0.8s, height 0.8s 0.8s;
+    transition: background-color 0.8s, width 0.8s 0.8s, height 0.8s 0.8s;
+  }
+  .darkened-background.active {
+    background-color: rgba(41, 41, 41, 0.6);
+    -webkit-transition: background-color 0.8s;
+    transition: background-color 0.8s;
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -634,6 +661,11 @@ header {
   header {
     padding-left: 10px;
   }
+  header .logo.disabled, header .disabled.logo-nav {
+    opacity: 0;
+    -webkit-transition: opacity 0.8s;
+    transition: opacity 0.8s;
+  }
   header .nav {
     position: fixed;
     display: -webkit-box;
@@ -657,6 +689,7 @@ header {
     display: block;
     margin-top: 30px;
     margin-left: 10px;
+    width: 186px;
   }
   header .nav ul {
     -webkit-box-orient: vertical;
@@ -691,13 +724,16 @@ header {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    -webkit-transition: -webkit-transform 0.4s;
-    transition: -webkit-transform 0.4s;
-    transition: transform 0.4s;
-    transition: transform 0.4s, -webkit-transform 0.4s;
+    -webkit-transition: -webkit-transform 0.8s;
+    transition: -webkit-transform 0.8s;
+    transition: transform 0.8s;
+    transition: transform 0.8s, -webkit-transform 0.8s;
     z-index: 4;
   }
   header .burger-icon.active {
+    position: fixed;
+    top: 30px;
+    right: 30px;
     -webkit-transform: rotate(90deg);
             transform: rotate(90deg);
   }
@@ -723,6 +759,8 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-transition: opacity 0.8s;
+  transition: opacity 0.8s;
   height: 60px;
   cursor: pointer;
 }

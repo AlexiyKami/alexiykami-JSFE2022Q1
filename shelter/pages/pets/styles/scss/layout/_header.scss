@@ -1,14 +1,24 @@
 header {
   padding-top: 30px;
   background-image: none;
+  transition: background-color $menu-anim-duration;
   background-color: $color-light-xl;
   position: sticky;
+  z-index: 1;
   top: 0;
   max-width: 1280px;
   @media (max-width:$desktop-width) {
     height: 120px;
   }
   @media (max-width:$tablet-width) {
+    .logo-nav {
+      h1 {
+        color: $primary-color;
+      }
+      p {
+        color: $color-light-xl;
+      }
+    }
     .nav.active {
       ul li a {
         color: $color-dark-s;
@@ -20,9 +30,25 @@ header {
   }
 }
 
+@media (max-width:$tablet-width) {
+  header.darken {
+    transition: background-color $menu-anim-duration;
+    background-color: darken($color-light-xl, 40%);
+  }
+}
+
+
 .burger-icon {
   .bar1, .bar2, .bar3 {
+    transition: background-color $menu-anim-duration;
     background-color: black;
+  }
+}
+
+.burger-icon.active {
+  .bar1, .bar2, .bar3 {
+    transition: background-color $menu-anim-duration;
+    background-color: $primary-color;
   }
 }
 
