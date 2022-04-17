@@ -2,37 +2,110 @@ footer {
   display: flex;
   padding: 0 40px;
   padding-top: 40px;
-  background: url('../../../assets/images/footer.png');
-  background-repeat: no-repeat;
-  background-position: center;
+  background: url('../../../assets/images/noise_transparent.png'),
+    radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), linear-gradient(0deg, #211f20, #211f20);
   h3 {
     color: $color-light-xl;
   }
-  .contacts-info {
-    margin-top: 16px;
-    width: 279px;
-    .email, .phone {
-      margin-top: 40px;
-    }
-  }
-  .address-info {
-    width: 302px;
-    margin-top: 17px;
-    margin-left: 160px;
-    margin-right: 160px;
-    .address1  {
-      margin-top: 30px;
-    }
-    .address2 {
-      margin-top: 32px;
-    }
-  }
-  .email, .phone, .address1, .address2 {
-    @extend %flex-align-center;
-    span {
-      color: $primary-color;
-      margin-left: 20px;
-    }
-  }
+  .content {
+    display: flex;
 
+    .contacts-info {
+      margin-top: 16px;
+      width: 279px;
+      .email, .phone {
+        margin-top: 40px;
+      }
+    }
+    .address-info {
+      width: 302px;
+      margin-top: 17px;
+      margin-left: 160px;
+      margin-right: 160px;
+      .address1  {
+        margin-top: 30px;
+      }
+      .address2 {
+        margin-top: 32px;
+      }
+    }
+    .email, .phone, .address1, .address2 {
+      @extend %flex-align-center;
+      span {
+        color: $primary-color;
+        margin-left: 20px;
+      }
+    }
+  }
+  
+  @media (max-width:$desktop-width) {
+    padding: 0 30px;
+    padding-top: 30px;
+    flex-direction: column;
+    align-items: center;
+    .content {
+      display: flex;
+      .contacts-info, .address-info {
+        margin-top: 0px;
+      }
+      .contacts-info {
+        margin-left: 0px;
+      }
+      .address-info {
+        margin-left: 60px;
+        margin-right: 0px;
+      }
+    }
+    
+    > img {
+      margin-top: 65px;
+      margin-left: 0px;
+    }
+  }
+  @media (max-width:$tablet-width) {
+    padding: 0 10px;
+    .content {
+      flex-direction: column;
+      text-align: center;
+      margin-top: 30px;
+      .contacts-info {
+        h3 {
+          margin-left: 21px;
+        }
+        .email {
+          margin-left: 24px;
+        }
+        .phone {
+          margin-left: 30px;
+        }
+      }
+      .address-info {
+        margin-top: 40px;
+        margin-left: 0px;
+        h3 {
+          margin-left: 15px;
+          width: 270px;
+        }
+        .address1 {
+          margin-top: 35px;
+          span {
+            text-align: left;
+            width: 258px;
+          }
+        }
+        .address2 {
+          margin-top: 40px;
+        }
+      }
+    }
+    h3 {
+      font-size: 25px;
+    }
+    > img {
+      margin-top: 40px;
+      width: 260px;
+      height: 269px;
+    }
+
+  }
 }

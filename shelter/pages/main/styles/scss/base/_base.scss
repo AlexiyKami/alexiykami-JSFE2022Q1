@@ -12,6 +12,54 @@ html {
   margin: 0 auto;
 }
 
+.darkened-background {
+  width: 0;
+  height: 0;
+}
+
+@media (max-width:$tablet-width) {
+  .darkened-background {
+    content: '';
+    position: fixed;
+    width: 0;
+    height: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition:
+      background-color $menu-anim-duration,
+      width $menu-anim-duration $menu-anim-duration,
+      height $menu-anim-duration $menu-anim-duration;
+  }
+  .darkened-background.active {
+    background-color: rgba(41, 41, 41, 0.6);
+    transition:
+      background-color $menu-anim-duration;
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
+
+
+// @keyframes darkenBackground {
+//   0% {
+//     opacity: 0;
+//     width: 0;
+//     height: 0;
+//   }
+//   1% {
+//     width: 100vw;
+//     height: 100vh;
+//   }
+//   100% {
+//     opacity: 1;
+//     width: 100vw;
+//     height: 100vh;
+//   }
+// }
+
 a {
   text-decoration: none;
   color: inherit;
