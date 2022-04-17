@@ -8,6 +8,16 @@ header {
   @media (max-width:$desktop-width) {
     height: 120px;
   }
+  @media (max-width:$tablet-width) {
+    .nav.active {
+      ul li a {
+        color: $color-dark-s;
+      }
+      ul li a.active {
+        color: $color-light-s;
+      }
+    }
+  }
 }
 
 .burger-icon {

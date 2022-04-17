@@ -635,7 +635,48 @@ header {
     padding-left: 10px;
   }
   header .nav {
-    display: none;
+    position: fixed;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    top: 0;
+    right: 0;
+    opacity: 0;
+    z-index: -1;
+    -webkit-transition: all 0.8s;
+    transition: all 0.8s;
+    width: 320px;
+    height: 100vh;
+    background-color: #292929;
+  }
+  header .nav .logo-nav {
+    display: block;
+    margin-top: 30px;
+    margin-left: 10px;
+  }
+  header .nav ul {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding-left: 0px;
+    margin-top: 158px;
+    font-size: 32px;
+    text-align: center;
+    gap: 42px;
+  }
+  header .nav ul li a.active {
+    text-underline-offset: 13px;
+  }
+  header .nav.active {
+    z-index: 3;
+    opacity: 1;
+    -webkit-transition: all 0.8s;
+    transition: all 0.8s;
   }
   header .burger-icon {
     margin-top: 19px;
@@ -650,6 +691,15 @@ header {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
+    -webkit-transition: -webkit-transform 0.4s;
+    transition: -webkit-transform 0.4s;
+    transition: transform 0.4s;
+    transition: transform 0.4s, -webkit-transform 0.4s;
+    z-index: 4;
+  }
+  header .burger-icon.active {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
   }
 }
 
@@ -665,7 +715,7 @@ header {
   width: 30px;
 }
 
-.logo {
+.logo, .logo-nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -677,13 +727,13 @@ header {
   cursor: pointer;
 }
 
-.logo h1 {
+.logo h1, .logo-nav h1 {
   letter-spacing: 0.06em;
   margin: 0;
   margin-top: 5px;
 }
 
-.logo p {
+.logo p, .logo-nav p {
   color: #ffffff;
   font-size: 13px;
   letter-spacing: 0.1em;
@@ -691,6 +741,10 @@ header {
   margin-top: 15px;
   margin-left: 5px;
   line-height: 15px;
+}
+
+.logo-nav {
+  display: none;
 }
 
 .nav ul {
@@ -897,6 +951,7 @@ section {
   }
   .about .about-content {
     height: 890px;
+    width: 270px;
   }
   .about .about-content h3 {
     font-size: 25px;
@@ -973,6 +1028,7 @@ section {
     width: 300px;
   }
   .pets .slider {
+    width: 270px;
     margin-top: 42px;
     margin-bottom: 42px;
     -ms-flex-wrap: wrap;
@@ -982,7 +1038,7 @@ section {
             justify-content: center;
   }
   .pets .slider .cards {
-    padding: 0 200px;
+    max-width: 270px;
     -webkit-box-ordinal-group: 0;
         -ms-flex-order: -1;
             order: -1;
@@ -1177,6 +1233,7 @@ section {
     padding-bottom: 42px;
   }
   .donation .donation-content {
+    width: 300px;
     text-align: center;
   }
   .donation .donation-content h3 {

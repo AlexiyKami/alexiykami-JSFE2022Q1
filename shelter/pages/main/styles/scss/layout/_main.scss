@@ -131,6 +131,7 @@ section {
     height: 974px;
     .about-content {
       height: 890px;
+      width: 270px;
       h3 {
         font-size: 25px;
         margin: 0 auto;
@@ -203,12 +204,13 @@ section {
       width: 300px;
     }
     .slider {
+      width: 270px;
       margin-top: 42px;
       margin-bottom: 42px;
       flex-wrap: wrap;
       justify-content: center;
       .cards {
-        padding: 0 200px;
+        max-width: 270px;
         order: -1;
         margin-bottom: 20px;
         .card:nth-child(2) {
@@ -320,7 +322,7 @@ section {
       width: 350px;
       border-radius: 9px;
       background-color: $primary-color;
-      transition: background-color 0.4s;
+      transition: background-color $hover-duration;
       img {
         margin: 10px 15px;
         width: 30px;
@@ -328,14 +330,14 @@ section {
       }
       &:hover {
         background-color: $primary-color-light;
-        transition: background-color 0.4s;
+        transition: background-color $hover-duration;
         span {
           color: $color-dark-3xl;
-          transition: color 0.4s;
+          transition: color $hover-duration;
         }
       }
       span {
-        transition: color 0.4s;
+        transition: color $hover-duration;
       }
     }
     .legal-information {
@@ -362,6 +364,7 @@ section {
     padding-top: 42px;
     padding-bottom: 42px;
     .donation-content {
+      width: 300px;
       text-align: center;
       h3 {
         width: 220px;

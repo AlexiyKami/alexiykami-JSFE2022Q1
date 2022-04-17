@@ -15,7 +15,38 @@ header {
   @media (max-width:$tablet-width) {
     padding-left: 10px;
     .nav {
-      display: none;
+      position: fixed;
+      display: flex;
+      flex-direction: column;
+      top: 0;
+      right: 0;
+      opacity: 0;
+      z-index: -1;
+      transition: all $menu-anim-duration;
+      width: 320px;
+      height: 100vh;
+      background-color: $color-dark-3xl;
+      .logo-nav {
+        display: block;
+        margin-top: 30px;
+        margin-left: 10px;
+      }
+      ul {
+        flex-direction: column;
+        padding-left: 0px;
+        margin-top: 158px;
+        font-size: 32px;
+        text-align: center;
+        gap: 42px;
+      }
+      ul li a.active {
+        text-underline-offset: 13px;
+      }
+    }
+    .nav.active {
+      z-index: 3;
+      opacity: 1;
+      transition: all $menu-anim-duration;
     }
     .burger-icon {
       margin-top: 19px;
@@ -23,6 +54,12 @@ header {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      transition: transform $hover-duration;
+      z-index: 4;
+    }
+    .burger-icon.active {
+      
+      transform: rotate(90deg);
     }
   }
 }
@@ -59,6 +96,11 @@ header {
   }
 }
 
+.logo-nav {
+  @extend .logo;
+  display: none;
+}
+
 .nav ul {
   display: flex;
   gap: 35px;
@@ -69,12 +111,12 @@ header {
 .nav ul li a {
   line-height: 160%;
   letter-spacing: 0.05px;
-  transition: color 0.4s;
+  transition: color $hover-duration;
 }
 
 .nav ul li a:hover {
   color: $color-light-s;
-  transition: color 0.4s;
+  transition: color $hover-duration;
 }
 
 .nav ul li a.active {
