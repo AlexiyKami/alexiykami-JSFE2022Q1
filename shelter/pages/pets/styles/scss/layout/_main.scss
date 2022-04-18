@@ -15,6 +15,7 @@ section {
     width: 400px;
   }
   .cards {
+    width: 1200px;
     display: flex;
     flex-wrap: wrap;
     column-gap: 40px;
@@ -39,6 +40,7 @@ section {
       margin-top: 20px;
     }
     .cards {
+      width: 580px;
       justify-content: center;
       margin-top: 15px;
       margin-bottom: 25px;
