@@ -19,7 +19,21 @@ header {
         color: $color-light-xl;
       }
     }
+    .nav {
+      width: 0;
+      height: 0;
+      transition: 
+        opacity $menu-anim-duration,
+        width 0s $menu-anim-duration,
+        height 0s $menu-anim-duration;
+    }
     .nav.active {
+      width: 320px;
+      height: 100vh;
+      transition:
+        opacity $menu-anim-duration,
+        width 0s,
+        height 0s;
       ul li a {
         color: $color-dark-s;
       }
