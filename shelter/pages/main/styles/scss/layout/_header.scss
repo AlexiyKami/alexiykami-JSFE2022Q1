@@ -28,7 +28,8 @@ header {
       right: 0;
       opacity: 0;
       z-index: -1;
-      transition: all $menu-anim-duration;
+      transition-property: opacity, z-index;
+      transition-duration: $menu-anim-duration;
       width: 320px;
       height: 100vh;
       background-color: $color-dark-3xl;
@@ -70,7 +71,8 @@ header {
     .nav.active {
       z-index: 3;
       opacity: 1;
-      transition: all $menu-anim-duration;
+      transition-property: opacity, z-index;
+      transition-duration: $menu-anim-duration;
     }
 
     .burger-icon {
