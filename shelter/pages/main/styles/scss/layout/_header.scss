@@ -25,10 +25,10 @@ header {
       display: flex;
       flex-direction: column;
       top: 0;
-      right: 0;
+      right: -320px;
       opacity: 0;
       z-index: -1;
-      transition-property: opacity, z-index;
+      transition-property: opacity, z-index, right;
       transition-duration: $menu-anim-duration;
       width: 320px;
       height: 100vh;
@@ -69,9 +69,10 @@ header {
       // }
     }
     .nav.active {
+      right: 0;
       z-index: 3;
       opacity: 1;
-      transition-property: opacity, z-index;
+      transition-property: opacity, z-index, right;
       transition-duration: $menu-anim-duration;
     }
 
