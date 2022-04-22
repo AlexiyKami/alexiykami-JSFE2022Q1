@@ -399,8 +399,8 @@ html {
     left: 0;
     right: 0;
     bottom: 0;
-    -webkit-transition: background-color 0.8s, width 0.8s 0.8s, height 0.8s 0.8s;
-    transition: background-color 0.8s, width 0.8s 0.8s, height 0.8s 0.8s;
+    -webkit-transition: background-color 0.8s, width 0s 0.8s, height 0s 0.8s;
+    transition: background-color 0.8s, width 0s 0.8s, height 0s 0.8s;
   }
   .darkened-background.active {
     background-color: rgba(41, 41, 41, 0.6);
@@ -635,6 +635,123 @@ button.round[disabled]:hover {
   background-color: #ffffff;
 }
 
+.modal-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 900px;
+  height: 500px;
+  background-color: #ffffff;
+  border-radius: 9px;
+}
+
+.modal-menu > img {
+  width: 500px;
+  height: 500px;
+  border-radius: 9px;
+}
+
+.modal-menu button.round {
+  position: absolute;
+  padding: 0;
+  right: -42px;
+  top: -52px;
+}
+
+.modal-menu .pet-info {
+  margin-top: 50px;
+  margin-left: 30px;
+  margin-right: 20px;
+}
+
+.modal-menu .pet-info .pet-name {
+  color: black;
+}
+
+.modal-menu .pet-info .pet-breed {
+  color: black;
+  margin-top: 10px;
+}
+
+.modal-menu .pet-info .pet-description {
+  color: black;
+  margin-top: 40px;
+  line-height: 16.5px;
+  letter-spacing: 0.06em;
+}
+
+.modal-menu .pet-info .pet-list {
+  font-family: Georgia, serif;
+  margin-top: 40px;
+  padding-left: 0px;
+}
+
+.modal-menu .pet-info .pet-list li {
+  margin-bottom: 4px;
+  letter-spacing: 0.06em;
+}
+
+.modal-menu .pet-info .pet-list li::before {
+  content: "\2022";
+  color: #F1CDB3;
+  margin-right: 10px;
+}
+
+@media (max-width: 1279px) {
+  .modal-menu {
+    width: 630px;
+    height: 350px;
+  }
+  .modal-menu > img {
+    width: 350px;
+    height: 350px;
+  }
+  .modal-menu button.round {
+    right: -30px;
+  }
+  .modal-menu .pet-info {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 9px;
+  }
+  .modal-menu .pet-info .pet-description {
+    font-size: 13px;
+    line-height: 14.3px;
+    margin-top: 20px;
+  }
+  .modal-menu .pet-info .pet-list {
+    margin-top: 15px;
+  }
+  .modal-menu .pet-info .pet-list li {
+    margin-bottom: -1px;
+  }
+}
+
+@media (max-width: 767px) {
+  .modal-menu {
+    width: 240px;
+    height: 341px;
+  }
+  .modal-menu > img {
+    display: none;
+  }
+  .modal-menu .pet-info .pet-name {
+    text-align: center;
+  }
+  .modal-menu .pet-info .pet-breed {
+    text-align: center;
+  }
+  .modal-menu .pet-info .pet-description {
+    text-align: justify;
+  }
+}
+
 header {
   padding-top: 60px;
   padding-left: 40px;
@@ -677,11 +794,11 @@ header {
         -ms-flex-direction: column;
             flex-direction: column;
     top: 0;
-    right: 0;
+    right: -320px;
     opacity: 0;
     z-index: -1;
-    -webkit-transition-property: opacity, z-index;
-    transition-property: opacity, z-index;
+    -webkit-transition-property: opacity, z-index, right;
+    transition-property: opacity, z-index, right;
     -webkit-transition-duration: 0.8s;
             transition-duration: 0.8s;
     width: 320px;
@@ -709,10 +826,11 @@ header {
     text-underline-offset: 13px;
   }
   header .nav.active {
+    right: 0;
     z-index: 3;
     opacity: 1;
-    -webkit-transition-property: opacity, z-index;
-    transition-property: opacity, z-index;
+    -webkit-transition-property: opacity, z-index, right;
+    transition-property: opacity, z-index, right;
     -webkit-transition-duration: 0.8s;
             transition-duration: 0.8s;
   }
@@ -842,29 +960,18 @@ header {
 }
 
 @media (max-width: 767px) {
-  header .logo-nav h1 {
-    color: #F1CDB3;
-  }
-  header .logo-nav p {
-    color: #ffffff;
-  }
   header .nav {
+    background-color: #ffffff;
     width: 0;
     height: 0;
-    -webkit-transition: opacity 0.8s, width 0s 0.8s, height 0s 0.8s;
-    transition: opacity 0.8s, width 0s 0.8s, height 0s 0.8s;
+    -webkit-transition: opacity 0.8s, right 0.8s, width 0s 0.8s, height 0s 0.8s;
+    transition: opacity 0.8s, right 0.8s, width 0s 0.8s, height 0s 0.8s;
   }
   header .nav.active {
     width: 320px;
     height: 100vh;
-    -webkit-transition: opacity 0.8s, width 0s, height 0s;
-    transition: opacity 0.8s, width 0s, height 0s;
-  }
-  header .nav.active ul li a {
-    color: #CDCDCD;
-  }
-  header .nav.active ul li a.active {
-    color: #FAFAFA;
+    -webkit-transition: opacity 0.8s, right 0.8s, width 0s, height 0s;
+    transition: opacity 0.8s, right 0.8s, width 0s, height 0s;
   }
 }
 
@@ -880,12 +987,6 @@ header {
   -webkit-transition: background-color 0.8s;
   transition: background-color 0.8s;
   background-color: black;
-}
-
-.burger-icon.active .bar1, .burger-icon.active .bar2, .burger-icon.active .bar3 {
-  -webkit-transition: background-color 0.8s;
-  transition: background-color 0.8s;
-  background-color: #F1CDB3;
 }
 
 .logo h1, .logo-nav h1 {

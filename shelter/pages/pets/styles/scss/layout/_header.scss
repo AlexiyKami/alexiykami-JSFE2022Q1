@@ -11,19 +11,13 @@ header {
     height: 120px;
   }
   @media (max-width:$tablet-width) {
-    .logo-nav {
-      h1 {
-        color: $primary-color;
-      }
-      p {
-        color: $color-light-xl;
-      }
-    }
     .nav {
+      background-color: $color-light-xl;
       width: 0;
       height: 0;
       transition: 
         opacity $menu-anim-duration,
+        right $menu-anim-duration,
         width 0s $menu-anim-duration,
         height 0s $menu-anim-duration;
     }
@@ -32,14 +26,9 @@ header {
       height: 100vh;
       transition:
         opacity $menu-anim-duration,
+        right $menu-anim-duration,
         width 0s,
         height 0s;
-      ul li a {
-        color: $color-dark-s;
-      }
-      ul li a.active {
-        color: $color-light-s;
-      }
     }
   }
 }
@@ -56,13 +45,6 @@ header {
   .bar1, .bar2, .bar3 {
     transition: background-color $menu-anim-duration;
     background-color: black;
-  }
-}
-
-.burger-icon.active {
-  .bar1, .bar2, .bar3 {
-    transition: background-color $menu-anim-duration;
-    background-color: $primary-color;
   }
 }
 
