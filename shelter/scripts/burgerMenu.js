@@ -9,7 +9,6 @@ function toggleMenu() {
   burgerIcon.classList.toggle('active');
   burgerMenu.classList.toggle('active');
   logo.classList.toggle('disabled');
-  header.classList.toggle('darken');
   burgerMenu.classList.contains('active') ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'visible';
   darkenBackground();
 }
@@ -18,13 +17,13 @@ function closeMenu() {
   burgerIcon.classList.remove('active');
   burgerMenu.classList.remove('active');
   logo.classList.remove('disabled');
-  header.classList.remove('darken');
   darkenedBackground.classList.remove('active');
   document.body.style.overflow = 'visible';
 }
 
 
 function darkenBackground() {
+  header.classList.toggle('darken');
   darkenedBackground.classList.toggle('active');
 }
 

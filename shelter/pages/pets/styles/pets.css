@@ -973,12 +973,10 @@ header {
   }
 }
 
-@media (max-width: 767px) {
-  header.darken {
-    -webkit-transition: background-color 0.8s;
-    transition: background-color 0.8s;
-    background-color: #999999;
-  }
+header.darken {
+  -webkit-transition: background-color 0.8s;
+  transition: background-color 0.8s;
+  background-color: #999999;
 }
 
 .burger-icon .bar1, .burger-icon .bar2, .burger-icon .bar3 {

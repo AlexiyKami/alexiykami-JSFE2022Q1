@@ -33,13 +33,10 @@ header {
   }
 }
 
-@media (max-width:$tablet-width) {
-  header.darken {
-    transition: background-color $menu-anim-duration;
-    background-color: darken($color-light-xl, 40%);
-  }
+header.darken {
+  transition: background-color $menu-anim-duration;
+  background-color: darken($color-light-xl, 40%);
 }
-
 
 .burger-icon {
   .bar1, .bar2, .bar3 {

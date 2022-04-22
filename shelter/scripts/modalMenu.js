@@ -1,17 +1,17 @@
 import {pets} from './pets.js';
 
 const cards = document.querySelectorAll('.card');
+const header = document.querySelector('header');
 const darkenedBackground = document.querySelector('.darkened-background');
 let cross = null;
 
-function openModal(e) {
+export function openModal(e) {
   let currentPet;
   for (let pet of pets) {
     if(pet.name === e.target.parentElement.dataset.pet) {
       currentPet = pet;
     }
   }
-  console.log(currentPet);
   const modalMenu = `<div class="modal-menu">
   <button class="round cross"><img src="../../assets/icons/cross.svg" alt="cross"></button>
   <img src=${currentPet.img} alt="pet">
@@ -36,14 +36,16 @@ function openModal(e) {
 
 function closeModal() {
   cross = null;
+  header.classList.remove('darken');
   darkenedBackground.classList.remove('active');
   document.querySelector('.modal-menu').remove();
   document.body.style.overflow = 'visible';
 }
 
 function darkenBackground() {
+  header.classList.toggle('darken');
   darkenedBackground.classList.toggle('active');
 }
 
 cards.forEach(card => card.addEventListener('click', openModal));
-darkenedBackground.addEventListener('click',closeModal);
+darkenedBackground.addEventListener('click', closeModal);
