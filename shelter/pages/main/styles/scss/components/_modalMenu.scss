@@ -1,0 +1,109 @@
+.modal-menu {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 900px;
+  height: 500px;
+  background-color: $color-light-xl;
+  border-radius: 9px;
+  > img {
+    width: 500px;
+    height: 500px;
+    border-radius: 9px;
+  }
+  button.round {
+    position: absolute;
+    padding: 0;
+    right: -42px;
+    top: -52px;
+  }
+  .pet-info {
+    margin-top: 50px;
+    margin-left: 30px;
+    margin-right: 20px;
+    .pet-name {
+      color: black;
+    }
+    .pet-breed {
+      color: black;
+      margin-top: 10px;
+    }
+    .pet-description {
+      color: black;
+      margin-top: 40px;
+      line-height: 16.5px;
+      letter-spacing: 0.06em;
+    }
+    .pet-list {
+      font-family: Georgia, serif;
+      margin-top: 40px;
+      padding-left: 0px;
+      li {
+        margin-bottom: 4px;
+        letter-spacing: 0.06em;
+      }
+      li::before {
+        content: "\2022";
+        color: $primary-color;
+        margin-right: 10px;
+      }
+    }
+  }
+  @media (max-width:$desktop-width) {
+    width: 630px;
+    height: 350px;
+    > img {
+      width: 350px;
+      height: 350px;
+    }
+    button.round {
+      right: -30px;
+    }
+    .pet-info {
+      margin-top: 10px;
+      margin-left: 10px;
+      margin-right: 9px;
+      margin-bottom: 10px;
+      .pet-description {
+        font-size: 13px;
+        line-height: 14.3px;
+        margin-top: 20px;
+      }
+      .pet-list {
+        margin-top: 15px;
+        li {
+          margin-bottom: -1px;
+        }
+      }
+    }
+  }
+  @media (max-width:$tablet-width) {
+    width: 240px;
+    min-height: 341px;
+    height: fit-content;
+    > img {
+      display: none;
+    }
+    .pet-info {
+      .pet-name {
+        text-align: center;
+      }
+      .pet-breed {
+        text-align: center;
+      }
+      .pet-description {
+        text-align: justify;
+      }
+    }
+  }
+}
+
+.modal-menu:not(:hover) {
+  .round.cross {
+    @extend button.round:hover;
+  }
+}

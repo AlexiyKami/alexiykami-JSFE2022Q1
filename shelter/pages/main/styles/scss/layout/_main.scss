@@ -175,6 +175,8 @@ section {
     margin-top: 60px;
     margin-bottom: 60px;
     .cards {
+      width: 990px;
+      overflow: hidden;
       @extend %flex-align-center;
       gap: 90px;
     }
@@ -189,6 +191,7 @@ section {
         margin-left: 12px;
       }
       .cards {
+        width: 580px;
         gap: 40px;
         .card:last-child {
           display: none;
