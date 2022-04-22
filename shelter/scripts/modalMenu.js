@@ -1,17 +1,49 @@
-const modalMenu = `<div class="modal-menu">
-<button class="round cross"><img src="../../assets/icons/cross.svg" alt="cross"></button>
-<img src="../../assets/images/pets-jennifer.png" alt="pet">
-<div class="pet-info">
-  <h3 class="pet-name">Jennifer</h3>
-  <h4 class="pet-breed">Dog - Labrador</h4>
-  <h5 class="pet-description">Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home.
-    This girl really enjoys being able to go outside to run and play, but won't hesitate to play up a storm in the house if she has all of her favorite toys.
-  </h5>
-  <ul class="pet-list">
-    <li><b>Age: </b>2 months</li>
-    <li><b>Inoculations: </b>none</li>
-    <li><b>Diseases: </b>none</li>
-    <li><b>Parasites: </b>none</li>
-  </ul>
-</div>
-</div>`;
+import {pets} from './pets.js';
+
+const cards = document.querySelectorAll('.card');
+const darkenedBackground = document.querySelector('.darkened-background');
+let cross = null;
+
+function openModal(e) {
+  let currentPet;
+  for (let pet of pets) {
+    if(pet.name === e.target.parentElement.dataset.pet) {
+      currentPet = pet;
+    }
+  }
+  console.log(currentPet);
+  const modalMenu = `<div class="modal-menu">
+  <button class="round cross"><img src="../../assets/icons/cross.svg" alt="cross"></button>
+  <img src=${currentPet.img} alt="pet">
+  <div class="pet-info">
+    <h3 class="pet-name">${currentPet.name}</h3>
+    <h4 class="pet-breed">${currentPet.type} - ${currentPet.breed}</h4>
+    <h5 class="pet-description">${currentPet.description}</h5>
+    <ul class="pet-list">
+      <li><b>Age: </b>${currentPet.age}</li>
+      <li><b>Inoculations: </b>${currentPet.inoculations}</li>
+      <li><b>Diseases: </b>${currentPet.diseases}</li>
+      <li><b>Parasites: </b>${currentPet.parasites}</li>
+    </ul>
+  </div>
+  </div>`;
+  document.body.insertAdjacentHTML('beforeend', modalMenu);
+  darkenBackground();
+  cross = document.querySelector('.round.cross');
+  cross.addEventListener('click', closeModal);
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  cross = null;
+  darkenedBackground.classList.remove('active');
+  document.querySelector('.modal-menu').remove();
+  document.body.style.overflow = 'visible';
+}
+
+function darkenBackground() {
+  darkenedBackground.classList.toggle('active');
+}
+
+cards.forEach(card => card.addEventListener('click', openModal));
+darkenedBackground.addEventListener('click',closeModal);

@@ -1,4 +1,4 @@
-.button.primary:hover, .button.white:hover, button.round:hover, .card:hover button {
+.button.primary:hover, .button.white:hover, button.round:hover, .modal-menu:not(:hover) .round.cross, .card:hover button {
   border-color: #FDDCC4;
   background-color: #FDDCC4;
 }
@@ -385,30 +385,24 @@ html {
 }
 
 .darkened-background {
+  content: '';
+  position: fixed;
   width: 0;
   height: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-transition: background-color 0.8s, width 0s 0.8s, height 0s 0.8s;
+  transition: background-color 0.8s, width 0s 0.8s, height 0s 0.8s;
 }
 
-@media (max-width: 767px) {
-  .darkened-background {
-    content: '';
-    position: fixed;
-    width: 0;
-    height: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    -webkit-transition: background-color 0.8s, width 0s 0.8s, height 0s 0.8s;
-    transition: background-color 0.8s, width 0s 0.8s, height 0s 0.8s;
-  }
-  .darkened-background.active {
-    background-color: rgba(41, 41, 41, 0.6);
-    -webkit-transition: background-color 0.8s;
-    transition: background-color 0.8s;
-    width: 100vw;
-    height: 100vh;
-  }
+.darkened-background.active {
+  background-color: rgba(41, 41, 41, 0.6);
+  -webkit-transition: background-color 0.8s;
+  transition: background-color 0.8s;
+  width: 100vw;
+  height: 100vh;
 }
 
 a {
@@ -552,7 +546,7 @@ button {
   transition: all 0.4s;
 }
 
-.button.primary:hover, .button.white:hover, button.round:hover {
+.button.primary:hover, .button.white:hover, button.round:hover, .modal-menu:not(:hover) .round.cross {
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
 }
@@ -589,7 +583,7 @@ button.round.active {
   background-color: #F1CDB3;
 }
 
-button.round.active:hover {
+button.round.active:hover, .modal-menu:not(:hover) .active.round.cross {
   border-color: #F1CDB3;
 }
 
@@ -599,7 +593,7 @@ button.round[disabled] {
   border-color: #CDCDCD;
 }
 
-button.round[disabled]:hover {
+button.round[disabled]:hover, .modal-menu:not(:hover) .round.cross[disabled] {
   background-color: transparent;
 }
 
@@ -719,6 +713,7 @@ button.round[disabled]:hover {
     margin-top: 10px;
     margin-left: 10px;
     margin-right: 9px;
+    margin-bottom: 10px;
   }
   .modal-menu .pet-info .pet-description {
     font-size: 13px;
@@ -736,7 +731,10 @@ button.round[disabled]:hover {
 @media (max-width: 767px) {
   .modal-menu {
     width: 240px;
-    height: 341px;
+    min-height: 341px;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
   }
   .modal-menu > img {
     display: none;
