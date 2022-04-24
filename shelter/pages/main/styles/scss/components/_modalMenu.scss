@@ -10,6 +10,11 @@
   height: 500px;
   background-color: $color-light-xl;
   border-radius: 9px;
+  animation: open-menu $menu-anim-duration;
+  @keyframes open-menu {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
   > img {
     width: 500px;
     height: 500px;
@@ -17,6 +22,7 @@
   }
   button.round {
     position: absolute;
+    z-index: 5;
     padding: 0;
     right: -42px;
     top: -52px;

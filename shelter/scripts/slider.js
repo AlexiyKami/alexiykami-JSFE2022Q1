@@ -1,29 +1,55 @@
 import {pets} from './pets.js';
+import {openModal} from './modalMenu.js';
 
-const cardsContainer = document.querySelector('.slider .cards');
-
+const cardsContainer = document.querySelector('.slider .carousel .cards');
+const prevItem = document.querySelector('.item-prev');
+const currItem = document.querySelector('.item-curr');
+const nextItem = document.querySelector('.item-next');
 const leftButton = document.querySelector('.slider .round');
 const rightButton = document.querySelector('.slider .round.right');
 
 let step = 3;
-
+let arrIndexes = [];
+let currIndex = 1;
 
 function moveLeft() {
-  step = document.body.offsetWidth < 768 ? 1 :
-                                              document.body.offsetWidth < 1280 ? 2 : 3;
-  console.log(step);
-  for(let i = 0; i < step; i++) {
-    cardsContainer.insertAdjacentElement('afterbegin', cardsContainer.lastElementChild);
+  if(arrIndexes[currIndex-1] === true || currIndex > 1) {
+    currIndex--;
+  } else {
+    currIndex = 1;
+    arrIndexes.splice(0,0,getUniqueElement(0));
   }
+  cardsContainer.classList.add('transition-left');
 }
 
+
+
 function moveRight() {
-  step = document.body.offsetWidth < 768 ? 1 :
-                                              document.body.offsetWidth < 1280 ? 2 : 3;
-  for(let i = 0; i < step; i++) {
-    cardsContainer.insertAdjacentElement('beforeend', cardsContainer.firstElementChild);
+  console.log(arrIndexes[currIndex+1]);
+  if (arrIndexes[currIndex+2]) {
+    currIndex++;
+  } else {
+    currIndex++;
+    arrIndexes.splice(arrIndexes.length,0,getUniqueElement(arrIndexes.length-1));
   }
-  
+  cardsContainer.classList.add('transition-right');
+
+}
+
+function getUniqueElement(index) {
+  let isUnique = false;
+  let result;
+  while (isUnique === false) {
+    isUnique = true;
+    let numbers = getRandomNumbers(step);
+    for (let number of numbers) {
+      if(arrIndexes[index].includes(number)) {
+        isUnique = false;
+      }
+    }
+    result = numbers;
+  }
+  return result;
 }
 
 function shuffle() {
@@ -32,14 +58,88 @@ function shuffle() {
 
 shuffle();
 
-pets.forEach(pet => {
-  const card = `<div class="card" data-pet="${pet.name}">
-<img src=${pet.img} alt="pet">
-<h4>${pet.name}</h4>
-<button class="button white">Learn more</button>
-</div>`;
-  cardsContainer.insertAdjacentHTML('beforeend', card);
-});
+function getRandomNumbers(count) {
+  let rand1 = 0;
+  let rand2 = 0;
+  let rand3 = 0;
+  while(rand1 == rand2 || rand2 == rand3 || rand1 == rand3) {
+    rand1 = Math.round(Math.random()*(pets.length-1));
+    rand2 = Math.round(Math.random()*(pets.length-1));
+    rand3 = Math.round(Math.random()*(pets.length-1));
+  }
+  if (count <= 1) {
+    return [rand1];
+  } else if (count === 2) {
+    return [rand1,rand2];
+  } else {
+    return [rand1,rand2,rand3];
+  }
+}
+
+while (arrIndexes.length < 3) {
+  let numbers = getRandomNumbers(step);
+  if (arrIndexes.length === 0) {
+    arrIndexes.push(numbers);
+  } else {
+    let isUnique = true;
+    for (let number of numbers) {
+      if(arrIndexes[arrIndexes.length-1].includes(number)) {
+        isUnique = false;
+      }
+    }
+    if(isUnique) {
+      arrIndexes.push(numbers);
+    }
+  }
+}
+
+function renderCards() {
+  step = document.body.offsetWidth < 768 ? 1 :
+                                              document.body.offsetWidth < 1280 ? 2 : 3;
+  prevItem.innerHTML = '';
+  currItem.innerHTML = '';
+  nextItem.innerHTML = '';
+  for(let i = currIndex - 1; i <= currIndex + 1; i++) {
+    for (let k = 0; k < step; k++) {
+      const card = `<div class="card" data-pet="${pets[arrIndexes[i][k]].name}">
+  <img src=${pets[arrIndexes[i][k]].img} alt="pet">
+  <h4>${pets[arrIndexes[i][k]].name}</h4>
+  <button class="button white">Learn more</button>
+  </div>`;
+      if(i === currIndex - 1) {
+        prevItem.insertAdjacentHTML('beforeend', card);
+      }
+      if (i === currIndex) {
+        currItem.insertAdjacentHTML('beforeend', card);
+      }
+      if(i === currIndex + 1) {
+        nextItem.insertAdjacentHTML('beforeend', card);
+      }
+    }
+  }
+}
+renderCards();
 
 leftButton.addEventListener('click',moveLeft);
-rightButton.addEventListener('click', moveRight);
+rightButton.addEventListener('click',moveRight);
+prevItem.childNodes.forEach(card => card.addEventListener('click', openModal));
+currItem.childNodes.forEach(card => card.addEventListener('click', openModal));
+nextItem.childNodes.forEach(card => card.addEventListener('click', openModal));
+
+cardsContainer.onanimationstart = () => {
+  leftButton.removeEventListener('click',moveLeft);
+  rightButton.removeEventListener('click',moveRight);
+}
+
+cardsContainer.onanimationend = () => {
+  cardsContainer.classList.remove('transition-left');
+  cardsContainer.classList.remove('transition-right');
+  leftButton.addEventListener('click',moveLeft);
+  rightButton.addEventListener('click',moveRight);
+  renderCards();
+  prevItem.childNodes.forEach(card => card.addEventListener('click', openModal));
+  currItem.childNodes.forEach(card => card.addEventListener('click', openModal));
+  nextItem.childNodes.forEach(card => card.addEventListener('click', openModal));
+};
+
+window.addEventListener('resize', renderCards);
