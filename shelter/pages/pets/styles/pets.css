@@ -643,6 +643,26 @@ button.round[disabled]:hover, .modal-menu:not(:hover) .round.cross[disabled] {
   height: 500px;
   background-color: #ffffff;
   border-radius: 9px;
+  -webkit-animation: open-menu 0.8s;
+          animation: open-menu 0.8s;
+}
+
+@-webkit-keyframes open-menu {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes open-menu {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .modal-menu > img {
@@ -653,6 +673,7 @@ button.round[disabled]:hover, .modal-menu:not(:hover) .round.cross[disabled] {
 
 .modal-menu button.round {
   position: absolute;
+  z-index: 5;
   padding: 0;
   right: -42px;
   top: -52px;
@@ -1039,6 +1060,29 @@ section {
   margin-top: 44px;
   margin-bottom: 45px;
   padding: 15px 0px;
+}
+
+.pets .cards .card {
+  -webkit-animation: scaling 0.8s;
+          animation: scaling 0.8s;
+}
+
+@-webkit-keyframes scaling {
+  from {
+    opacity: 0.2;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaling {
+  from {
+    opacity: 0.2;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .pets .pagination {

@@ -16,7 +16,7 @@
           align-items: center;
 }
 
-.pets .slider, .pets .slider .cards, .donation .donation-content .credit-card, footer .content .email, footer .content .phone, footer .content .address1, footer .content .address2 {
+.pets .slider, .pets .slider .carousel .cards, .donation .donation-content .credit-card, footer .content .email, footer .content .phone, footer .content .address1, footer .content .address2 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -643,6 +643,26 @@ button.round[disabled]:hover, .modal-menu:not(:hover) .round.cross[disabled] {
   height: 500px;
   background-color: #ffffff;
   border-radius: 9px;
+  -webkit-animation: open-menu 0.8s;
+          animation: open-menu 0.8s;
+}
+
+@-webkit-keyframes open-menu {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes open-menu {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .modal-menu > img {
@@ -653,6 +673,7 @@ button.round[disabled]:hover, .modal-menu:not(:hover) .round.cross[disabled] {
 
 .modal-menu button.round {
   position: absolute;
+  z-index: 5;
   padding: 0;
   right: -42px;
   top: -52px;
@@ -1157,10 +1178,85 @@ section {
   margin-left: 53px;
 }
 
-.pets .slider .cards {
-  width: 990px;
+.pets .slider .carousel {
   overflow: hidden;
+}
+
+.pets .slider .carousel .cards {
+  position: relative;
+  width: 990px;
+  height: 435px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   gap: 90px;
+}
+
+.pets .slider .carousel .cards .item-prev {
+  left: -1080px;
+}
+
+.pets .slider .carousel .cards .item-curr {
+  left: 0px;
+  right: 0px;
+}
+
+.pets .slider .carousel .cards .item-next {
+  right: -1080px;
+}
+
+.pets .slider .carousel .cards .item-prev, .pets .slider .carousel .cards .item-curr, .pets .slider .carousel .cards .item-next {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 90px;
+}
+
+.pets .slider .carousel .cards.transition-left {
+  -webkit-animation: transition-left 0.8s;
+          animation: transition-left 0.8s;
+}
+
+@-webkit-keyframes transition-left {
+  from {
+    left: 0px;
+  }
+  to {
+    left: 1080px;
+  }
+}
+
+@keyframes transition-left {
+  from {
+    left: 0px;
+  }
+  to {
+    left: 1080px;
+  }
+}
+
+.pets .slider .carousel .cards.transition-right {
+  -webkit-animation: transition-right 0.8s;
+          animation: transition-right 0.8s;
+}
+
+@-webkit-keyframes transition-right {
+  from {
+    right: 0px;
+  }
+  to {
+    right: 1080px;
+  }
+}
+
+@keyframes transition-right {
+  from {
+    right: 0px;
+  }
+  to {
+    right: 1080px;
+  }
 }
 
 @media (max-width: 1279px) {
@@ -1171,12 +1267,58 @@ section {
     margin-right: 0px;
     margin-left: 12px;
   }
-  .pets .slider .cards {
+  .pets .slider .carousel .cards {
     width: 580px;
     gap: 40px;
   }
-  .pets .slider .cards .card:last-child {
-    display: none;
+  .pets .slider .carousel .cards .item-prev, .pets .slider .carousel .cards .item-curr, .pets .slider .carousel .cards .item-next {
+    gap: 40px;
+  }
+  .pets .slider .carousel .cards .item-prev {
+    left: -620px;
+  }
+  .pets .slider .carousel .cards .item-next {
+    right: -620px;
+  }
+  .pets .slider .carousel .cards.transition-left {
+    -webkit-animation: transition-left 0.8s;
+            animation: transition-left 0.8s;
+  }
+  @-webkit-keyframes transition-left {
+    from {
+      left: 0px;
+    }
+    to {
+      left: 620px;
+    }
+  }
+  @keyframes transition-left {
+    from {
+      left: 0px;
+    }
+    to {
+      left: 620px;
+    }
+  }
+  .pets .slider .carousel .cards.transition-right {
+    -webkit-animation: transition-right 0.8s;
+            animation: transition-right 0.8s;
+  }
+  @-webkit-keyframes transition-right {
+    from {
+      right: 0px;
+    }
+    to {
+      right: 620px;
+    }
+  }
+  @keyframes transition-right {
+    from {
+      right: 0px;
+    }
+    to {
+      right: 620px;
+    }
   }
 }
 
@@ -1199,20 +1341,68 @@ section {
         -ms-flex-pack: center;
             justify-content: center;
   }
-  .pets .slider .cards {
-    max-width: 270px;
+  .pets .slider .carousel {
     -webkit-box-ordinal-group: 0;
         -ms-flex-order: -1;
             order: -1;
+  }
+  .pets .slider .carousel .cards {
+    max-width: 270px;
     margin-bottom: 20px;
   }
-  .pets .slider .cards .card:nth-child(2) {
+  .pets .slider .carousel .cards .card:nth-child(2) {
     display: none;
   }
-  .pets .slider .round {
+  .pets .slider .carousel .cards .item-prev {
+    left: -310px;
+  }
+  .pets .slider .carousel .cards .item-next {
+    right: -310px;
+  }
+  .pets .slider .carousel .cards.transition-left {
+    -webkit-animation: transition-left 0.8s;
+            animation: transition-left 0.8s;
+  }
+  @-webkit-keyframes transition-left {
+    from {
+      left: 0px;
+    }
+    to {
+      left: 310px;
+    }
+  }
+  @keyframes transition-left {
+    from {
+      left: 0px;
+    }
+    to {
+      left: 310px;
+    }
+  }
+  .pets .slider .carousel .cards.transition-right {
+    -webkit-animation: transition-right 0.8s;
+            animation: transition-right 0.8s;
+  }
+  @-webkit-keyframes transition-right {
+    from {
+      right: 0px;
+    }
+    to {
+      right: 310px;
+    }
+  }
+  @keyframes transition-right {
+    from {
+      right: 0px;
+    }
+    to {
+      right: 310px;
+    }
+  }
+  .pets .slider .carousel .round {
     margin-right: 40px;
   }
-  .pets .slider .round.right {
+  .pets .slider .carousel .round.right {
     margin-right: 0px;
     margin-left: 40px;
   }
