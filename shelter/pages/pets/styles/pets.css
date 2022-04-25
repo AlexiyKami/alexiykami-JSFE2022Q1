@@ -393,6 +393,7 @@ html {
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 1;
   -webkit-transition: background-color 0.8s, width 0s 0.8s, height 0s 0.8s;
   transition: background-color 0.8s, width 0s 0.8s, height 0s 0.8s;
 }
@@ -641,6 +642,7 @@ button.round[disabled]:hover, .modal-menu:not(:hover) .round.cross[disabled] {
   margin: auto;
   width: 900px;
   height: 500px;
+  z-index: 3;
   background-color: #ffffff;
   border-radius: 9px;
   -webkit-animation: open-menu 0.8s;
@@ -815,11 +817,9 @@ header {
     top: 0;
     right: -320px;
     opacity: 0;
-    z-index: -1;
-    -webkit-transition-property: opacity, z-index, right;
-    transition-property: opacity, z-index, right;
-    -webkit-transition-duration: 0.8s;
-            transition-duration: 0.8s;
+    z-index: 1;
+    -webkit-transition: opacity 0.8s, z-index 0.8s, right 0.8s;
+    transition: opacity 0.8s, z-index 0.8s, right 0.8s;
     width: 320px;
     height: 100vh;
     background-color: #292929;
@@ -846,7 +846,7 @@ header {
   }
   header .nav.active {
     right: 0;
-    z-index: 3;
+    z-index: 2;
     opacity: 1;
     -webkit-transition-property: opacity, z-index, right;
     transition-property: opacity, z-index, right;
@@ -962,8 +962,6 @@ header {
 header {
   padding-top: 30px;
   background-image: none;
-  -webkit-transition: background-color 0.8s;
-  transition: background-color 0.8s;
   background-color: #ffffff;
   position: -webkit-sticky;
   position: sticky;
@@ -995,9 +993,16 @@ header {
 }
 
 header.darken {
-  -webkit-transition: background-color 0.8s;
-  transition: background-color 0.8s;
-  background-color: #999999;
+  z-index: 1;
+}
+
+@media (max-width: 1279px) {
+  header.darken {
+    z-index: 3;
+    -webkit-transition: background-color 0.8s;
+    transition: background-color 0.8s;
+    background-color: #999999;
+  }
 }
 
 .burger-icon .bar1, .burger-icon .bar2, .burger-icon .bar3 {

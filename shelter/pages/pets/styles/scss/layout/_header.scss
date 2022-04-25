@@ -1,7 +1,6 @@
 header {
   padding-top: 30px;
   background-image: none;
-  transition: background-color $menu-anim-duration;
   background-color: $color-light-xl;
   position: sticky;
   z-index: 1;
@@ -15,7 +14,7 @@ header {
       background-color: $color-light-xl;
       width: 0;
       height: 0;
-      transition: 
+      transition:
         opacity $menu-anim-duration,
         right $menu-anim-duration,
         width 0s $menu-anim-duration,
@@ -32,11 +31,18 @@ header {
     }
   }
 }
-
 header.darken {
-  transition: background-color $menu-anim-duration;
-  background-color: darken($color-light-xl, 40%);
+  z-index: 1;
+  
 }
+@media (max-width:$desktop-width) {
+  header.darken {
+    z-index: 3;
+    transition: background-color $menu-anim-duration;
+    background-color: darken($color-light-xl, 40%);
+  }
+}
+
 
 .burger-icon {
   .bar1, .bar2, .bar3 {

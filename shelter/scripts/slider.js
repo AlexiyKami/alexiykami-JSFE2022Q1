@@ -8,7 +8,6 @@ const nextItem = document.querySelector('.item-next');
 const leftButton = document.querySelector('.slider .round');
 const rightButton = document.querySelector('.slider .round.right');
 
-let step = 3;
 let arrIndexes = [];
 
 function moveLeft() {
@@ -28,7 +27,7 @@ function getUniqueElement(index) {
   let result;
   while (isUnique === false) {
     isUnique = true;
-    let numbers = getRandomNumbers(step);
+    let numbers = getRandomNumbers();
     for (let number of numbers) {
       if (arrIndexes[index].includes(number)) {
         isUnique = false;
@@ -39,13 +38,7 @@ function getUniqueElement(index) {
   return result;
 }
 
-// function shuffle() {
-//   pets.sort((a, b) => Math.random() - 0.5);
-// }
-
-// shuffle();
-
-function getRandomNumbers(count) {
+function getRandomNumbers() {
   let rand1 = 0;
   let rand2 = 0;
   let rand3 = 0;
@@ -54,17 +47,11 @@ function getRandomNumbers(count) {
     rand2 = Math.round(Math.random() * (pets.length - 1));
     rand3 = Math.round(Math.random() * (pets.length - 1));
   }
-  if (count <= 1) {
-    return [rand1];
-  } else if (count === 2) {
-    return [rand1, rand2];
-  } else {
     return [rand1, rand2, rand3];
-  }
 }
 
 while (arrIndexes.length < 3) {
-  let numbers = getRandomNumbers(step);
+  let numbers = getRandomNumbers();
   if (arrIndexes.length === 0) {
     arrIndexes.push(numbers);
   } else {
@@ -81,13 +68,11 @@ while (arrIndexes.length < 3) {
 }
 
 function renderCards() {
-  step = document.body.offsetWidth < 768 ? 1 :
-                                            document.body.offsetWidth < 1280 ? 2 : 3;
   prevItem.innerHTML = '';
   currItem.innerHTML = '';
   nextItem.innerHTML = '';
   for (let i = 0; i <= 2; i++) {
-    for (let k = 0; k < step; k++) {
+    for (let k = 0; k < 3; k++) {
       const card = `<div class="card" data-pet="${pets[arrIndexes[i][k]].name}">
                     <img src=${pets[arrIndexes[i][k]].img} alt="pet">
                     <h4>${pets[arrIndexes[i][k]].name}</h4>

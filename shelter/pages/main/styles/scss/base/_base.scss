@@ -24,6 +24,7 @@ html {
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 1;
   transition:
     background-color $menu-anim-duration,
     width 0s $menu-anim-duration,
@@ -36,6 +37,7 @@ html {
     background-color $menu-anim-duration;
   width: 100vw;
   height: 100vh;
+  
 }
 
 
