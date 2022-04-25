@@ -93,9 +93,6 @@ for (let i = 0; i < pages; i++) {
 
 updatePage();
 
-console.log(bigArr);
-
-
 
 // bigArr.forEach(pet => {
 //   const card = `<div class="card" data-pet="${pet.name}">
