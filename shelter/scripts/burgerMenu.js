@@ -17,6 +17,7 @@ function closeMenu() {
   burgerIcon.classList.remove('active');
   burgerMenu.classList.remove('active');
   logo.classList.remove('disabled');
+  header.classList.remove('darken');
   darkenedBackground.classList.remove('active');
   document.body.style.overflow = 'visible';
 }
