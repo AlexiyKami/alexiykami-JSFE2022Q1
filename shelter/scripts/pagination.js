@@ -20,7 +20,6 @@ function shuffle() {
 }
 
 function updatePage() {
-  
   pages = document.body.offsetWidth < 768 ? 16 :
                                                 document.body.offsetWidth < 1280 ? 8 : 6;
   countOfCards = bigArr.length/pages;
@@ -89,19 +88,7 @@ for (let i = 0; i < pages; i++) {
   }
 }
 
-
-
 updatePage();
-
-
-// bigArr.forEach(pet => {
-//   const card = `<div class="card" data-pet="${pet.name}">
-// <img src=${pet.img} alt="pet">
-// <h4>${pet.name}</h4>
-// <button class="button white">Learn more</button>
-// </div>`;
-//   cardsContainer.insertAdjacentHTML('beforeend', card);
-// });
 
 btnLeftToEnd.addEventListener('click', moveLeftToEnd);
 btnLeft.addEventListener('click', moveLeft);

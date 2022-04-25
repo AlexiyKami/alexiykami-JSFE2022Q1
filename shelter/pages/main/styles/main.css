@@ -1214,47 +1214,59 @@ section {
 }
 
 .pets .slider .carousel .cards.transition-left {
-  -webkit-animation: transition-left 0.8s;
-          animation: transition-left 0.8s;
+  -webkit-animation: transition-left 1s ease-in-out;
+          animation: transition-left 1s ease-in-out;
 }
 
 @-webkit-keyframes transition-left {
-  from {
+  0% {
     left: 0px;
   }
-  to {
+  65% {
+    left: 1150px;
+  }
+  100% {
     left: 1080px;
   }
 }
 
 @keyframes transition-left {
-  from {
+  0% {
     left: 0px;
   }
-  to {
+  65% {
+    left: 1150px;
+  }
+  100% {
     left: 1080px;
   }
 }
 
 .pets .slider .carousel .cards.transition-right {
-  -webkit-animation: transition-right 0.8s;
-          animation: transition-right 0.8s;
+  -webkit-animation: transition-right 1s ease-in-out;
+          animation: transition-right 1s ease-in-out;
 }
 
 @-webkit-keyframes transition-right {
-  from {
+  0% {
     right: 0px;
   }
-  to {
+  65% {
+    right: 1150px;
+  }
+  100% {
     right: 1080px;
   }
 }
 
 @keyframes transition-right {
-  from {
+  0% {
     right: 0px;
   }
-  to {
+  65% {
+    right: 1150px;
+  }
+  100% {
     right: 1080px;
   }
 }
@@ -1281,42 +1293,54 @@ section {
     right: -620px;
   }
   .pets .slider .carousel .cards.transition-left {
-    -webkit-animation: transition-left 0.8s;
-            animation: transition-left 0.8s;
+    -webkit-animation: transition-left 1s ease-in-out;
+            animation: transition-left 1s ease-in-out;
   }
   @-webkit-keyframes transition-left {
-    from {
+    0% {
       left: 0px;
     }
-    to {
+    65% {
+      left: 680px;
+    }
+    100% {
       left: 620px;
     }
   }
   @keyframes transition-left {
-    from {
+    0% {
       left: 0px;
     }
-    to {
+    65% {
+      left: 680px;
+    }
+    100% {
       left: 620px;
     }
   }
   .pets .slider .carousel .cards.transition-right {
-    -webkit-animation: transition-right 0.8s;
-            animation: transition-right 0.8s;
+    -webkit-animation: transition-right 1s ease-in-out;
+            animation: transition-right 1s ease-in-out;
   }
   @-webkit-keyframes transition-right {
-    from {
+    0% {
       right: 0px;
     }
-    to {
+    65% {
+      right: 680px;
+    }
+    100% {
       right: 620px;
     }
   }
   @keyframes transition-right {
-    from {
+    0% {
       right: 0px;
     }
-    to {
+    65% {
+      right: 680px;
+    }
+    100% {
       right: 620px;
     }
   }
@@ -1360,42 +1384,54 @@ section {
     right: -310px;
   }
   .pets .slider .carousel .cards.transition-left {
-    -webkit-animation: transition-left 0.8s;
-            animation: transition-left 0.8s;
+    -webkit-animation: transition-left 1s ease-in-out;
+            animation: transition-left 1s ease-in-out;
   }
   @-webkit-keyframes transition-left {
-    from {
+    0% {
       left: 0px;
     }
-    to {
+    65% {
+      left: 350px;
+    }
+    100% {
       left: 310px;
     }
   }
   @keyframes transition-left {
-    from {
+    0% {
       left: 0px;
     }
-    to {
+    65% {
+      left: 350px;
+    }
+    100% {
       left: 310px;
     }
   }
   .pets .slider .carousel .cards.transition-right {
-    -webkit-animation: transition-right 0.8s;
-            animation: transition-right 0.8s;
+    -webkit-animation: transition-right 1s ease-in-out;
+            animation: transition-right 1s ease-in-out;
   }
   @-webkit-keyframes transition-right {
-    from {
+    0% {
       right: 0px;
     }
-    to {
+    65% {
+      right: 350px;
+    }
+    100% {
       right: 310px;
     }
   }
   @keyframes transition-right {
-    from {
+    0% {
       right: 0px;
     }
-    to {
+    65% {
+      right: 350px;
+    }
+    100% {
       right: 310px;
     }
   }
