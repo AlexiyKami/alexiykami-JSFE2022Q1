@@ -82,7 +82,7 @@ while (arrIndexes.length < 3) {
 
 function renderCards() {
   step = document.body.offsetWidth < 768 ? 1 :
-    document.body.offsetWidth < 1280 ? 2 : 3;
+                                            document.body.offsetWidth < 1280 ? 2 : 3;
   prevItem.innerHTML = '';
   currItem.innerHTML = '';
   nextItem.innerHTML = '';
