@@ -232,11 +232,11 @@ section {
         .cards {
           width: 580px;
           gap: 40px;
-          // .card:last-child {
-          //   display: none;
-          // }
           .item-prev,.item-curr,.item-next {
             gap:40px;
+          }
+          .item-prev .card:last-child,.item-curr .card:last-child,.item-next .card:last-child {
+            display: none;
           }
           .item-prev {
             left: -620px;
@@ -283,7 +283,7 @@ section {
         .cards {
           max-width: 270px;
           margin-bottom: 20px;
-          .card:nth-child(2) {
+          .item-prev .card:nth-child(2),.item-curr .card:nth-child(2),.item-next .card:nth-child(2) {
             display: none;
           }
           .item-prev {

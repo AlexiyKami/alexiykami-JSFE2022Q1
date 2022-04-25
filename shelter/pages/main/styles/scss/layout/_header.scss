@@ -27,9 +27,8 @@ header {
       top: 0;
       right: -320px;
       opacity: 0;
-      z-index: -1;
-      transition-property: opacity, z-index, right;
-      transition-duration: $menu-anim-duration;
+      z-index: 1;
+      transition: opacity $menu-anim-duration, z-index $menu-anim-duration, right $menu-anim-duration;
       width: 320px;
       height: 100vh;
       background-color: $color-dark-3xl;
@@ -70,7 +69,7 @@ header {
     }
     .nav.active {
       right: 0;
-      z-index: 3;
+      z-index: 2;
       opacity: 1;
       transition-property: opacity, z-index, right;
       transition-duration: $menu-anim-duration;
