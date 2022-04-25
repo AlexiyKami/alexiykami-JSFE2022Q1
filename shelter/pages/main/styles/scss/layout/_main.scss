@@ -200,17 +200,19 @@ section {
           gap: 90px;
         }
         &.transition-left {
-          animation: transition-left $menu-anim-duration;
+          animation: transition-left $carousel-anim-duration ease-in-out;
           @keyframes transition-left {
-            from {left:0px}
-            to {left:1080px}
+            0% {left:0px}
+            65% {left:1150px}
+            100% {left:1080px}
           }
         }
         &.transition-right {
-          animation: transition-right $menu-anim-duration;
+          animation: transition-right $carousel-anim-duration ease-in-out;
           @keyframes transition-right {
-            from {right:0px}
-            to {right:1080px}
+            0% {right:0px}
+            65% {right:1150px}
+            100% {right:1080px}
           }
         }
       }
@@ -243,17 +245,19 @@ section {
             right: -620px;
           }
           &.transition-left {
-            animation: transition-left $menu-anim-duration;
+            animation: transition-left $carousel-anim-duration ease-in-out;
             @keyframes transition-left {
-              from {left:0px}
-              to {left:620px}
+              0% {left:0px}
+              65% {left:680px}
+              100% {left:620px}
             }
           }
           &.transition-right {
-            animation: transition-right $menu-anim-duration;
+            animation: transition-right $carousel-anim-duration ease-in-out;
             @keyframes transition-right {
-              from {right:0px}
-              to {right:620px}
+              0% {right:0px}
+              65% {right:680px}
+              100% {right:620px}
             }
           }
         }
@@ -289,20 +293,21 @@ section {
             right: -310px;
           }
           &.transition-left {
-            animation: transition-left $menu-anim-duration;
+            animation: transition-left $carousel-anim-duration ease-in-out;
             @keyframes transition-left {
-              from {left:0px}
-              to {left:310px}
+              0% {left:0px}
+              65% {left:350px}
+              100% {left:310px}
             }
           }
           &.transition-right {
-            animation: transition-right $menu-anim-duration;
+            animation: transition-right $carousel-anim-duration ease-in-out;
             @keyframes transition-right {
-              from {right:0px}
-              to {right:310px}
+              0% {right:0px}
+              65% {right:350px}
+              100% {right:310px}
             }
           }
-          
         }
         .round {
           margin-right: 40px;
