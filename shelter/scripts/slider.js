@@ -1,5 +1,5 @@
-import {pets} from './pets.js';
-import {openModal} from './modalMenu.js';
+import { pets } from './pets.js';
+import { openModal } from './modalMenu.js';
 
 const cardsContainer = document.querySelector('.slider .carousel .cards');
 const prevItem = document.querySelector('.item-prev');
@@ -10,30 +10,17 @@ const rightButton = document.querySelector('.slider .round.right');
 
 let step = 3;
 let arrIndexes = [];
-let currIndex = 1;
 
 function moveLeft() {
-  if(arrIndexes[currIndex-1] === true || currIndex > 1) {
-    currIndex--;
-  } else {
-    currIndex = 1;
-    arrIndexes.splice(0,0,getUniqueElement(0));
-  }
+  arrIndexes.splice(0, 0, getUniqueElement(0));
+  arrIndexes.pop();
   cardsContainer.classList.add('transition-left');
 }
 
-
-
 function moveRight() {
-  console.log(arrIndexes[currIndex+1]);
-  if (arrIndexes[currIndex+2]) {
-    currIndex++;
-  } else {
-    currIndex++;
-    arrIndexes.splice(arrIndexes.length,0,getUniqueElement(arrIndexes.length-1));
-  }
+  arrIndexes.splice(arrIndexes.length, 0, getUniqueElement(arrIndexes.length - 1));
+  arrIndexes.shift();
   cardsContainer.classList.add('transition-right');
-
 }
 
 function getUniqueElement(index) {
@@ -43,7 +30,7 @@ function getUniqueElement(index) {
     isUnique = true;
     let numbers = getRandomNumbers(step);
     for (let number of numbers) {
-      if(arrIndexes[index].includes(number)) {
+      if (arrIndexes[index].includes(number)) {
         isUnique = false;
       }
     }
@@ -52,27 +39,27 @@ function getUniqueElement(index) {
   return result;
 }
 
-function shuffle() {
-  pets.sort((a,b) => Math.random() - 0.5);
-}
+// function shuffle() {
+//   pets.sort((a, b) => Math.random() - 0.5);
+// }
 
-shuffle();
+// shuffle();
 
 function getRandomNumbers(count) {
   let rand1 = 0;
   let rand2 = 0;
   let rand3 = 0;
-  while(rand1 == rand2 || rand2 == rand3 || rand1 == rand3) {
-    rand1 = Math.round(Math.random()*(pets.length-1));
-    rand2 = Math.round(Math.random()*(pets.length-1));
-    rand3 = Math.round(Math.random()*(pets.length-1));
+  while (rand1 == rand2 || rand2 == rand3 || rand1 == rand3) {
+    rand1 = Math.round(Math.random() * (pets.length - 1));
+    rand2 = Math.round(Math.random() * (pets.length - 1));
+    rand3 = Math.round(Math.random() * (pets.length - 1));
   }
   if (count <= 1) {
     return [rand1];
   } else if (count === 2) {
-    return [rand1,rand2];
+    return [rand1, rand2];
   } else {
-    return [rand1,rand2,rand3];
+    return [rand1, rand2, rand3];
   }
 }
 
@@ -83,11 +70,11 @@ while (arrIndexes.length < 3) {
   } else {
     let isUnique = true;
     for (let number of numbers) {
-      if(arrIndexes[arrIndexes.length-1].includes(number)) {
+      if (arrIndexes[arrIndexes.length - 1].includes(number)) {
         isUnique = false;
       }
     }
-    if(isUnique) {
+    if (isUnique) {
       arrIndexes.push(numbers);
     }
   }
@@ -95,24 +82,24 @@ while (arrIndexes.length < 3) {
 
 function renderCards() {
   step = document.body.offsetWidth < 768 ? 1 :
-                                              document.body.offsetWidth < 1280 ? 2 : 3;
+    document.body.offsetWidth < 1280 ? 2 : 3;
   prevItem.innerHTML = '';
   currItem.innerHTML = '';
   nextItem.innerHTML = '';
-  for(let i = currIndex - 1; i <= currIndex + 1; i++) {
+  for (let i = 0; i <= 2; i++) {
     for (let k = 0; k < step; k++) {
       const card = `<div class="card" data-pet="${pets[arrIndexes[i][k]].name}">
-  <img src=${pets[arrIndexes[i][k]].img} alt="pet">
-  <h4>${pets[arrIndexes[i][k]].name}</h4>
-  <button class="button white">Learn more</button>
-  </div>`;
-      if(i === currIndex - 1) {
+                    <img src=${pets[arrIndexes[i][k]].img} alt="pet">
+                    <h4>${pets[arrIndexes[i][k]].name}</h4>
+                    <button class="button white">Learn more</button>
+                    </div>`;
+      if (i === 0) {
         prevItem.insertAdjacentHTML('beforeend', card);
       }
-      if (i === currIndex) {
+      if (i === 1) {
         currItem.insertAdjacentHTML('beforeend', card);
       }
-      if(i === currIndex + 1) {
+      if (i === 2) {
         nextItem.insertAdjacentHTML('beforeend', card);
       }
     }
@@ -120,22 +107,22 @@ function renderCards() {
 }
 renderCards();
 
-leftButton.addEventListener('click',moveLeft);
-rightButton.addEventListener('click',moveRight);
+leftButton.addEventListener('click', moveLeft);
+rightButton.addEventListener('click', moveRight);
 prevItem.childNodes.forEach(card => card.addEventListener('click', openModal));
 currItem.childNodes.forEach(card => card.addEventListener('click', openModal));
 nextItem.childNodes.forEach(card => card.addEventListener('click', openModal));
 
 cardsContainer.onanimationstart = () => {
-  leftButton.removeEventListener('click',moveLeft);
-  rightButton.removeEventListener('click',moveRight);
+  leftButton.removeEventListener('click', moveLeft);
+  rightButton.removeEventListener('click', moveRight);
 }
 
 cardsContainer.onanimationend = () => {
   cardsContainer.classList.remove('transition-left');
   cardsContainer.classList.remove('transition-right');
-  leftButton.addEventListener('click',moveLeft);
-  rightButton.addEventListener('click',moveRight);
+  leftButton.addEventListener('click', moveLeft);
+  rightButton.addEventListener('click', moveRight);
   renderCards();
   prevItem.childNodes.forEach(card => card.addEventListener('click', openModal));
   currItem.childNodes.forEach(card => card.addEventListener('click', openModal));
