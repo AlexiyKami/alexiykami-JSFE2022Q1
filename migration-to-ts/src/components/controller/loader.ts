@@ -19,8 +19,9 @@ class Loader {
 
     private errorHandler(res: Response) {
         if (!res.ok) {
-            if (res.status === statusCode.unauthorized || res.status === statusCode.notFound)
+            if (Object.keys(statusCode).includes(res.status.toString())) {
                 console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
+            }
             throw Error(res.statusText);
         }
 
@@ -29,19 +30,19 @@ class Loader {
 
     private makeUrl(options: UrlOptions, endpoint: string) {
         const urlOptions: UrlOptions = { ...this.options, ...options };
-        let url = `${this.baseLink}${endpoint}?`;
+        const url = `${this.baseLink}${endpoint}?`;
 
-        Object.keys(urlOptions).forEach((key) => {
-            url += `${key}=${urlOptions[key]}&`;
-        });
-
-        return url.slice(0, -1);
+        return Object.keys(urlOptions)
+            .reduce((total, curr) => {
+                return total + `${curr}=${urlOptions[curr]}&`;
+            }, url)
+            .slice(0, -1);
     }
 
     private load<T>(method: string, endpoint: string, callback: VoidCallback<T>, options = {}) {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
-            .then((res) => (res as Response).json())
+            .then((res) => res.json())
             .then((data: T) => callback(data))
             .catch((err) => console.error(err));
     }
