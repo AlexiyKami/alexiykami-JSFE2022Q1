@@ -35,6 +35,31 @@ class AppController extends AppLoader {
             target = target.parentNode as HTMLElement;
         }
     }
+
+    public getTopHeadlines<T>(e: Event, callback: VoidCallback<T>) {
+        let target: HTMLElement = e.target as HTMLElement;
+        const newsContainer: HTMLElement = e.currentTarget as HTMLElement;
+
+        while (target !== newsContainer) {
+            if (target.classList.contains('theme-button__item')) {
+                const theme: string | null = target.getAttribute('data-theme');
+                if (newsContainer.getAttribute('data-theme') !== theme) {
+                    newsContainer.setAttribute('data-theme', theme as string);
+                    super.getResp<T>(
+                        {
+                            endpoint: 'top-headlines',
+                            options: {
+                                category: theme as string,
+                            },
+                        },
+                        callback
+                    );
+                }
+                return;
+            }
+            target = target.parentNode as HTMLElement;
+        }
+    }
 }
 
 export default AppController;
