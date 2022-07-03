@@ -17,19 +17,32 @@ footer {
     height: 100px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 1em;
 }
+
+.footer-logo {
+    width: 6em;
+}
+
+footer .footer-data.copyright {
+    color: white;
+}
+
 footer .copyright {
     font-size: 14px;
     color: #333;
     text-align: center;
 }
+
 footer .copyright a {
     color: #444;
 }
+
 footer .copyright a:hover {
     color: #555;
 }
+
 footer .copyright:before {
     content: '©';
 }
