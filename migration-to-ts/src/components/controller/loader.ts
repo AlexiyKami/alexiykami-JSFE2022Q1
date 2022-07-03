@@ -1,4 +1,4 @@
-import { VoidCallback, UrlOptions, statusCode } from './../../types/index';
+import { VoidCallback, UrlOptions, statusCode, endpointObj } from './../../types/index';
 
 class Loader {
     private baseLink: string;
@@ -9,12 +9,12 @@ class Loader {
     }
 
     protected getResp<T>(
-        { endpoint = '', options = {} },
+        obj: endpointObj,
         callback: VoidCallback<T> = () => {
             console.error('No callback for GET response');
         }
     ) {
-        this.load<T>('GET', endpoint, callback, options);
+        this.load<T>('GET', obj.endpoint, callback, obj.options);
     }
 
     private errorHandler(res: Response) {

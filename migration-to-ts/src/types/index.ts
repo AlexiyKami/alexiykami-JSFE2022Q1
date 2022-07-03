@@ -8,6 +8,11 @@ export enum statusCode {
 
 export type VoidCallback<T> = (data?: T) => void;
 
+export type endpointObj = {
+    endpoint: string;
+    options?: UrlOptions;
+};
+
 export type UrlOptions = {
     [prop: string]: string;
 };
