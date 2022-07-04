@@ -1,0 +1,60 @@
+button {
+  cursor: pointer;
+}
+
+.button {
+  height: 52px;
+  padding: 15px 45px;
+  border: none;
+  border-radius: 100px;
+  transition: all $hover-duration;
+}
+
+.button.primary:hover, .button.white:hover, button.round:hover {
+  transition: all $hover-duration;
+  @extend %color-primary-light;
+}
+
+.button.primary {
+  background-color: $primary-color;
+}
+
+.button.white {
+  background-color: transparent;
+  padding: 0;
+  border: 2px solid $primary-color;
+}
+
+button.round {
+  padding-bottom: 8px;
+  background-color: transparent;
+  border: 2px solid $primary-color;
+  border-radius: 50%;
+  width: 52px;
+  height: 52px;
+  transition: all $hover-duration;
+}
+
+button.round.right {
+  transform: rotate(180deg);
+  padding-bottom: 4px;
+}
+
+button.round.active {
+  cursor: default;
+  background-color: $primary-color;
+}
+
+button.round.active:hover {
+  border-color: $primary-color;
+}
+
+button.round[disabled] {
+  cursor: default;
+  color: $color-dark-s;
+  border-color: $color-dark-s;
+}
+
+button.round[disabled]:hover {
+  background-color: transparent;
+}

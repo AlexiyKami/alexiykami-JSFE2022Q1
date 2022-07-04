@@ -1,0 +1,492 @@
+section {
+  padding: 0 40px;
+
+  @media (max-width:$desktop-width) {
+    padding: 0 30px;
+  }
+  @media (max-width:$tablet-width) {
+    padding: 0 10px;
+  }
+}
+
+.start-screen {
+  display: flex;
+  margin-top: -120px;
+  padding-top: 60px;
+  padding-bottom: 120px;
+  height: 908px;
+  background: url('../../../assets/images/noise_transparent.png'),
+    radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), linear-gradient(0deg, #211f20, #211f20);
+  .start-screen-content {
+    margin-top: 120px;
+    padding-top: 163px;
+    margin-right: 42px;
+    h2 {
+      margin: 0;
+      line-height: 130%;
+      width: 310px;
+    }
+    p {
+      width: 460px;
+      margin-top: 42px;
+      color: $color-dark-s;
+    }
+    button {
+      margin-top: 42px;
+    }
+  }
+  img {
+    margin-top: 120px;
+    width: 698px;
+    height: 728px;
+  }
+
+  @media (max-width:$desktop-width) {
+    flex-direction: column;
+    height: 1195px;
+    align-items: center;
+    .start-screen-content {
+      padding-top: 0px;
+      margin-left: 0px;
+      margin-right: 0px;
+      button {
+        margin-left: 126px;
+      }
+    }
+    img {
+      margin-top: 100px;
+      margin-left: auto;
+      margin-right: 0px;
+      width: 569px;
+      height: 593px;
+    }
+  }
+
+  @media (max-width:$tablet-width) {
+    height: 853px;
+    .start-screen-content {
+      text-align: center;
+      h2 {
+        margin: 0 auto;
+        width: 200px;
+        font-size: 25px;
+        letter-spacing: 0.06em;
+      }
+      p {
+        width: 300px;
+      }
+      button {
+        margin-left: 0px;
+      }
+    }
+    img {
+      margin-top: 105px;
+      margin-left: 40px;
+      margin-right: 0px;
+      width: 260px;
+      height: 271px;
+    }
+  }
+}
+
+.about {
+  display: flex;
+  padding-top:80px;
+  padding-bottom: 100px;
+  height: 588px;
+  background-color: $color-light-xl;
+  img {
+    margin-left: 175px;
+  }
+  .about-content {
+    margin-left: 120px;
+    width: 430px;
+    h3 {
+      width: 370px;
+      margin-top: 14px;
+      color: $color-dark-l;
+    }
+    p {
+      margin-top: 25px;
+      color: $color-dark-xl;
+    }
+  }
+  @media (max-width:$desktop-width) {
+    flex-direction: column-reverse;
+    height: 1048px;
+    align-items: center;
+    img {
+      margin-top: 80px;
+      margin-left: 0px;
+      width: 300px;
+      height: 408px;
+    }
+    .about-content {
+      margin-left: 0px;
+    }
+  }
+  @media (max-width:$tablet-width) {
+    padding-top: 42px;
+    padding-bottom: 40px;
+    height: 974px;
+    .about-content {
+      height: 890px;
+      width: 270px;
+      h3 {
+        font-size: 25px;
+        margin: 0 auto;
+        width: 250px;
+        text-align: center;
+      }
+      p {
+        width: 270px;
+        margin: 0 auto;
+        margin-top: 25px;
+        text-align: justify;
+      }
+    }
+    img {
+      margin-top: 42px;
+      width: 260px;
+      height: 353px;
+    }
+  }
+}
+
+.pets {
+  @extend %flex-column-align-center;
+  background-color: $color-light-l;
+  padding-top: 80px;
+  padding-bottom: 100px;
+  h3 {
+    margin: 0 auto;
+    width: 400px;
+    text-align: center;
+  }
+  .slider {
+    .round {
+      margin-right: 53px;
+    }
+    .round.right {
+      margin-right: 0px;
+      margin-left: 53px;
+    }
+    @extend %flex-align-center;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    .carousel {
+      overflow: hidden;
+      .cards {
+        position: relative;
+        width: 990px;
+        height: 435px;
+        
+        @extend %flex-align-center;
+        justify-content: center;
+        gap: 90px;
+        .item-prev {
+          left: -1080px;
+        }
+        .item-curr {
+          left: 0px;
+          right: 0px;
+        }
+        .item-next {
+          right: -1080px;
+        }
+        .item-prev,.item-curr,.item-next {
+          position: absolute;
+          display: flex;
+          gap: 90px;
+        }
+        &.transition-left {
+          animation: transition-left $carousel-anim-duration ease-in-out;
+          @keyframes transition-left {
+            0% {left:0px}
+            65% {left:1150px}
+            100% {left:1080px}
+          }
+        }
+        &.transition-right {
+          animation: transition-right $carousel-anim-duration ease-in-out;
+          @keyframes transition-right {
+            0% {right:0px}
+            65% {right:1150px}
+            100% {right:1080px}
+          }
+        }
+      }
+    }
+    
+  }
+  @media (max-width:$desktop-width) {
+    .slider {
+      .round {
+        margin-right: 12px;
+      }
+      .round.right {
+        margin-right: 0px;
+        margin-left: 12px;
+      }
+      .carousel {
+        .cards {
+          width: 580px;
+          gap: 40px;
+          .item-prev,.item-curr,.item-next {
+            gap:40px;
+          }
+          .item-prev .card:last-child,.item-curr .card:last-child,.item-next .card:last-child {
+            display: none;
+          }
+          .item-prev {
+            left: -620px;
+          }
+          .item-next {
+            right: -620px;
+          }
+          &.transition-left {
+            animation: transition-left $carousel-anim-duration ease-in-out;
+            @keyframes transition-left {
+              0% {left:0px}
+              65% {left:680px}
+              100% {left:620px}
+            }
+          }
+          &.transition-right {
+            animation: transition-right $carousel-anim-duration ease-in-out;
+            @keyframes transition-right {
+              0% {right:0px}
+              65% {right:680px}
+              100% {right:620px}
+            }
+          }
+        }
+      }
+      
+    }
+  }
+  @media (max-width:$tablet-width) {
+    padding-top: 42px;
+    padding-bottom: 42px;
+    h3 {
+      font-size: 25px;
+      width: 300px;
+    }
+    .slider {
+      width: 270px;
+      margin-top: 42px;
+      margin-bottom: 42px;
+      flex-wrap: wrap;
+      justify-content: center;
+      .carousel {
+        order: -1;
+        .cards {
+          max-width: 270px;
+          margin-bottom: 20px;
+          .item-prev .card:nth-child(2),.item-curr .card:nth-child(2),.item-next .card:nth-child(2) {
+            display: none;
+          }
+          .item-prev {
+            left: -310px;
+          }
+          .item-next {
+            right: -310px;
+          }
+          &.transition-left {
+            animation: transition-left $carousel-anim-duration ease-in-out;
+            @keyframes transition-left {
+              0% {left:0px}
+              65% {left:350px}
+              100% {left:310px}
+            }
+          }
+          &.transition-right {
+            animation: transition-right $carousel-anim-duration ease-in-out;
+            @keyframes transition-right {
+              0% {right:0px}
+              65% {right:350px}
+              100% {right:310px}
+            }
+          }
+        }
+        .round {
+          margin-right: 40px;
+        }
+        .round.right {
+          margin-right: 0px;
+          margin-left: 40px;
+        }
+      }
+      
+    }
+  }
+}
+
+.help {
+  @extend %flex-column-align-center;
+  padding-top: 80px;
+  padding-bottom: 100px;
+  background-color: $color-light-xl;
+  h3 {
+    width: 310px;
+    text-align: center;
+  }
+  .list {
+    width: 1150px;  //mozilla fix
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 120px;
+    row-gap: 55px;
+    .item {
+      @extend %flex-column-align-center;
+      h4 {
+        margin-top: 28px;
+        line-height: 115%;
+      }
+    }
+  }
+  @media (max-width:$desktop-width) {
+    height: 779px;
+    .list {
+      width: 630px;
+      height: 449px;
+      column-gap: 60px;
+      .item {
+        width: 170px;
+        height: 113px;
+      }
+    }
+  }
+  @media (max-width:$tablet-width) {
+    padding-top: 42px;
+    padding-bottom: 42px;
+    height: 745px;
+    h3 {
+      font-size: 25px;
+      width: 250px;
+    }
+    .list {
+      margin-top: 42px;
+      width: 290px;
+      gap: 30px;
+      justify-content: stretch;
+      .item {
+        width: 130px;
+        height: 87px;
+        img {
+          height: 50px;
+          width: 50px;
+        }
+        h4 {
+          font-size: 15px;
+          margin-top: 19px;
+        }
+      }
+    }
+  }
+}
+
+.donation {
+  display: flex;
+  background-color: $color-light-l;
+  padding-top: 82px;
+  padding-bottom: 100px;
+  img {
+    margin-top: 11px;
+    margin-left: 143px;
+    width: 505px;
+    height: 261px;
+  }
+  .donation-content {
+    margin-left: 30px;
+    width: 380px;
+    h3 {
+      width: 300px;
+    }
+    h5 {
+      margin-top: 19px;
+      line-height: 110%;
+      letter-spacing: 0.06em;
+    }
+    .credit-card {
+      @extend %flex-align-center;
+      margin-top: 20px;
+      width: 350px;
+      border-radius: 9px;
+      background-color: $primary-color;
+      transition: background-color $hover-duration;
+      img {
+        margin: 10px 15px;
+        width: 30px;
+        height: 23px;
+      }
+      &:hover {
+        background-color: $primary-color-light;
+        transition: background-color $hover-duration;
+        span {
+          color: $color-dark-3xl;
+          transition: color $hover-duration;
+        }
+      }
+      span {
+        transition: color $hover-duration;
+      }
+    }
+    .legal-information {
+      margin-top: 20px;
+      color: $color-dark-m;
+      font-size: 12px;
+      line-height: 150%;
+      font-style: italic;
+    }
+  }
+  @media (max-width:$desktop-width) {
+    flex-direction: column-reverse;
+    padding-top: 79px;
+    align-items: center;
+    .donation-content {
+      margin-left: 0px;
+    }
+    img {
+      margin-left: 0px;
+      margin-top: 60px;
+    }
+  }
+  @media (max-width:$tablet-width) {
+    padding-top: 42px;
+    padding-bottom: 42px;
+    .donation-content {
+      width: 300px;
+      text-align: center;
+      h3 {
+        width: 220px;
+        font-size: 25px;
+        margin: 0 auto;
+      }
+      h5 {
+        margin-top: 21px;
+        letter-spacing: 0;
+      }
+      .credit-card {
+        margin: 0 auto;
+        margin-top: 25px;
+        width: 281px;
+        span {
+          font-size: 15px;
+        }
+      }
+    }
+    .legal-information {
+      width: 280px;
+      margin: 0 auto;
+      text-align: justify;
+    }
+    img {
+      margin-top: 42px;
+      width: 260px;
+      height: 135px;
+    }
+  }
+}

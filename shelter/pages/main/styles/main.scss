@@ -1,0 +1,13 @@
+@import 'scss/abstracts/variables';
+
+@import 'scss/base/normalize';
+@import 'scss/base/base';
+@import 'scss/base/typography';
+
+@import 'scss/components/buttons';
+@import 'scss/components/card';
+@import 'scss/components/modalMenu';
+
+@import 'scss/layout/header';
+@import 'scss/layout/main';
+@import 'scss/layout/footer';

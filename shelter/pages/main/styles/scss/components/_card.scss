@@ -1,0 +1,25 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: $color-light-s;
+  transition: background-color $hover-duration;
+  height: 435px;
+  width: 270px;
+  h4 {
+    margin-top: 28px;
+  }
+  button {
+    color: $color-dark-3xl;
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 188px;
+  }
+  &:hover {
+    cursor: pointer;
+    background-color: $color-light-xl;
+    button {
+      @extend %color-primary-light;
+    }
+  }
+}
