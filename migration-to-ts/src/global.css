@@ -1,7 +1,27 @@
 body {
+    margin: 0;
     color: #fff;
     background: #17181c;
     font-family: sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+::-webkit-scrollbar {
+    background-color: transparent;
+    width: 0.7rem;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 5rem;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 5rem;
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 header {
@@ -16,9 +36,9 @@ header h1 {
 .themes-buttons {
     display: flex;
     justify-content: center;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     width: 100%;
-    height: 120px;
+    height: 100%;
     overflow: auto;
     align-items: center;
     font: 300 1em 'Fira Sans', sans-serif;
@@ -50,6 +70,7 @@ footer {
     align-items: center;
     justify-content: space-between;
     padding: 1em;
+    font-size: 20px;
 }
 
 .footer-logo {
@@ -61,19 +82,35 @@ footer .footer-data.copyright {
 }
 
 footer .copyright {
-    font-size: 14px;
-    color: #333;
+    color: white;
     text-align: center;
 }
 
 footer .copyright a {
-    color: #444;
+    color: #555;
+    transition: color 0.2s;
 }
 
 footer .copyright a:hover {
-    color: #555;
+    color: #bbb;
 }
 
 footer .copyright:before {
     content: '©';
+}
+
+@media (max-width:640px) {
+    h1 {
+        text-align: center;
+    }
+    footer {
+        height: 140px;
+        flex-direction: column;
+    }
+    footer > a {
+        order: -1;
+    }
+    footer > p {
+        margin: 0;
+    }
 }
