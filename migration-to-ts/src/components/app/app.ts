@@ -10,11 +10,11 @@ class App {
         this.view = new AppView();
     }
 
-    public start() {
-        (document.querySelector('.sources') as HTMLElement).addEventListener('click', (e) =>
+    public start(): void {
+        (document.querySelector('.sources') as HTMLElement).addEventListener('click', (e: MouseEvent) =>
             this.controller.getNews<IDataArticles>(e, (data) => this.view.drawNews(data as IDataArticles))
         );
-        (document.querySelector('.themes-buttons') as HTMLElement).addEventListener('click', (e) =>
+        (document.querySelector('.themes-buttons') as HTMLElement).addEventListener('click', (e: MouseEvent) =>
             this.controller.getTopHeadlines<IDataArticles>(e, (data) => this.view.drawNews(data as IDataArticles))
         );
         this.controller.getSources<IDataSources>((data) => this.view.drawSources(data as IDataSources));

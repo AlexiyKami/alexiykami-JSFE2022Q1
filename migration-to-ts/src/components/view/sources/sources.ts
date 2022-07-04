@@ -2,11 +2,11 @@ import { ISource } from '../../../types/index';
 import './sources.css';
 
 class Sources {
-    public draw(data: Readonly<ISource[]>) {
+    public draw(data: Readonly<ISource[]>): void {
         const fragment: DocumentFragment = document.createDocumentFragment();
         const sourceItemTemp: HTMLTemplateElement = document.querySelector('#sourceItemTemp') as HTMLTemplateElement;
 
-        data.forEach((item) => {
+        data.forEach((item: ISource) => {
             const sourceClone: DocumentFragment = sourceItemTemp.content.cloneNode(true) as DocumentFragment;
 
             (sourceClone.querySelector('.source__item-name') as HTMLElement).textContent = item.name;

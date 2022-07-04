@@ -2,7 +2,7 @@ import { VoidCallback } from './../../types/index';
 import AppLoader from './appLoader';
 
 class AppController extends AppLoader {
-    public getSources<T>(callback: VoidCallback<T>) {
+    public getSources<T>(callback: VoidCallback<T>): void {
         super.getResp<T>(
             {
                 endpoint: 'sources',
@@ -11,7 +11,7 @@ class AppController extends AppLoader {
         );
     }
 
-    public getNews<T>(e: Event, callback: VoidCallback<T>) {
+    public getNews<T>(e: Event, callback: VoidCallback<T>): void {
         let target: HTMLElement = e.target as HTMLElement;
         const newsContainer: HTMLElement = e.currentTarget as HTMLElement;
 
@@ -36,7 +36,7 @@ class AppController extends AppLoader {
         }
     }
 
-    public getTopHeadlines<T>(e: Event, callback: VoidCallback<T>) {
+    public getTopHeadlines<T>(e: Event, callback: VoidCallback<T>): void {
         let target: HTMLElement = e.target as HTMLElement;
         const newsContainer: HTMLElement = e.currentTarget as HTMLElement;
 

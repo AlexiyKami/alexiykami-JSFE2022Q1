@@ -10,11 +10,11 @@ export class AppView {
         this.sources = new Sources();
     }
 
-    public drawNews(data: Readonly<IDataArticles>) {
+    public drawNews(data: Readonly<IDataArticles>): void {
         this.news.draw(data.articles);
     }
 
-    public drawSources(data: Readonly<IDataSources>) {
+    public drawSources(data: Readonly<IDataSources>): void {
         this.sources.draw(data.sources);
     }
 }

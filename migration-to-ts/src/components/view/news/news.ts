@@ -2,13 +2,13 @@ import { IArticle } from '../../../types/index';
 import './news.css';
 
 class News {
-    public draw(data: Readonly<IArticle[]>) {
+    public draw(data: Readonly<IArticle[]>): void {
         const news: Readonly<IArticle[]> = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
 
         const fragment: DocumentFragment = document.createDocumentFragment();
         const newsItemTemp: HTMLTemplateElement = document.querySelector('#newsItemTemp') as HTMLTemplateElement;
 
-        news.forEach((item, idx) => {
+        news.forEach((item: IArticle, idx: number) => {
             const newsClone: DocumentFragment = newsItemTemp.content.cloneNode(true) as DocumentFragment;
 
             if (idx % 2) (newsClone.querySelector('.news__item') as Element).classList.add('alt');
