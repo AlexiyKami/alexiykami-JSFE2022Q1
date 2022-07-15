@@ -28,15 +28,17 @@ export interface IDataSources {
     status: string;
 }
 
+interface IArticleSource {
+    id: string;
+    name: string;
+}
+
 export interface IArticle {
     author: string;
     content: string;
     description: string;
     publishedAt: string;
-    source: {
-        id: string;
-        name: string;
-    };
+    source: IArticleSource;
     title: string;
     url: string;
     urlToImage: string;
