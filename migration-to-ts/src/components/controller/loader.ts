@@ -1,9 +1,7 @@
 import { VoidCallback, UrlOptions, statusCode, endpointObj } from './../../types/index';
 
 class Loader {
-    private baseLink: string;
-    private options: UrlOptions;
-    constructor(baseLink: string, options: UrlOptions) {
+    constructor(private baseLink: string, private options: UrlOptions) {
         this.baseLink = baseLink;
         this.options = options;
     }
