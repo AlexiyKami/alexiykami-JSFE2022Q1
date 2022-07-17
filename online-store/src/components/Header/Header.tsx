@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import style from './Header.module.css';
+import { searchProducts } from '../../redux/actions';
 
-export default function Header(): JSX.Element {
+function Header(props: any): JSX.Element {
+  const [title, setTitle] = useState('');
+  function onChangeInputHandler(e: React.ChangeEvent<HTMLInputElement>) {
+    setTitle(e.target.value);
+    props.searchProducts(e.target.value);
+  }
+  function onClickButtonHandler(e: React.MouseEvent<HTMLButtonElement>) {
+    setTitle('');
+    props.searchProducts('');
+  }
   return (
     <header className={style.header}>
       <div className={style.header__logo}>
@@ -9,19 +20,33 @@ export default function Header(): JSX.Element {
         <h5 className={style.logo__miniTitle}>online store</h5>
       </div>
       <div className={style.header__searchForm}>
-        <button className={style.searchForm__cross}></button>
+        <button className={style.searchForm__cross} onClick={onClickButtonHandler}></button>
         <input
           className={style.searchForm__input}
           type="text"
           autoFocus
           placeholder="Search..."
           autoComplete="off"
+          onChange={onChangeInputHandler}
+          value={title}
         ></input>
       </div>
       <div className={style.header__cart}>
         <img className={style.cart__image} src="img/cart.svg" alt="cart"></img>
-        <div className={style.cart__quantity}>0</div>
+        <div className={style.cart__quantity}>{props.cart.length}</div>
       </div>
     </header>
   );
 }
+
+const mapStateToProps = (state: any) => {
+  return {
+    cart: state.cart,
+  };
+};
+
+const mapDispatchToProps = {
+  searchProducts,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
