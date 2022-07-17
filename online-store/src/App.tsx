@@ -1,21 +1,14 @@
 import './App.css';
-import logo from './logo.svg';
-import SVG from 'react-inlinesvg';
+import Footer from './components/Footer/Footer';
+import Header from './components/Header/Header';
+import Main from './components/Main/Main';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <SVG src={logo} className="App-logo"/>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
+    <div className="app-wrapper">
+      <Header />
+      <Main />
+      <Footer />
     </div>
   );
 }
-
-export default App;

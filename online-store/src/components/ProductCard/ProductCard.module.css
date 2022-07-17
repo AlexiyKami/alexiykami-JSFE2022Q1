@@ -1,0 +1,34 @@
+.card {
+  background-color: white;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 220px;
+  height: 450px;
+  border: 2px solid rgb(231, 231, 231);
+  border-radius: 15px;
+}
+
+.card__imgWrapper {
+  height: 250px;
+  width: 170px;
+}
+
+.imgWrapper__img {
+  height: 100%;
+  width: 100%;
+}
+
+.card__text {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.text__name {
+  height: 3rem;
+}
