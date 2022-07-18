@@ -3,8 +3,14 @@ import { connect } from 'react-redux';
 import style from './Header.module.css';
 import { searchProducts } from '../../redux/actions';
 import { Link } from 'react-router-dom';
+import { IProduct } from '../../types/types';
 
-function Header(props: any): JSX.Element {
+type HeaderProps = {
+  cart: IProduct[],
+  searchProducts: Function,
+}
+
+function Header(props: HeaderProps): JSX.Element {
   const [title, setTitle] = useState('');
   function onChangeInputHandler(e: React.ChangeEvent<HTMLInputElement>) {
     setTitle(e.target.value);

@@ -4,7 +4,12 @@ import { IProduct } from '../../types/types';
 import ProductCard from '../ProductCard/ProductCard';
 import style from './Cart.module.css';
 
-function Cart(props: any) {
+type CartProps = {
+  cart : IProduct[],
+  removeFromCart: Function,
+}
+
+function Cart(props: CartProps) {
   console.log(props);
   const productElements = props.cart.map((product: IProduct) => {
     return <ProductCard cart={props.cart} removeFromCart={props.removeFromCart} key={product.id} product={product} />;
