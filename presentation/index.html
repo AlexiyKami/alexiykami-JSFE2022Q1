@@ -1,0 +1,229 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Typescript</h1>
+					<p class="fragment">Is a superset of JavaScript</p>
+					<p class="fragment">with static typing</p>
+					<p class="fragment">object-oriented</p>
+				</section>
+				<section>
+					<h1>Typescript</h1>
+					<p class="fragment">open-source language</p>
+					<p class="fragment">created by Microsoft in 2012</p>
+				</section>
+				<section>
+					<h1>Installation</h1>
+					<pre><code>npm install typescript</code></pre>
+				</section>
+				<section>
+					<h1>Using</h1>
+					<ul>
+						<li class="fragment">1. Create a file called helloworld.ts</li>
+						<li class="fragment">
+							2. Write the following code in it:
+							<pre><code data-trim data-noescape>
+								const a: string = "hello world";
+								console.log(a);
+							</code></pre>
+						</li>
+						<li class="fragment">3. Run the tsc command</li>
+						<li class="fragment">4. You got a helloworld.js file that you can run</li>
+					</ul>
+				</section>
+				<section>
+					<h1>Primitive types</h1>
+					<ul>
+						<li class="fragment">
+							Number
+						</li>
+						<li class="fragment">
+							String
+						</li>
+						<li class="fragment">
+							Boolean
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h1>Special types</h1>
+					<ul>
+						<li class="fragment">
+							Any
+						</li>
+						<li class="fragment">
+							Void
+						</li>
+						<li class="fragment">
+							Unknown
+						</li>
+						<li class="fragment">
+							Never
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h1>Arrays</h1>
+					<ul>
+						<div class="fragment">
+							Syntax:
+							<pre><code data-line-numbers data-trim data-noescape style="width: fit-content">
+								<script type="text/template">
+									const arr: number[];
+									// or
+									const arr2: Array<number>;
+								</script>
+							</code></pre>
+						</div>
+					</ul>
+				</section>
+				<section>
+					<h1>Tuples</h1>
+					<div class="fragment">
+						Syntax:
+						<pre><code data-line-numbers data-trim data-noescape>type Tuple = [string, number];</code></pre>
+					</div>
+				</section>
+				<section>
+					<h1>Enums</h1>
+					<div class="fragment">
+						Syntax:
+						<pre><code data-line-numbers data-trim data-noescape>
+							enum Direction {
+								Up = 1,
+								Down,
+								Left,
+								Right,
+							};
+						</code></pre>
+					</div>
+				</section>
+				<section>
+					<h1>Union Types</h1>
+					<div class="fragment">
+						Syntax:
+						<pre><code data-line-numbers data-trim data-noescape>
+							let code: (string | number);
+						</code></pre>
+					</div>
+				</section>
+				<section>
+					<h1>Classes</h1>
+					<div class="fragment">
+						Declaration:
+						<pre style="width: 60%"><code data-line-numbers data-trim data-noescape>
+							class Point {
+								x: number;
+								y: number;
+								constructor(x: number, y: string) {
+									this.x = x;
+									this.y = y;
+								}
+								getX() {
+									return this.x;
+								}
+							}
+						</code></pre>
+					</div>
+					<div class="fragment">
+						Create an instance:
+						<pre style="width: 60%"><code data-line-numbers data-trim data-noescape>
+							const pt = new Point();
+						</code></pre>
+					</div>
+				</section>
+				<section>
+					<h1>Static members</h1>
+					<div class="fragment">
+						<pre style="width: 60%"><code data-line-numbers data-trim data-noescape>
+							class Circle {
+								static pi: number = 3.14;
+							}
+							Circle.pi; // returns 3.14
+						</code></pre>
+					</div>
+				</section>
+				<section>
+					<h1>Readonly members</h1>
+					<div class="fragment">
+						<pre style="width: 60%"><code data-line-numbers data-trim data-noescape>
+							class Foo {
+								readonly bar: number = 123;
+							}
+						</code></pre>
+					</div>
+				</section>
+				<section>
+					<h1>Interfaces</h1>
+					<div class="fragment">
+						Declaration:
+						<pre><code data-line-numbers data-trim data-noescape>
+							interface User {
+								id: number
+								name: string;
+								age?: number;
+							}
+						</code></pre>
+						<p class="fragment">Property with "?" are optional</p>
+					</div>
+				</section>
+				<section>
+					<h1>Generics</h1>
+					<div class="fragment">
+						<pre style="width: 60%"><code data-line-numbers data-trim data-noescape>
+							<script  type="text/template">
+								function identity<T>(value: T): T {
+									return value;
+								}
+
+								const result = identity<number>(123);
+							</script>
+							
+						</code></pre>
+					</div>
+				</section>
+				<section>
+					<h1>Conclusion</h1>
+					<p>Typescript is:</p>
+					<p class="fragment">- convenient development tool</p>
+					<p class="fragment">- strongly typed</p>
+					<p class="fragment">- catch errors at compile time</p>
+				</section>
+				<section>
+					<h1>Thanks for watching!</h1>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
