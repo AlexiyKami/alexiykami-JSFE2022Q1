@@ -16,3 +16,8 @@ export interface ISmartphone extends IProduct {
   RAM: string;
   memory: string;
 }
+
+export type Action<T> = {
+  type: string;
+  payload: T;
+}
