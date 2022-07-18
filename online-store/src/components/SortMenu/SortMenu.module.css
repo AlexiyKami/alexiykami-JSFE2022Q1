@@ -1,0 +1,11 @@
+.sortMenu {
+  padding-left: 10px;
+  padding-bottom: 10px;
+  height: 50px;
+  display: flex;
+  gap: 10px;
+}
+
+.sortMenu__byName, .sortMenu__byYear {
+  border-radius: 10px;
+}
