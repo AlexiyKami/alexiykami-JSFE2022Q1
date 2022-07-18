@@ -1,17 +1,23 @@
+import React from 'react';
 import style from './ModalWindow.module.css';
 
-export default function ModalWindow(props: any) {
-  return (
-    <div
-      className={props.active ? style.modal + ' ' + style.active : style.modal}
-      onClick={() => props.setActive(false)}
-    >
+export default class ModalWindow extends React.Component<any> {
+  constructor(props: any) {
+    super(props);
+  }
+  render() {
+    return (
       <div
-        className={props.active ? style.modal__window + ' ' + style.active : style.modal__window}
-        onClick={(e) => e.stopPropagation()}
+        className={this.props.active ? style.modal + ' ' + style.active : style.modal}
+        onClick={() => this.props.setActive(false)}
       >
-        <p className={style.window__text}>{props.children}</p>
+        <div
+          className={this.props.active ? style.modal__window + ' ' + style.active : style.modal__window}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <p className={style.window__text}>{this.props.children}</p>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
