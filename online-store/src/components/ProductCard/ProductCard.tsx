@@ -14,7 +14,7 @@ export default function ProductCard(props: any): JSX.Element {
     if (!isProductInCart()) {
       if (props.cart.length >= 20) {
         props.setModalActive(true);
-        setTimeout(() => props.setModalActive(false), 2000);
+        setTimeout(() => props.setModalActive(false), 2500);
       } else {
         (event.target as Element).classList.add('active');
         props.addToCart(props.product);
@@ -41,7 +41,15 @@ export default function ProductCard(props: any): JSX.Element {
         <h3 className={style.text__price}>
           {props.product.quantity !== 0 ? `US $${props.product.price}` : 'Out of stock'}
         </h3>
-        <button className={style.text__button} disabled={props.product.quantity == 0} onClick={onButtonClickHandler}>
+        <button
+          className={
+            isProductInCart()
+              ? style.text__button + ' ' + style.buttonPrimary + ' ' + style.active
+              : style.text__button + ' ' + style.buttonPrimary
+          }
+          disabled={props.product.quantity == 0}
+          onClick={onButtonClickHandler}
+        >
           {isProductInCart() ? 'In Cart' : 'Add To Cart'}
         </button>
       </div>

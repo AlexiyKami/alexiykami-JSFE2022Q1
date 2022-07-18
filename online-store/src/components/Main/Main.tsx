@@ -96,7 +96,11 @@ function Main(props: any): JSX.Element {
     });
   const brands = [...new Set<string>(props.products.map((product: IProduct) => product.brand))].sort().map((item) => (
     <p
-      className={props.filter.brand.includes(item) ? style.filters__value + ' ' + style.active : style.filters__value}
+      className={
+        props.filter.brand.includes(item)
+          ? style.filters__value + ' ' + style.buttonPrimary + ' ' + style.active
+          : style.filters__value + ' ' + style.buttonPrimary
+      }
       onClick={(e) => {
         props.filterByBrand(e.currentTarget.textContent);
         e.currentTarget.classList.toggle(style.active);
@@ -107,7 +111,11 @@ function Main(props: any): JSX.Element {
   ));
   const colors = [...new Set<string>(props.products.map((product: IProduct) => product.color))].sort().map((item) => (
     <p
-      className={props.filter.color.includes(item) ? style.filters__value + ' ' + style.active : style.filters__value}
+      className={
+        props.filter.color.includes(item)
+          ? style.filters__value + ' ' + style.buttonPrimary + ' ' + style.active
+          : style.filters__value + ' ' + style.buttonPrimary
+      }
       onClick={(e) => {
         props.filterByColor(e.currentTarget.textContent);
       }}
@@ -121,8 +129,8 @@ function Main(props: any): JSX.Element {
       <p
         className={
           props.filter.numberOfCameras.includes(item.toString())
-            ? style.filters__value + ' ' + style.active
-            : style.filters__value
+            ? style.filters__value + ' ' + style.buttonPrimary + ' ' + style.active
+            : style.filters__value + ' ' + style.buttonPrimary
         }
         onClick={(e) => {
           props.filterByCameras(e.currentTarget.textContent);
@@ -175,8 +183,6 @@ function Main(props: any): JSX.Element {
           <Slider
             range
             allowCross={false}
-            dots
-            step={5}
             min={minQuantity}
             max={maxQuantity}
             value={sliderQuantity}
@@ -207,19 +213,19 @@ function Main(props: any): JSX.Element {
         </div>
         <div className={style.filters__byBrand}>
           <h3 className={style.filters__title}>Brands</h3>
-          {brands.length ? brands : <p>No filters</p>}
+          <div className={style.filters__elements}>{brands.length ? brands : <p>No filters</p>}</div>
         </div>
         <div className={style.filters__byColor}>
           <h3 className={style.filters__title}>Colors</h3>
-          {colors.length ? colors : <p>No filters</p>}
+          <div className={style.filters__elements}>{colors.length ? colors : <p>No filters</p>}</div>
         </div>
         <div className={style.filters__byCameras}>
           <h3 className={style.filters__title}>Count of cameras</h3>
-          {cameras.length ? cameras : <p>No filters</p>}
+          <div className={style.filters__elements}>{cameras.length ? cameras : <p>No filters</p>}</div>
         </div>
         <div className={style.filters__buttons}>
           <div className={style.buttons__onlyPopular}>
-            <h3 className={style.filters__title}>Only popular</h3>
+            <h3 className={style.filters__title + ' ' + style.onlyPopular__title}>Only popular</h3>
             <input
               checked={props.filter.isPopular}
               type="checkbox"
@@ -227,8 +233,14 @@ function Main(props: any): JSX.Element {
               onChange={(e) => props.filterByPopular(e.target.checked)}
             />
           </div>
-          <button onClick={resetAllFilters} className={style.buttons__resetFilters}>
+          <button onClick={resetAllFilters} className={style.buttons__resetFilters + ' ' + style.buttonPrimary}>
             Reset Filters
+          </button>
+          <button
+            onClick={() => localStorage.clear()}
+            className={style.buttons__resetStorage + ' ' + style.buttonPrimary}
+          >
+            Reset LocalStorage
           </button>
         </div>
       </div>

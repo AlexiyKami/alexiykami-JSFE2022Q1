@@ -27,6 +27,14 @@
   justify-content: center;
   align-items: center;
   border-radius: 20px;
+  opacity: 0;
+  transition: 0.5s;
+  transform: scale(0.8);
+}
+
+.modal__window.active {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .window__text {

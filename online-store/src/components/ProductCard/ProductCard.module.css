@@ -12,7 +12,7 @@
 }
 
 .card__imgWrapper {
-  height: 250px;
+  height: 200px;
   width: 170px;
 }
 
@@ -30,5 +30,35 @@
 }
 
 .text__name {
-  height: 3rem;
+  min-height: 3rem;
+}
+
+.text__price {
+  margin: 5px;
+}
+
+.buttonPrimary {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 0.3rem;
+  background-color: white;
+}
+
+.buttonPrimary:hover {
+  transition: 0.3s;
+  color: var(--main-color);
+  background-color: rgb(255, 231, 231);
+}
+
+.buttonPrimary.active {
+  border-color: var(--main-color);
+  background-color: rgb(255, 145, 145)
+}
+
+.buttonPrimary.active:hover {
+  color: white;
+}
+
+.buttonPrimary:disabled {
+  display: none;
 }
