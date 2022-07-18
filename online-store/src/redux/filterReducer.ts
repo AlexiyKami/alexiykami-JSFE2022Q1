@@ -1,4 +1,4 @@
-import { Action } from '../types/types';
+import { Action, FilterState } from '../types/types';
 import {
   FILTER_BY_QUANTITY,
   FILTER_BY_YEAR,
@@ -8,15 +8,7 @@ import {
   FILTER_BY_POPULAR,
   RESET_FILTERS,
 } from './types';
-type State = {
-  year?: number[];
-  quantity?: number[];
-  brand: string[];
-  color: string[];
-  numberOfCameras: number[];
-  isPopular: boolean;
-};
-const initialState: State = JSON.parse(localStorage.getItem('state') as string)
+const initialState: FilterState = JSON.parse(localStorage.getItem('state') as string)
   ? JSON.parse(localStorage.getItem('state') as string).filter
   : {
       brand: [],

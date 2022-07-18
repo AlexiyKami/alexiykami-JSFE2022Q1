@@ -1,12 +1,8 @@
+import { SortState } from './../types/types';
 import { Action } from '../types/types';
 import { SORT_BY_NAME, SORT_BY_YEAR } from './types';
 
-type State = {
-  sortByName: string;
-  sortByYear: string;
-};
-
-const initialState: State = JSON.parse(localStorage.getItem('state') as string)
+const initialState: SortState = JSON.parse(localStorage.getItem('state') as string)
   ? JSON.parse(localStorage.getItem('state') as string).sort
   : {
       sortByName: '0',

@@ -1,5 +1,9 @@
+export type Data = {
+  products: ISmartphone[] | IProduct[];
+};
+
 export interface IProduct {
-  id: number,
+  id: number;
   brand: string;
   type: string;
   name: string;
@@ -8,7 +12,7 @@ export interface IProduct {
   quantity: number;
   price: number;
   imgSrc: string;
-  isPopular: boolean,
+  isPopular: boolean;
 }
 
 export interface ISmartphone extends IProduct {
@@ -20,4 +24,27 @@ export interface ISmartphone extends IProduct {
 export type Action<T> = {
   type: string;
   payload: T;
-}
+};
+
+export type ActionCreator<T> = (value: T) => Action<T>;
+
+export type State = {
+  cart: IProduct[];
+  filter: FilterState;
+  products: Data;
+  sort: SortState;
+};
+
+export type FilterState = {
+  year?: number[];
+  quantity?: number[];
+  brand: string[];
+  color: string[];
+  numberOfCameras: number[];
+  isPopular: boolean;
+};
+
+export type SortState = {
+  sortByName: string;
+  sortByYear: string;
+};

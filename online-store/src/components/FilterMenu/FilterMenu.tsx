@@ -2,7 +2,7 @@ import style from './FilterMenu.module.css';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import { useState } from 'react';
-import { IProduct, ISmartphone } from '../../types/types';
+import { ActionCreator, FilterState, IProduct, ISmartphone, State } from '../../types/types';
 import { connect } from 'react-redux';
 import {
   filterByYear,
@@ -14,7 +14,19 @@ import {
   resetFilters,
 } from '../../redux/actions';
 
-function FilterMenu(props: any): JSX.Element {
+type FilterMenuProps = {
+  products: ISmartphone[] | IProduct[];
+  filter: FilterState;
+  filterByYear: ActionCreator<number[]>;
+  filterByQuantity: ActionCreator<number[]>;
+  filterByBrand: ActionCreator<string>;
+  filterByColor: ActionCreator<string>;
+  filterByCameras: ActionCreator<number>;
+  filterByPopular: ActionCreator<boolean>;
+  resetFilters: () => void;
+};
+
+function FilterMenu(props: FilterMenuProps): JSX.Element {
   const resetAllFilters = () => {
     props.resetFilters();
     setSliderYear([minYear, maxYear]);
@@ -33,46 +45,53 @@ function FilterMenu(props: any): JSX.Element {
     props.filter.quantity ? props.filter.quantity : [minQuantity, maxQuantity]
   );
 
-  const brands = [...new Set<string>(props.products.map((product: IProduct) => product.brand))].sort().map((item) => (
-    <p
-      className={
-        props.filter.brand.includes(item)
-          ? style.filters__value + ' ' + style.buttonPrimary + ' ' + style.active
-          : style.filters__value + ' ' + style.buttonPrimary
-      }
-      onClick={(e) => {
-        props.filterByBrand(e.currentTarget.textContent);
-        e.currentTarget.classList.toggle(style.active);
-      }}
-    >
-      {item}
-    </p>
-  ));
-  const colors = [...new Set<string>(props.products.map((product: IProduct) => product.color))].sort().map((item) => (
-    <p
-      className={
-        props.filter.color.includes(item)
-          ? style.filters__value + ' ' + style.buttonPrimary + ' ' + style.active
-          : style.filters__value + ' ' + style.buttonPrimary
-      }
-      onClick={(e) => {
-        props.filterByColor(e.currentTarget.textContent);
-      }}
-    >
-      {item}
-    </p>
-  ));
-  const cameras = [...new Set<string>(props.products.map((product: ISmartphone) => product.numberOfCameras))]
+  const brands = [...new Set<string>(props.products.map((product: IProduct) => product.brand))]
     .sort()
-    .map((item) => (
+    .map((item, index) => (
       <p
+        key={index}
         className={
-          props.filter.numberOfCameras.includes(item.toString())
+          props.filter.brand.includes(item)
             ? style.filters__value + ' ' + style.buttonPrimary + ' ' + style.active
             : style.filters__value + ' ' + style.buttonPrimary
         }
         onClick={(e) => {
-          props.filterByCameras(e.currentTarget.textContent);
+          props.filterByBrand(e.currentTarget.textContent as string);
+          e.currentTarget.classList.toggle(style.active);
+        }}
+      >
+        {item}
+      </p>
+    ));
+  const colors = [...new Set<string>(props.products.map((product: IProduct) => product.color))]
+    .sort()
+    .map((item, index) => (
+      <p
+        key={index}
+        className={
+          props.filter.color.includes(item)
+            ? style.filters__value + ' ' + style.buttonPrimary + ' ' + style.active
+            : style.filters__value + ' ' + style.buttonPrimary
+        }
+        onClick={(e) => {
+          props.filterByColor(e.currentTarget.textContent as string);
+        }}
+      >
+        {item}
+      </p>
+    ));
+  const cameras = [...new Set<number>(props.products.map((product) => (product as ISmartphone).numberOfCameras))]
+    .sort()
+    .map((item, index) => (
+      <p
+        key={index}
+        className={
+          props.filter.numberOfCameras.includes(item)
+            ? style.filters__value + ' ' + style.buttonPrimary + ' ' + style.active
+            : style.filters__value + ' ' + style.buttonPrimary
+        }
+        onClick={(e) => {
+          props.filterByCameras(Number(e.currentTarget.textContent) as number);
           e.currentTarget.classList.toggle(style.active);
         }}
       >
@@ -112,7 +131,7 @@ function FilterMenu(props: any): JSX.Element {
           }}
           onChange={(value) => {
             setSliderYear(value as number[]);
-            props.filterByYear(value);
+            props.filterByYear(value as number[]);
           }}
         />
         {sliderYear[0]}-{sliderYear[1]}
@@ -145,7 +164,7 @@ function FilterMenu(props: any): JSX.Element {
           }}
           onChange={(value) => {
             setSliderQuantity(value as number[]);
-            props.filterByQuantity(value);
+            props.filterByQuantity(value as number[]);
           }}
         />
         {sliderQuantity[0]}-{sliderQuantity[1]}
@@ -186,7 +205,7 @@ function FilterMenu(props: any): JSX.Element {
   );
 }
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: State) => {
   return {
     products: state.products.products,
     filter: state.filter,

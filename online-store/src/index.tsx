@@ -19,7 +19,6 @@ const store = createStore(rootReducer, composeEnhancers());
 
 store.subscribe(() => {
   localStorage.setItem('state', JSON.stringify(store.getState()));
-  console.log(JSON.parse(localStorage.getItem('state') as string));
 });
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);

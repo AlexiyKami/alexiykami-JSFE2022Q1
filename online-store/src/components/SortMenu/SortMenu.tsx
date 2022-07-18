@@ -1,9 +1,15 @@
 import style from './SortMenu.module.css';
 import { connect } from 'react-redux';
 import { sortByName, sortByYear } from '../../redux/actions';
+import { ActionCreator, SortState, State } from '../../types/types';
 
-function SortMenu(props: any): JSX.Element {
-  console.log(props);
+type SortMenuProps = {
+  sort: SortState;
+  sortByName: ActionCreator<string>;
+  sortByYear: ActionCreator<string>;
+};
+
+function SortMenu(props: SortMenuProps): JSX.Element {
   return (
     <div className={style.sortMenu}>
       <select
@@ -32,10 +38,8 @@ function SortMenu(props: any): JSX.Element {
   );
 }
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: State) => {
   return {
-    products: state.products.products,
-    filter: state.filter,
     sort: state.sort,
   };
 };

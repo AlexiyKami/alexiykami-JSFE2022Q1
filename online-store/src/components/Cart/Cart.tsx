@@ -1,23 +1,28 @@
 import { connect } from 'react-redux';
 import { removeFromCart } from '../../redux/actions';
-import { IProduct } from '../../types/types';
+import { IProduct, ISmartphone, State } from '../../types/types';
 import ProductCard from '../ProductCard/ProductCard';
 import style from './Cart.module.css';
 
 type CartProps = {
-  cart: IProduct[];
+  cart: IProduct[] | ISmartphone[];
   removeFromCart: (id: number) => {
     type: string;
     payload: number;
   };
 };
 
-function Cart(props: CartProps) {
-  console.log(props);
-  const productElements = props.cart.map((product: IProduct) => {
-    return <ProductCard cart={props.cart} removeFromCart={props.removeFromCart} key={product.id} product={product} />;
+function Cart(props: CartProps): JSX.Element {
+  const productElements = props.cart.map((product: IProduct | ISmartphone) => {
+    return (
+      <ProductCard
+        cart={props.cart}
+        removeFromCart={props.removeFromCart}
+        key={product.id}
+        product={product as ISmartphone}
+      />
+    );
   });
-  console.log(productElements);
   return (
     <main className={style.cartWrapper}>
       <h3 className={style.cartWrapper__title}>
@@ -30,7 +35,7 @@ function Cart(props: CartProps) {
   );
 }
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: State) => {
   return {
     cart: state.cart,
   };

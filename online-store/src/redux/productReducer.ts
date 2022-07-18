@@ -1,5 +1,5 @@
 import { SEARCH_PRODUCTS } from './types';
-import data, { Data } from './../state/state';
+import data from './../state/state';
 import { Action } from '../types/types';
 
 const initialState = data;

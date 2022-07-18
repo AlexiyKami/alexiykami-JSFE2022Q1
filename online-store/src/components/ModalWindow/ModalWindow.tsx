@@ -1,8 +1,14 @@
 import React from 'react';
 import style from './ModalWindow.module.css';
 
-export default class ModalWindow extends React.Component<any> {
-  constructor(props: any) {
+type ModalWindowProps = {
+  active: boolean;
+  setActive: React.Dispatch<boolean>;
+  children: JSX.Element | string;
+};
+
+export default class ModalWindow extends React.Component<ModalWindowProps> {
+  constructor(props: ModalWindowProps) {
     super(props);
   }
   render() {

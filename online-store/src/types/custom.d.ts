@@ -1,8 +1,5 @@
-declare module "*.svg" {
-  const content: any;
-  export default content;
-}
+declare module '*.svg';
 
-declare module "*.module.css";
+declare module '*.module.css';
 
 declare module '*.jpg';

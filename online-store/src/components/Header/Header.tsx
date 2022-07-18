@@ -3,15 +3,12 @@ import { connect } from 'react-redux';
 import style from './Header.module.css';
 import { searchProducts } from '../../redux/actions';
 import { Link } from 'react-router-dom';
-import { IProduct } from '../../types/types';
+import { ActionCreator, IProduct, State } from '../../types/types';
 import cartImg from '../../img/cart.svg';
 
 type HeaderProps = {
   cart: IProduct[];
-  searchProducts: (searchQuery: string) => {
-    type: string;
-    payload: string;
-  };
+  searchProducts: ActionCreator<string>;
 };
 
 function Header(props: HeaderProps): JSX.Element {
@@ -59,7 +56,7 @@ function Header(props: HeaderProps): JSX.Element {
   );
 }
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: State) => {
   return {
     cart: state.cart,
   };

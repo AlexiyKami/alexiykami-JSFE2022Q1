@@ -1,4 +1,4 @@
-import { ISmartphone, IProduct } from './../types/types';
+import { Data } from './../types/types';
 import id0 from './../img/redmi-note-11s.jpg';
 import id1 from './../img/redmi-note-10s.jpg';
 import id2 from './../img/iphone13.jpg';
@@ -29,10 +29,6 @@ import id26 from './../img/honor50.jpg';
 import id27 from './../img/redmi-note-8.jpg';
 import id28 from './../img/iphone-xr.jpg';
 import id29 from './../img/poco-m4-pro.jpg';
-
-export type Data = {
-  products: ISmartphone[] | IProduct[];
-};
 
 const data: Data = {
   products: [

@@ -1,8 +1,16 @@
 import React from 'react';
-import { IProduct } from '../../types/types';
+import { ActionCreator, IProduct, ISmartphone } from '../../types/types';
 import style from './ProductCard.module.css';
 
-export default function ProductCard(props: any): JSX.Element {
+type ProductCardProps = {
+  cart: IProduct[] | ISmartphone[];
+  product: ISmartphone;
+  addToCart?: ActionCreator<object>;
+  removeFromCart: ActionCreator<number>;
+  setModalActive?: React.Dispatch<boolean>;
+};
+
+export default function ProductCard(props: ProductCardProps): JSX.Element {
   function isProductInCart() {
     return (
       props.cart.filter((item: IProduct) => {
@@ -13,11 +21,11 @@ export default function ProductCard(props: any): JSX.Element {
   function onButtonClickHandler(event: React.MouseEvent) {
     if (!isProductInCart()) {
       if (props.cart.length >= 20) {
-        props.setModalActive(true);
-        setTimeout(() => props.setModalActive(false), 2500);
+        (props.setModalActive as React.Dispatch<boolean>)(true);
+        setTimeout(() => (props.setModalActive as React.Dispatch<boolean>)(false), 2500);
       } else {
         (event.target as Element).classList.add('active');
-        props.addToCart(props.product);
+        (props.addToCart as ActionCreator<object>)(props.product);
       }
     } else {
       (event.target as Element).classList.remove('active');
