@@ -5,9 +5,12 @@ import ProductCard from '../ProductCard/ProductCard';
 import style from './Cart.module.css';
 
 type CartProps = {
-  cart : IProduct[],
-  removeFromCart: Function,
-}
+  cart: IProduct[];
+  removeFromCart: (id: number) => {
+    type: string;
+    payload: number;
+  };
+};
 
 function Cart(props: CartProps) {
   console.log(props);

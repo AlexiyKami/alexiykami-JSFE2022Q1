@@ -6,9 +6,12 @@ import { Link } from 'react-router-dom';
 import { IProduct } from '../../types/types';
 
 type HeaderProps = {
-  cart: IProduct[],
-  searchProducts: Function,
-}
+  cart: IProduct[];
+  searchProducts: (searchQuery: string) => {
+    type: string;
+    payload: string;
+  };
+};
 
 function Header(props: HeaderProps): JSX.Element {
   const [query, setQuery] = useState(
