@@ -8,7 +8,7 @@ import Header from './components/Header/Header';
 import Main from './components/Main/Main';
 import ModalWindow from './components/ModalWindow/ModalWindow';
 
-function App() {
+function App(): JSX.Element {
   const [modalActive, setModalActive] = useState(false);
   return (
     <HashRouter>
