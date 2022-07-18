@@ -9,6 +9,7 @@
   height: 450px;
   border: 2px solid rgb(231, 231, 231);
   border-radius: 15px;
+  position: relative;
 }
 
 .card__imgWrapper {
@@ -35,6 +36,28 @@
 
 .text__price {
   margin: 5px;
+}
+
+.card__additionalInfo {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  top: 0;
+  left: 0;
+  width: 216px;
+  height: 240px;
+  padding: 20px 10px;
+  background-color: rgba(255,255,255,0.9);
+  transition: 0.7s;
+  transform-origin: bottom;
+  transform: scaleY(0);
+  border-radius: 15px;
+}
+
+.card:hover .card__additionalInfo {
+  transform: scaleY(1);
 }
 
 .buttonPrimary {

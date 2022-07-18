@@ -50,8 +50,14 @@ export default function ProductCard(props: any): JSX.Element {
           disabled={props.product.quantity == 0}
           onClick={onButtonClickHandler}
         >
-          {isProductInCart() ? 'In Cart' : 'Add To Cart'}
+          {isProductInCart() ? 'Remove from Cart' : 'Add To Cart'}
         </button>
+      </div>
+      <div className={style.card__additionalInfo}>
+        <h4>RAM: {props.product.RAM}</h4>
+        <h4>Memory: {props.product.memory}</h4>
+        <h4>Number of cameras: {props.product.numberOfCameras}</h4>
+        <h4>Popular: {props.product.isPopular ? 'Yes' : 'No'}</h4>
       </div>
     </div>
   );
