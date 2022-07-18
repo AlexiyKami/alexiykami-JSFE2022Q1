@@ -1,9 +1,9 @@
 import { ISmartphone, IProduct } from './../types/types';
 export type Data = {
-  products: ISmartphone[] | IProduct[]
-}
+  products: ISmartphone[] | IProduct[];
+};
 
-let data: Data = {
+const data: Data = {
   products: [
     {
       id: 0,
@@ -456,6 +456,6 @@ let data: Data = {
       isPopular: true,
     },
   ],
-}
+};
 
 export default data;

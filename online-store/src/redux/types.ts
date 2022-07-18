@@ -8,5 +8,5 @@ export const FILTER_BY_COLOR = 'FILTER_BY_COLOR';
 export const FILTER_BY_CAMERAS = 'FILTER_BY_CAMERAS';
 export const FILTER_BY_POPULAR = 'FILTER_BY_POPULAR';
 export const RESET_FILTERS = 'RESET_FILTERS';
-export const SORT_BY_NAME= 'SORT_BY_NAME';
+export const SORT_BY_NAME = 'SORT_BY_NAME';
 export const SORT_BY_YEAR = 'SORT_BY_YEAR';
