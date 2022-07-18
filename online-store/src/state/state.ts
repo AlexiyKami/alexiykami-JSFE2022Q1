@@ -1,4 +1,35 @@
 import { ISmartphone, IProduct } from './../types/types';
+import id0 from './../img/redmi-note-11s.jpg';
+import id1 from './../img/redmi-note-10s.jpg';
+import id2 from './../img/iphone13.jpg';
+import id3 from './../img/galaxyA52.jpg';
+import id4 from './../img/iphone11.jpg';
+import id5 from './../img/redmi-9a.jpg';
+import id6 from './../img/honor-x9.jpg';
+import id7 from './../img/huawei-y70.jpg';
+import id8 from './../img/zte-blade-a31.jpg';
+import id9 from './../img/zte-blade-a51.jpg';
+import id10 from './../img/poco-x3-pro.jpg';
+import id11 from './../img/iphone12.jpg';
+import id12 from './../img/iphone13pro.jpg';
+import id13 from './../img/redmi-note-10pro.jpg';
+import id14 from './../img/xiaomi-11-lite.jpg';
+import id15 from './../img/galaxyS21.jpg';
+import id16 from './../img/galaxyA12.jpg';
+import id17 from './../img/redmi-9t.jpg';
+import id18 from './../img/realme8.jpg';
+import id19 from './../img/galaxyM12.jpg';
+import id20 from './../img/galaxyS20.jpg';
+import id21 from './../img/iphone-se.jpg';
+import id22 from './../img/galaxyM32.jpg';
+import id23 from './../img/mi11-lite.jpg';
+import id24 from './../img/iphone12mini.jpg';
+import id25 from './../img/poco-f3.jpg';
+import id26 from './../img/honor50.jpg';
+import id27 from './../img/redmi-note-8.jpg';
+import id28 from './../img/iphone-xr.jpg';
+import id29 from './../img/poco-m4-pro.jpg';
+
 export type Data = {
   products: ISmartphone[] | IProduct[];
 };
@@ -17,7 +48,7 @@ const data: Data = {
       numberOfCameras: 4,
       RAM: '6GB',
       memory: '128GB',
-      imgSrc: 'img/redmi-note-11s.jpg',
+      imgSrc: id0,
       isPopular: true,
     },
     {
@@ -32,7 +63,7 @@ const data: Data = {
       numberOfCameras: 4,
       RAM: '6GB',
       memory: '128GB',
-      imgSrc: 'img/redmi-note-10s.jpg',
+      imgSrc: id1,
       isPopular: false,
     },
     {
@@ -47,7 +78,7 @@ const data: Data = {
       numberOfCameras: 2,
       RAM: '4GB',
       memory: '128GB',
-      imgSrc: 'img/iphone13.jpg',
+      imgSrc: id2,
       isPopular: true,
     },
     {
@@ -62,7 +93,7 @@ const data: Data = {
       numberOfCameras: 4,
       RAM: '4GB',
       memory: '128GB',
-      imgSrc: 'img/galaxyA52.jpg',
+      imgSrc: id3,
       isPopular: true,
     },
     {
@@ -77,7 +108,7 @@ const data: Data = {
       numberOfCameras: 2,
       RAM: '4GB',
       memory: '64GB',
-      imgSrc: 'img/iphone11.jpg',
+      imgSrc: id4,
       isPopular: false,
     },
     {
@@ -92,7 +123,7 @@ const data: Data = {
       numberOfCameras: 1,
       RAM: '2GB',
       memory: '32GB',
-      imgSrc: 'img/redmi-9a.jpg',
+      imgSrc: id5,
       isPopular: false,
     },
     {
@@ -107,7 +138,7 @@ const data: Data = {
       numberOfCameras: 4,
       RAM: '6GB',
       memory: '128GB',
-      imgSrc: 'img/honor-x9.jpg',
+      imgSrc: id6,
       isPopular: true,
     },
     {
@@ -122,7 +153,7 @@ const data: Data = {
       numberOfCameras: 3,
       RAM: '4GB',
       memory: '128GB',
-      imgSrc: 'img/huawei-y70.jpg',
+      imgSrc: id7,
       isPopular: true,
     },
     {
@@ -137,7 +168,7 @@ const data: Data = {
       numberOfCameras: 1,
       RAM: '2GB',
       memory: '32GB',
-      imgSrc: 'img/zte-blade-a31.jpg',
+      imgSrc: id8,
       isPopular: false,
     },
     {
@@ -152,7 +183,7 @@ const data: Data = {
       numberOfCameras: 2,
       RAM: '2GB',
       memory: '64GB',
-      imgSrc: 'img/zte-blade-a51.jpg',
+      imgSrc: id9,
       isPopular: false,
     },
     {
@@ -167,7 +198,7 @@ const data: Data = {
       numberOfCameras: 4,
       RAM: '8GB',
       memory: '256GB',
-      imgSrc: 'img/poco-x3-pro.jpg',
+      imgSrc: id10,
       isPopular: true,
     },
     {
@@ -182,7 +213,7 @@ const data: Data = {
       numberOfCameras: 2,
       RAM: '4GB',
       memory: '128GB',
-      imgSrc: 'img/iphone12.jpg',
+      imgSrc: id11,
       isPopular: true,
     },
     {
@@ -197,7 +228,7 @@ const data: Data = {
       numberOfCameras: 3,
       RAM: '6GB',
       memory: '128GB',
-      imgSrc: 'img/iphone13pro.jpg',
+      imgSrc: id12,
       isPopular: true,
     },
     {
@@ -212,7 +243,7 @@ const data: Data = {
       numberOfCameras: 4,
       RAM: '8GB',
       memory: '128GB',
-      imgSrc: 'img/redmi-note-10pro.jpg',
+      imgSrc: id13,
       isPopular: true,
     },
     {
@@ -227,7 +258,7 @@ const data: Data = {
       numberOfCameras: 3,
       RAM: '8GB',
       memory: '128GB',
-      imgSrc: 'img/xiaomi-11-lite.jpg',
+      imgSrc: id14,
       isPopular: true,
     },
     {
@@ -242,7 +273,7 @@ const data: Data = {
       numberOfCameras: 3,
       RAM: '8GB',
       memory: '256GB',
-      imgSrc: 'img/galaxyS21.jpg',
+      imgSrc: id15,
       isPopular: true,
     },
     {
@@ -257,7 +288,7 @@ const data: Data = {
       numberOfCameras: 4,
       RAM: '4GB',
       memory: '64GB',
-      imgSrc: 'img/galaxyA12.jpg',
+      imgSrc: id16,
       isPopular: false,
     },
     {
@@ -272,7 +303,7 @@ const data: Data = {
       numberOfCameras: 4,
       RAM: '4GB',
       memory: '128GB',
-      imgSrc: 'img/redmi-9t.jpg',
+      imgSrc: id17,
       isPopular: false,
     },
     {
@@ -287,7 +318,7 @@ const data: Data = {
       numberOfCameras: 4,
       RAM: '6GB',
       memory: '128GB',
-      imgSrc: 'img/realme8.jpg',
+      imgSrc: id18,
       isPopular: true,
     },
     {
@@ -302,7 +333,7 @@ const data: Data = {
       numberOfCameras: 4,
       RAM: '3GB',
       memory: '32GB',
-      imgSrc: 'img/galaxyM12.jpg',
+      imgSrc: id19,
       isPopular: false,
     },
     {
@@ -317,7 +348,7 @@ const data: Data = {
       numberOfCameras: 3,
       RAM: '6GB',
       memory: '128GB',
-      imgSrc: 'img/galaxyS20.jpg',
+      imgSrc: id20,
       isPopular: false,
     },
     {
@@ -332,7 +363,7 @@ const data: Data = {
       numberOfCameras: 1,
       RAM: '3GB',
       memory: '64GB',
-      imgSrc: 'img/iphone-se.jpg',
+      imgSrc: id21,
       isPopular: true,
     },
     {
@@ -347,7 +378,7 @@ const data: Data = {
       numberOfCameras: 4,
       RAM: '6GB',
       memory: '128GB',
-      imgSrc: 'img/galaxyM32.jpg',
+      imgSrc: id22,
       isPopular: false,
     },
     {
@@ -362,7 +393,7 @@ const data: Data = {
       numberOfCameras: 3,
       RAM: '6GB',
       memory: '128GB',
-      imgSrc: 'img/mi11-lite.jpg',
+      imgSrc: id23,
       isPopular: true,
     },
     {
@@ -377,7 +408,7 @@ const data: Data = {
       numberOfCameras: 2,
       RAM: '4GB',
       memory: '64GB',
-      imgSrc: 'img/iphone12mini.jpg',
+      imgSrc: id24,
       isPopular: false,
     },
     {
@@ -392,7 +423,7 @@ const data: Data = {
       numberOfCameras: 3,
       RAM: '8GB',
       memory: '128GB',
-      imgSrc: 'img/poco-f3.jpg',
+      imgSrc: id25,
       isPopular: false,
     },
     {
@@ -407,7 +438,7 @@ const data: Data = {
       numberOfCameras: 4,
       RAM: '8GB',
       memory: '128GB',
-      imgSrc: 'img/honor50.jpg',
+      imgSrc: id26,
       isPopular: true,
     },
     {
@@ -422,7 +453,7 @@ const data: Data = {
       numberOfCameras: 4,
       RAM: '4GB',
       memory: '64GB',
-      imgSrc: 'img/redmi-note-8.jpg',
+      imgSrc: id27,
       isPopular: false,
     },
     {
@@ -437,7 +468,7 @@ const data: Data = {
       numberOfCameras: 1,
       RAM: '3GB',
       memory: '64GB',
-      imgSrc: 'img/iphone-xr.jpg',
+      imgSrc: id28,
       isPopular: false,
     },
     {
@@ -452,7 +483,7 @@ const data: Data = {
       numberOfCameras: 2,
       RAM: '6GB',
       memory: '128GB',
-      imgSrc: 'img/poco-m4-pro.jpg',
+      imgSrc: id29,
       isPopular: true,
     },
   ],

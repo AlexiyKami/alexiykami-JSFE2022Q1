@@ -4,6 +4,7 @@ import style from './Header.module.css';
 import { searchProducts } from '../../redux/actions';
 import { Link } from 'react-router-dom';
 import { IProduct } from '../../types/types';
+import cartImg from '../../img/cart.svg';
 
 type HeaderProps = {
   cart: IProduct[];
@@ -50,7 +51,7 @@ function Header(props: HeaderProps): JSX.Element {
       </div>
       <Link to="cart">
         <div className={style.header__cart}>
-          <img className={style.cart__image} src="img/cart.svg" alt="cart"></img>
+          <img className={style.cart__image} src={cartImg} alt="cart"></img>
           <div className={style.cart__quantity}>{props.cart.length}</div>
         </div>
       </Link>
