@@ -10,8 +10,10 @@ export const productReducer = (state = initialState, action: any) => {
         return { ...state, products: initialState.products };
       }
       const searchedProducts = initialState.products.filter((item) => {
+        const fullName = item.brand + ' ' + item.name;
+        console.log(fullName);
         return (
-          item.name.toLowerCase().includes(action.payload) || item.brand.toLowerCase().includes(action.payload)
+          fullName.toLowerCase().includes(action.payload)
         );
       });
       return { ...state, products: searchedProducts };
