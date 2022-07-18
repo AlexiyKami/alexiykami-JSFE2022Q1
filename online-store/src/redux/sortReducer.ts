@@ -9,7 +9,7 @@ const initialState: SortState = JSON.parse(localStorage.getItem('state') as stri
       sortByYear: '0',
     };
 
-export const sortReducer = (state = initialState, action: Action<string>) => {
+export const sortReducer = (state = initialState, action: Action<string>): SortState => {
   switch (action.type) {
     case SORT_BY_NAME:
       return { ...state, sortByName: action.payload };

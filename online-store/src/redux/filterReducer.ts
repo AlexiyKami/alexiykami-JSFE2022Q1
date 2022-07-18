@@ -17,7 +17,10 @@ const initialState: FilterState = JSON.parse(localStorage.getItem('state') as st
       isPopular: false,
     };
 
-export const filterReducer = (state = initialState, action: Action<number | number[] | string>) => {
+export const filterReducer = (
+  state = initialState,
+  action: Action<number | number[] | string | string[] | boolean>
+): FilterState => {
   switch (action.type) {
     case FILTER_BY_YEAR:
       return { ...state, year: [(action.payload as number[])[0], (action.payload as number[])[1]] };
@@ -27,19 +30,19 @@ export const filterReducer = (state = initialState, action: Action<number | numb
       if (state.brand.includes(action.payload as string)) {
         return { ...state, brand: state.brand.filter((value) => value !== action.payload) };
       }
-      return { ...state, brand: [...state.brand, action.payload] };
+      return { ...state, brand: [...state.brand, action.payload] as string[] };
     case FILTER_BY_COLOR:
       if (state.color.includes(action.payload as string)) {
         return { ...state, color: state.color.filter((value) => value !== action.payload) };
       }
-      return { ...state, color: [...state.color, action.payload] };
+      return { ...state, color: [...state.color, action.payload] as string[] };
     case FILTER_BY_CAMERAS:
       if (state.numberOfCameras.includes(action.payload as number)) {
         return { ...state, numberOfCameras: state.numberOfCameras.filter((value) => value !== action.payload) };
       }
-      return { ...state, numberOfCameras: [...state.numberOfCameras, action.payload] };
+      return { ...state, numberOfCameras: [...state.numberOfCameras, action.payload] as number[] };
     case FILTER_BY_POPULAR:
-      return { ...state, isPopular: action.payload };
+      return { ...state, isPopular: action.payload as boolean };
     case RESET_FILTERS:
       return {
         brand: [],

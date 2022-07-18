@@ -4,7 +4,7 @@ import { Action } from '../types/types';
 
 const initialState = data;
 
-export const productReducer = (state = initialState, action: Action<string>) => {
+export const productReducer = (state = initialState, action: Action<string>): typeof data => {
   switch (action.type) {
     case SEARCH_PRODUCTS:
       if (!action.payload) {

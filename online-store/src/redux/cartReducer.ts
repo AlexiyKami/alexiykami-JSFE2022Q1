@@ -5,10 +5,10 @@ const initialState: IProduct[] = JSON.parse(localStorage.getItem('state') as str
   ? JSON.parse(localStorage.getItem('state') as string).cart
   : [];
 
-export const cartReducer = (state = initialState, action: Action<number>) => {
+export const cartReducer = (state = initialState, action: Action<number | IProduct | object>): IProduct[] => {
   switch (action.type) {
     case ADD_TO_CART:
-      return [...state, action.payload];
+      return [...state, action.payload as IProduct];
     case REMOVE_FROM_CART:
       return state.filter((item) => {
         return item.id !== action.payload;
