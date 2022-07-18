@@ -30,7 +30,7 @@ export function removeFromCart(id: number): Action<number> {
 export function searchProducts(searchQuery: string): Action<string> {
   return {
     type: SEARCH_PRODUCTS,
-    payload: searchQuery.trim(),
+    payload: searchQuery.trim().toLowerCase(),
   };
 }
 
