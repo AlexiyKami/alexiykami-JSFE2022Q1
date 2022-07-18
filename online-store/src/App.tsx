@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { connect } from 'react-redux';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Cart from './components/Cart/Cart';
 import Footer from './components/Footer/Footer';
@@ -11,7 +11,7 @@ import ModalWindow from './components/ModalWindow/ModalWindow';
 function App() {
   const [modalActive, setModalActive] = useState(false);
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="app-wrapper">
         <Header />
         <Routes>
@@ -23,7 +23,7 @@ function App() {
           Sorry, all slots are full!
         </ModalWindow>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

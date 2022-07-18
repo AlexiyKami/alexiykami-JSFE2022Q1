@@ -46,7 +46,7 @@ function Header(props: HeaderProps): JSX.Element {
           value={query}
         ></input>
       </div>
-      <Link to="cart">
+      <Link to="/cart">
         <div className={style.header__cart}>
           <img className={style.cart__image} src={cartImg} alt="cart"></img>
           <div className={style.cart__quantity}>{props.cart.length}</div>
