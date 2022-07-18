@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import style from './Header.module.css';
 import { searchProducts } from '../../redux/actions';
+import { Link } from 'react-router-dom';
 
 function Header(props: any): JSX.Element {
   const [title, setTitle] = useState('');
@@ -15,10 +16,12 @@ function Header(props: any): JSX.Element {
   }
   return (
     <header className={style.header}>
-      <div className={style.header__logo}>
-        <h1 className={style.logo__title}>AlexExpress</h1>
-        <h5 className={style.logo__miniTitle}>online store</h5>
-      </div>
+      <Link to="/">
+        <div className={style.header__logo}>
+          <h1 className={style.logo__title}>AlexExpress</h1>
+          <h5 className={style.logo__miniTitle}>online store</h5>
+        </div>
+      </Link>
       <div className={style.header__searchForm}>
         <button className={style.searchForm__cross} onClick={onClickButtonHandler}></button>
         <input
@@ -31,10 +34,12 @@ function Header(props: any): JSX.Element {
           value={title}
         ></input>
       </div>
-      <div className={style.header__cart}>
-        <img className={style.cart__image} src="img/cart.svg" alt="cart"></img>
-        <div className={style.cart__quantity}>{props.cart.length}</div>
-      </div>
+      <Link to="cart">
+        <div className={style.header__cart}>
+          <img className={style.cart__image} src="img/cart.svg" alt="cart"></img>
+          <div className={style.cart__quantity}>{props.cart.length}</div>
+        </div>
+      </Link>
     </header>
   );
 }

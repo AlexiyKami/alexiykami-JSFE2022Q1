@@ -5,6 +5,10 @@
   height: 75px;
   border-bottom: 1px solid var(--border-color);
   padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  background-color: rgb(240, 240, 240);
+  z-index: 2;
 }
 
 .header__logo {
@@ -18,6 +22,14 @@
 
 .logo__title {
   color: var(--main-color);
+}
+
+.logo__miniTitle {
+  color: black;
+}
+
+.logo__miniTitle:hover {
+  color: var(--border-color);
 }
 
 .header__searchForm {
@@ -78,6 +90,11 @@
 
 .header__cart {
   position: relative;
+  transition: 0.5s;
+}
+
+.header__cart:hover {
+  transform: scale(1.1);
 }
 
 .cart__image {
