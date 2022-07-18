@@ -11,13 +11,18 @@ type HeaderProps = {
 }
 
 function Header(props: HeaderProps): JSX.Element {
-  const [title, setTitle] = useState('');
+  const [query, setQuery] = useState(
+    localStorage.getItem('searchQuery') ? (localStorage.getItem('searchQuery') as string) : ''
+  );
+  props.searchProducts(query);
   function onChangeInputHandler(e: React.ChangeEvent<HTMLInputElement>) {
-    setTitle(e.target.value);
+    setQuery(e.target.value);
+    localStorage.setItem('searchQuery', e.target.value);
     props.searchProducts(e.target.value);
   }
   function onClickButtonHandler(e: React.MouseEvent<HTMLButtonElement>) {
-    setTitle('');
+    setQuery('');
+    localStorage.setItem('searchQuery', '');
     props.searchProducts('');
   }
   return (
@@ -37,7 +42,7 @@ function Header(props: HeaderProps): JSX.Element {
           placeholder="Search..."
           autoComplete="off"
           onChange={onChangeInputHandler}
-          value={title}
+          value={query}
         ></input>
       </div>
       <Link to="cart">
