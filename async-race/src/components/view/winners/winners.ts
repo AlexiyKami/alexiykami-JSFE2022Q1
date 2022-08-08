@@ -55,7 +55,6 @@ class WinnersPage {
   private onSortClick(e: Event) {
     const orders = ['ASC', 'DESC'];
     const target = e.target as HTMLElement;
-    console.log();
     if (target.getAttribute('order') === '0') {
       target.setAttribute('order', '1');
     } else {
@@ -85,7 +84,6 @@ class WinnersPage {
     if (target.classList.contains('next')) {
       this.controller.setWinnersPage(page + 1);
     }
-    console.log(`page ${this.controller.getWinnersPage()}`);
   }
 
   private updatePagination(): void {

@@ -1,5 +1,6 @@
-import { CarEngineData } from './../types/types';
-import { IWinner, ICar, CarsData, WinnersData } from '../types/types';
+import {
+  CarEngineData, IWinner, ICar, CarsData, WinnersData,
+} from '../types/types';
 
 class Loader { // load data from server
   baseUrl: string;

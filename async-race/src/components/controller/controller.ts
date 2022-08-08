@@ -72,7 +72,6 @@ class AppController {
       const car = (document.querySelector(`[data-id="${value.id}"]`) as HTMLElement).children[2].children[1] as HTMLElement;
       const { result, response } = await this.startCarEngine(value.id.toString(), car);
       const time = result.distance / result.velocity;
-      console.log(response);
       if (response.status === 200 && car.getAttribute('data-frame') && !isFinished) {
         isFinished = true;
         const winner = await this.getWinner(+value.id);
@@ -168,7 +167,6 @@ class AppController {
       car.removeAttribute('data-frame');
     }
     car.setAttribute('status', 'finished');
-    console.log(car);
     this.blockButtons(id, car);
     return {
       result,

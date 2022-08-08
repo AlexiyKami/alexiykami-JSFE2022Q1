@@ -73,7 +73,6 @@ class GaragePage {
 
   private onInputClick(e: Event): void {
     const target = e.target as HTMLElement;
-    console.log(target);
     if (target.classList.contains('create-car-button')) {
       const nameForm = document.querySelector('.create-car-text') as HTMLInputElement;
       const colorForm = document.querySelector('.create-car-color') as HTMLInputElement;
@@ -83,7 +82,6 @@ class GaragePage {
       const carId = this.controller.getSelectedCarId();
       const nameForm = document.querySelector('.update-car-text') as HTMLInputElement;
       const colorForm = document.querySelector('.update-car-color') as HTMLInputElement;
-      console.log(`update '${nameForm.value} ${colorForm.value}`);
       this.controller.updateCar(carId, nameForm.value, colorForm.value);
     }
     if (target.classList.contains('generate')) {
@@ -106,53 +104,50 @@ class GaragePage {
     if (target.classList.contains('next')) {
       this.controller.setGaragePage(page + 1);
     }
-    console.log(`page ${this.controller.getGaragePage()}`);
   }
 
   private onCarButtonClick(e: Event) {
     const target = e.target as HTMLElement;
     const carId = (e.currentTarget as HTMLElement).getAttribute('data-id') as string;
     const car = (e.currentTarget as HTMLElement).children[2].children[1] as HTMLElement;
-    console.log(car);
     if (target.classList.contains('button-start')) {
       car.setAttribute('status', 'drive');
       this.controller.startCarEngine(carId, car);
-      console.log('start');
     }
     if (target.classList.contains('button-stop')) {
       this.controller.stopCarEngine(carId, car);
-      console.log('stop');
     }
     if (target.classList.contains('button-select')) {
       document.querySelector('.car.selected')?.classList.remove('selected');
       (e.currentTarget as HTMLElement).classList.add('selected');
       this.controller.setSelectedCarId(carId);
-      console.log(`select ${this.controller.getSelectedCarId()}`);
     }
     if (target.classList.contains('button-remove')) {
       this.controller.deleteCar(+carId);
-      console.log(`${carId} removed`);
     }
     this.blockCarButtons(carId, car);
   }
 
   private blockCarButtons(carId: string, car: HTMLElement) {
-    console.log(car);
+    const selectBtn = (document.querySelector(`.car[data-id="${carId}"] .button-select`) as HTMLButtonElement);
+    const removeBtn = (document.querySelector(`.car[data-id="${carId}"] .button-remove`) as HTMLButtonElement);
+    const startBtn = (document.querySelector(`.car[data-id="${carId}"] .button-start`) as HTMLButtonElement);
+    const stopBtn = (document.querySelector(`.car[data-id="${carId}"] .button-stop`) as HTMLButtonElement);
     if (car.getAttribute('status') === 'drive') {
-      (document.querySelector(`.car[data-id="${carId}"] .button-select`) as HTMLButtonElement).disabled = true;
-      (document.querySelector(`.car[data-id="${carId}"] .button-remove`) as HTMLButtonElement).disabled = true;
-      (document.querySelector(`.car[data-id="${carId}"] .button-start`) as HTMLButtonElement).disabled = true;
-      (document.querySelector(`.car[data-id="${carId}"] .button-stop`) as HTMLButtonElement).disabled = false;
+      if (selectBtn) selectBtn.disabled = true;
+      if (removeBtn) removeBtn.disabled = true;
+      if (startBtn) startBtn.disabled = true;
+      if (stopBtn) stopBtn.disabled = false;
     } else if (car.getAttribute('status') === 'finished') {
-      (document.querySelector(`.car[data-id="${carId}"] .button-select`) as HTMLButtonElement).disabled = false;
-      (document.querySelector(`.car[data-id="${carId}"] .button-remove`) as HTMLButtonElement).disabled = false;
-      (document.querySelector(`.car[data-id="${carId}"] .button-stop`) as HTMLButtonElement).disabled = false;
-      (document.querySelector(`.car[data-id="${carId}"] .button-start`) as HTMLButtonElement).disabled = false;
+      if (selectBtn) selectBtn.disabled = false;
+      if (removeBtn) removeBtn.disabled = false;
+      if (startBtn) startBtn.disabled = false;
+      if (stopBtn) stopBtn.disabled = false;
     } else if (car.getAttribute('status') === 'onstart') {
-      (document.querySelector(`.car[data-id="${carId}"] .button-select`) as HTMLButtonElement).disabled = false;
-      (document.querySelector(`.car[data-id="${carId}"] .button-remove`) as HTMLButtonElement).disabled = false;
-      (document.querySelector(`.car[data-id="${carId}"] .button-stop`) as HTMLButtonElement).disabled = true;
-      (document.querySelector(`.car[data-id="${carId}"] .button-start`) as HTMLButtonElement).disabled = false;
+      if (selectBtn) selectBtn.disabled = false;
+      if (removeBtn) removeBtn.disabled = false;
+      if (startBtn) startBtn.disabled = false;
+      if (stopBtn) stopBtn.disabled = true;
     }
   }
 
