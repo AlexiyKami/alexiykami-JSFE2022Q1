@@ -17,7 +17,7 @@ class ModalWindow {
     document.body.insertAdjacentHTML('beforeend', wrapper);
   }
 
-  clear() {
+  clear(): void {
     document.querySelector('.modal')?.remove();
   }
 }

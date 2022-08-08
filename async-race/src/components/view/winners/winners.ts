@@ -52,7 +52,7 @@ class WinnersPage {
     this.updatePagination();
   }
 
-  private onSortClick(e: Event) {
+  private onSortClick(e: Event): void {
     const orders = ['ASC', 'DESC'];
     const target = e.target as HTMLElement;
     if (target.getAttribute('order') === '0') {
@@ -75,7 +75,7 @@ class WinnersPage {
     }
   }
 
-  private onPaginationClick(e: Event) {
+  private onPaginationClick(e: Event): void {
     const target = e.target as HTMLElement;
     const page = this.controller.getWinnersPage();
     if (target.classList.contains('prev')) {
@@ -100,7 +100,7 @@ class WinnersPage {
     (document.querySelector('.winners-page-number') as Element).innerHTML = `Page ${this.controller.getWinnersPage()} / ${this.controller.getMaxWinnersPage()}`;
   }
 
-  private updateWinnersCounter(count: string) {
+  private updateWinnersCounter(count: string): void {
     (document.querySelector('.winners-title') as Element).innerHTML = `Winners(${count})`;
   }
 

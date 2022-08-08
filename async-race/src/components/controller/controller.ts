@@ -1,4 +1,6 @@
-import { CarsData, ICar } from '../types/types';
+import {
+  IWinner, WinnersData, CarsData, ICar,
+} from '../types/types';
 import Loader from './loader';
 
 class AppController {
@@ -43,18 +45,18 @@ class AppController {
     this.onModalClose = () => {};
   }
 
-  async blockButtons(id: string, car: HTMLElement) {
+  async blockButtons(id: string, car: HTMLElement): Promise<void> {
     this.onButtonBlock(id, car);
   }
 
-  async showModal(message: string) {
+  async showModal(message: string): Promise<void> {
     this.onModalOpen(message);
     setTimeout(() => {
       this.onModalClose();
     }, this.modalTimeDelay);
   }
 
-  async generateCars(count: number = 100) {
+  async generateCars(count: number = 100): Promise<void> {
     const names = ['Audi', 'BMW', 'Mercedes', 'Ferrari', 'Ford', 'Dodge', 'Porsche', 'Tesla', 'Toyota', 'Subaru'];
     const model = ['S4', 'M3', 'AMG C63', 'F40', 'Focus RS', 'Charger', '911', 'Model S', 'Supra', 'Impreza WRX STI'];
     for (let i = 0; i < count; i += 1) {
@@ -65,7 +67,7 @@ class AppController {
     }
   }
 
-  async race() {
+  async race(): Promise<void> {
     let isFinished = false;
     const { cars } = await this.loader.getCars(this.garagePage, this.carsOnPage);
     cars.forEach(async (value) => {
@@ -85,7 +87,7 @@ class AppController {
     });
   }
 
-  async resetCars() {
+  async resetCars(): Promise<void> {
     const { cars } = await this.loader.getCars(this.garagePage, this.carsOnPage);
     cars.forEach(async (value) => {
       const car = (document.querySelector(`[data-id="${value.id}"]`) as HTMLElement).children[2].children[1] as HTMLElement;
@@ -107,12 +109,12 @@ class AppController {
     return car;
   }
 
-  async getWinner(id: number) {
+  async getWinner(id: number): Promise<IWinner[]> {
     const winner = await this.loader.getWinner(id);
     return winner;
   }
 
-  async getWinners() {
+  async getWinners(): Promise<WinnersData> {
     const winners = await this.loader.getWinners(
       this.winnersPage,
       this.winnersOnPage,
@@ -131,7 +133,7 @@ class AppController {
     this.updateGarage();
   }
 
-  async createWinner(id: number, wins: number, time: number) {
+  async createWinner(id: number, wins: number, time: number): Promise<void> {
     await this.loader.createWinner(id, wins, +time);
     this.updateWinners();
   }
@@ -143,13 +145,13 @@ class AppController {
     this.updateWinners();
   }
 
-  async updateCar(id: string, name: string, color: string) {
+  async updateCar(id: string, name: string, color: string): Promise<void> {
     await this.loader.updateCar(id, name, color);
     this.updateGarage();
     this.updateWinners();
   }
 
-  async updateWinner(id: number, wins: number, time: number) {
+  async updateWinner(id: number, wins: number, time: number): Promise<void> {
     const winner = await this.getWinner(id);
     await this.loader.updateWinner(id, wins + 1, Math.min(time, winner[0].time));
     this.updateWinners();
@@ -174,17 +176,16 @@ class AppController {
     };
   }
 
-  async stopCarEngine(id: string, car: HTMLElement) {
-    const result = await this.loader.switchCarEngine(id, 'stopped');
+  async stopCarEngine(id: string, car: HTMLElement): Promise<void> {
+    await this.loader.switchCarEngine(id, 'stopped');
     window.cancelAnimationFrame(Number(car.getAttribute('data-frame')));
     car.removeAttribute('data-frame');
     car.setAttribute('status', 'onstart');
     this.blockButtons(id, car);
     car.style.transform = 'TranslateX(0px)';
-    return result;
   }
 
-  async switchEngineToDriveMode(id: string) {
+  async switchEngineToDriveMode(id: string): Promise<Response> {
     return this.loader.switchEngineToDriveMode(id);
   }
 
@@ -192,19 +193,19 @@ class AppController {
     this.onCarUpdate();
   }
 
-  async updateWinners() {
+  async updateWinners(): Promise<void> {
     this.onWinnerUpdate();
   }
 
-  setSelectedCarId(value: string) {
+  setSelectedCarId(value: string): void {
     this.selectedCarId = value;
   }
 
-  getSelectedCarId() {
+  getSelectedCarId(): string {
     return this.selectedCarId;
   }
 
-  setGaragePage(value: number) {
+  setGaragePage(value: number): void {
     if (value < 1) {
       this.garagePage = 1;
     } else if (value > this.maxGaragePage) {
@@ -215,7 +216,7 @@ class AppController {
     this.updateGarage();
   }
 
-  setWinnersPage(value: number) {
+  setWinnersPage(value: number): void {
     if (value < 1) {
       this.winnersPage = 1;
     } else if (value > this.maxWinnersPage) {
@@ -226,35 +227,35 @@ class AppController {
     this.updateWinners();
   }
 
-  getGaragePage() {
+  getGaragePage(): number {
     return this.garagePage;
   }
 
-  getWinnersPage() {
+  getWinnersPage(): number {
     return this.winnersPage;
   }
 
-  getMaxGaragePage() {
+  getMaxGaragePage(): number {
     return this.maxGaragePage;
   }
 
-  getMaxWinnersPage() {
+  getMaxWinnersPage(): number {
     return this.maxWinnersPage;
   }
 
-  setSortWinnersBy(type: string, order: string) {
+  setSortWinnersBy(type: string, order: string): void {
     this.sortWinnersBy = type;
     this.sortWinnersOrder = order;
     this.updateWinners();
   }
 
-  private animation(car: HTMLElement, animationTime: number) {
+  private animation(car: HTMLElement, animationTime: number): number {
     let start: number | null = null;
     const distance = document.documentElement.clientWidth - 200;
 
     let id = 0;
 
-    function step(timeStamp: number) {
+    function step(timeStamp: number): void {
       if (!start) {
         start = timeStamp;
       }

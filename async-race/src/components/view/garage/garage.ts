@@ -95,7 +95,7 @@ class GaragePage {
     }
   }
 
-  private onPaginationClick(e: Event) {
+  private onPaginationClick(e: Event): void {
     const target = e.target as HTMLElement;
     const page = this.controller.getGaragePage();
     if (target.classList.contains('prev')) {
@@ -106,7 +106,7 @@ class GaragePage {
     }
   }
 
-  private onCarButtonClick(e: Event) {
+  private onCarButtonClick(e: Event): void {
     const target = e.target as HTMLElement;
     const carId = (e.currentTarget as HTMLElement).getAttribute('data-id') as string;
     const car = (e.currentTarget as HTMLElement).children[2].children[1] as HTMLElement;
@@ -128,7 +128,7 @@ class GaragePage {
     this.blockCarButtons(carId, car);
   }
 
-  private blockCarButtons(carId: string, car: HTMLElement) {
+  private blockCarButtons(carId: string, car: HTMLElement): void {
     const selectBtn = (document.querySelector(`.car[data-id="${carId}"] .button-select`) as HTMLButtonElement);
     const removeBtn = (document.querySelector(`.car[data-id="${carId}"] .button-remove`) as HTMLButtonElement);
     const startBtn = (document.querySelector(`.car[data-id="${carId}"] .button-start`) as HTMLButtonElement);
