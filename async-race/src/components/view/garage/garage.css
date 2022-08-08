@@ -1,0 +1,132 @@
+.garage.hide {
+  display: none;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 300px;
+  padding: 50px 0px;
+}
+
+.create-car, .update-car {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+}
+
+.create-car button, .update-car button {
+  width: 50px;
+}
+
+.control-buttons {
+  display: flex;
+  height: 30px;
+  justify-content: space-between;
+}
+
+.control-buttons button {
+  min-width: 60px;
+}
+
+.garage-title {
+  margin: 20px 0px;
+}
+
+.cars {
+  height: 1650px;
+}
+
+.car {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.car.selected .button-select {
+  background-color: rgb(255, 196, 68);
+}
+
+.car-lane {
+  position: relative;
+}
+
+.car-image {
+  width: 150px;
+}
+
+.lane {
+  width: calc(100vw - 80px);
+  bottom: 10px;
+  position: absolute;
+  border: 2px dashed grey;
+}
+
+.car-name {
+  margin-bottom: 10px;
+}
+
+.select-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 150px;
+  height: 30px;
+  margin-bottom: 10px;
+  gap: 15px;
+}
+
+.select-buttons button {
+  min-width: 65px;
+}
+
+.engine-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 150px;
+  height: 30px;
+  margin-bottom: 10px;
+  gap: 15px
+}
+
+.engine-buttons button {
+  width: 75px;
+  height: 30px;
+  border-style: solid;
+  border-radius: 10px;
+  background-color: transparent;
+  transition: all 0.3s;
+}
+
+.engine-buttons button:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.button-start {
+  border-color: lightgreen;
+  color: lightgreen;
+}
+
+.button-stop {
+  border-color: lightcoral;
+  color: lightcoral;
+}
+
+.button-start:disabled, .button-stop:disabled {
+  border-color: gray;
+  color: gray;
+}
+
+.garage-pagination {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  height: 30px;
+}
+
+.garage-pagination button {
+  min-width: 50px;
+  height: 100%;
+}
