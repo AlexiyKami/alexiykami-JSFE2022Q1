@@ -2,7 +2,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const EslingPlugin = require('eslint-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: path.resolve(__dirname, './src/index.ts'),
@@ -17,6 +16,10 @@ module.exports = {
                 test: /\.[tj]s$/,
                 use: 'ts-loader',
                 exclude: /node_modules/,
+            },
+            {
+                test: /\.svg$/,
+                loader: 'svg-inline-loader'
             }
         ],
     },
@@ -35,14 +38,6 @@ module.exports = {
         new CleanWebpackPlugin(),
         new EslingPlugin({
             extensions: 'ts'
-        }),
-        new CopyPlugin({
-            patterns: [
-                {
-                    from: path.resolve(__dirname, './src/img',),
-                    to: path.resolve(__dirname, './dist/img'),
-                },
-            ],
         }),
     ],
 };
