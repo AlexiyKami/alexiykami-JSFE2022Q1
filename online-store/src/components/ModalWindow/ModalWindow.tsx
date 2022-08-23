@@ -14,11 +14,11 @@ export default class ModalWindow extends React.Component<ModalWindowProps> {
   render() {
     return (
       <div
-        className={this.props.active ? style.modal + ' ' + style.active : style.modal}
+        className={this.props.active ? `${style.modal} ${style.active}` : style.modal}
         onClick={() => this.props.setActive(false)}
       >
         <div
-          className={this.props.active ? style.modal__window + ' ' + style.active : style.modal__window}
+          className={this.props.active ? `${style.modal__window} ${style.active}` : style.modal__window}
           onClick={(e) => e.stopPropagation()}
         >
           <p className={style.window__text}>{this.props.children}</p>

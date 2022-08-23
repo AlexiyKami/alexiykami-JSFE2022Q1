@@ -52,8 +52,8 @@ function FilterMenu(props: FilterMenuProps): JSX.Element {
         key={index}
         className={
           props.filter.brand.includes(item)
-            ? style.filters__value + ' ' + style.buttonPrimary + ' ' + style.active
-            : style.filters__value + ' ' + style.buttonPrimary
+            ? `${style.filters__value} ${style.buttonPrimary} ${style.active}`
+            : `${style.filters__value} ${style.buttonPrimary}`
         }
         onClick={(e) => {
           props.filterByBrand(e.currentTarget.textContent as string);
@@ -70,8 +70,8 @@ function FilterMenu(props: FilterMenuProps): JSX.Element {
         key={index}
         className={
           props.filter.color.includes(item)
-            ? style.filters__value + ' ' + style.buttonPrimary + ' ' + style.active
-            : style.filters__value + ' ' + style.buttonPrimary
+            ? `${style.filters__value} ${style.buttonPrimary} ${style.active}`
+            : `${style.filters__value} ${style.buttonPrimary}`
         }
         onClick={(e) => {
           props.filterByColor(e.currentTarget.textContent as string);
@@ -87,8 +87,8 @@ function FilterMenu(props: FilterMenuProps): JSX.Element {
         key={index}
         className={
           props.filter.numberOfCameras.includes(item)
-            ? style.filters__value + ' ' + style.buttonPrimary + ' ' + style.active
-            : style.filters__value + ' ' + style.buttonPrimary
+            ? `${style.filters__value} ${style.buttonPrimary} ${style.active}`
+            : `${style.filters__value} ${style.buttonPrimary}`
         }
         onClick={(e) => {
           props.filterByCameras(Number(e.currentTarget.textContent) as number);
@@ -183,7 +183,7 @@ function FilterMenu(props: FilterMenuProps): JSX.Element {
       </div>
       <div className={style.filters__buttons}>
         <div className={style.buttons__onlyPopular}>
-          <h3 className={style.filters__title + ' ' + style.onlyPopular__title}>Only popular</h3>
+          <h3 className={`${style.filters__title} ${style.onlyPopular__title}`}>Only popular</h3>
           <input
             checked={props.filter.isPopular}
             type="checkbox"
@@ -191,12 +191,12 @@ function FilterMenu(props: FilterMenuProps): JSX.Element {
             onChange={(e) => props.filterByPopular(e.target.checked)}
           />
         </div>
-        <button onClick={resetAllFilters} className={style.buttons__resetFilters + ' ' + style.buttonPrimary}>
+        <button onClick={resetAllFilters} className={`${style.buttons__resetFilters} ${style.buttonPrimary}`}>
           Reset Filters
         </button>
         <button
           onClick={() => localStorage.clear()}
-          className={style.buttons__resetStorage + ' ' + style.buttonPrimary}
+          className={`${style.buttons__resetStorage} ${style.buttonPrimary}`}
         >
           Reset LocalStorage
         </button>

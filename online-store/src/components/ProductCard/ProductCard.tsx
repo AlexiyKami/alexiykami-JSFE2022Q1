@@ -52,8 +52,8 @@ export default function ProductCard(props: ProductCardProps): JSX.Element {
         <button
           className={
             isProductInCart()
-              ? style.text__button + ' ' + style.buttonPrimary + ' ' + style.active
-              : style.text__button + ' ' + style.buttonPrimary
+              ? `${style.text__button} ${style.buttonPrimary} ${style.active}`
+              : `${style.text__button} ${style.buttonPrimary}`
           }
           disabled={props.product.quantity == 0}
           onClick={onButtonClickHandler}
