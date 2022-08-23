@@ -11,6 +11,7 @@ type ProductCardProps = {
 };
 
 export default function ProductCard(props: ProductCardProps): JSX.Element {
+  const MAX_ITEMS_IN_CART = 20;
   function isProductInCart() {
     return (
       props.cart.filter((item: IProduct) => {
@@ -20,7 +21,7 @@ export default function ProductCard(props: ProductCardProps): JSX.Element {
   }
   function onButtonClickHandler(event: React.MouseEvent) {
     if (!isProductInCart()) {
-      if (props.cart.length >= 20) {
+      if (props.cart.length >= MAX_ITEMS_IN_CART) {
         (props.setModalActive as React.Dispatch<boolean>)(true);
         setTimeout(() => (props.setModalActive as React.Dispatch<boolean>)(false), 2500);
       } else {
